@@ -1,0 +1,133 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Produit d'assurance vélo",
+    "description" : "",
+    "termsOfService" : "http://swagger.io/terms/",
+    "contact" : {
+      "email" : "apiteam@swagger.io"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "paths" : {
+    "/nvei/tarifer" : {
+      "post" : {
+        "summary" : "Donner un tarif pour assurer un objet de risque",
+        "description" : "Donner un tarif pour assurer un objet de risque",
+        "operationId" : "tarifer",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SouscriptionNVEI"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TarifNVEI"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/nvei/souscrire" : {
+      "post" : {
+        "summary" : "Souscrire un contrat d'assurance pour un objet de risque",
+        "description" : "Souscrire un contrat d'assurance pour un objet de risque",
+        "operationId" : "souscrire",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SouscriptionNVEI"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ContratNVEI"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "TarifNVEI" : {
+        "type" : "object",
+        "properties" : {
+          "periode" : {
+            "type" : "string",
+            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      },
+      "NVEI" : {
+        "type" : "object",
+        "properties" : {
+          "type" : {
+            "type" : "string",
+            "enum" : [ "Giropode", "Overboard", "Trotinette" ]
+          },
+          "marque" : {
+            "type" : "string"
+          },
+          "modele" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Personne" : {
+        "type" : "object"
+      },
+      "SouscriptionNVEI" : {
+        "type" : "object",
+        "properties" : {
+          "personne" : {
+            "$ref" : "#/components/schemas/Personne"
+          },
+          "objetDuRisque" : {
+            "$ref" : "#/components/schemas/NVEI"
+          }
+        }
+      },
+      "ContratNVEI" : {
+        "type" : "object",
+        "properties" : {
+          "numero" : {
+            "type" : "string"
+          },
+          "personne" : {
+            "$ref" : "#/components/schemas/Personne"
+          },
+          "objet" : {
+            "$ref" : "#/components/schemas/NVEI"
+          }
+        }
+      }
+    }
+  }
+}
