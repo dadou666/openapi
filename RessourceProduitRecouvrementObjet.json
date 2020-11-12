@@ -1,0 +1,177 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Recouvrement d'assurance de biens",
+    "description" : "",
+    "termsOfService" : "http://swagger.io/terms/",
+    "contact" : {
+      "email" : "apiteam@swagger.io"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "paths" : {
+    "/objet/prime" : {
+      "post" : {
+        "tags" : [ "Recouvrement d'assurance de biens" ],
+        "description" : "Demande d'informations sur le recouvrement ou le reversement d'une prime",
+        "operationId" : "preSouscription",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationPrimesObjet"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Prime"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/objet/impaye" : {
+      "post" : {
+        "tags" : [ "Recouvrement d'assurance de biens" ],
+        "description" : "Demande d'informations sur les impayés",
+        "operationId" : "impaye",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationPrimesObjet"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Impaye"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Prime" : {
+        "type" : "object",
+        "properties" : {
+          "dateEmmision" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      },
+      "Client" : {
+        "type" : "object",
+        "properties" : {
+          "nom" : {
+            "type" : "string"
+          },
+          "prenom" : {
+            "type" : "string"
+          },
+          "dateDeNaissance" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "ContratObjet" : {
+        "type" : "object",
+        "properties" : {
+          "numero" : {
+            "type" : "string"
+          },
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
+          },
+          "objet" : {
+            "$ref" : "#/components/schemas/Objet"
+          }
+        }
+      },
+      "DemandeInformationPrimesObjet" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratObjet"
+          },
+          "sens" : {
+            "type" : "string"
+          },
+          "evenement" : {
+            "type" : "string"
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "periode" : {
+            "type" : "string",
+            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
+          }
+        }
+      },
+      "Objet" : {
+        "type" : "object",
+        "properties" : {
+          "typeObjet" : {
+            "type" : "string",
+            "enum" : [ "Tablette", "Smartphone" ]
+          },
+          "marque" : {
+            "type" : "string"
+          },
+          "prix" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      },
+      "Impaye" : {
+        "type" : "object",
+        "properties" : {
+          "dateDemande" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      }
+    }
+  }
+}

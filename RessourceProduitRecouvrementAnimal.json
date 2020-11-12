@@ -1,0 +1,174 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Recouvrement d'assurance d'animaux de compagnie",
+    "description" : "",
+    "termsOfService" : "http://swagger.io/terms/",
+    "contact" : {
+      "email" : "apiteam@swagger.io"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "paths" : {
+    "/animaux-compagnie/prime" : {
+      "post" : {
+        "tags" : [ "Recouvrement d'assurance d'animaux de compagnie" ],
+        "description" : "Demande d'informations sur le recouvrement ou le reversement d'une prime",
+        "operationId" : "preSouscription",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationPrimesAnimal"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Prime"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/animaux-compagnie/impaye" : {
+      "post" : {
+        "tags" : [ "Recouvrement d'assurance d'animaux de compagnie" ],
+        "description" : "Demande d'informations sur les impayés",
+        "operationId" : "impaye",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationPrimesAnimal"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Impaye"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Prime" : {
+        "type" : "object",
+        "properties" : {
+          "dateEmmision" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      },
+      "Animal" : {
+        "type" : "object",
+        "properties" : {
+          "typeAnimal" : {
+            "type" : "string",
+            "enum" : [ "Chien", "Chat" ]
+          },
+          "dateNaissance" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "Client" : {
+        "type" : "object",
+        "properties" : {
+          "nom" : {
+            "type" : "string"
+          },
+          "prenom" : {
+            "type" : "string"
+          },
+          "dateDeNaissance" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "ContratAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "numero" : {
+            "type" : "string"
+          },
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
+          },
+          "objet" : {
+            "$ref" : "#/components/schemas/Animal"
+          }
+        }
+      },
+      "DemandeInformationPrimesAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
+          },
+          "sens" : {
+            "type" : "string"
+          },
+          "evenement" : {
+            "type" : "string"
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "periode" : {
+            "type" : "string",
+            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
+          }
+        }
+      },
+      "Impaye" : {
+        "type" : "object",
+        "properties" : {
+          "dateDemande" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      }
+    }
+  }
+}

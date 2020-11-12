@@ -1,0 +1,309 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Gestion sinistre d'assurance d'animaux de compagnie",
+    "description" : "",
+    "termsOfService" : "http://swagger.io/terms/",
+    "contact" : {
+      "email" : "apiteam@swagger.io"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "paths" : {
+    "/animaux-compagnie/ouverture" : {
+      "post" : {
+        "tags" : [ "Gestion sinistre d'assurance d'animaux de compagnie" ],
+        "description" : "Demande d'informations sur les nouveaux sinistres",
+        "operationId" : "ouverture",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OuvertureSinistreAnimal"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Ouverture"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/animaux-compagnie/cloture" : {
+      "post" : {
+        "tags" : [ "Gestion sinistre d'assurance d'animaux de compagnie" ],
+        "description" : "Demande d'informations sur les sinistres clôts",
+        "operationId" : "cloture",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeClotureAnimal"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Cloture"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/animaux-compagnie/reglement" : {
+      "post" : {
+        "tags" : [ "Gestion sinistre d'assurance d'animaux de compagnie" ],
+        "description" : "Demande d'informations sur les sinistres règlés",
+        "operationId" : "reglement",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeReglementAnimal"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Reglement"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Client" : {
+        "type" : "object",
+        "properties" : {
+          "nom" : {
+            "type" : "string"
+          },
+          "prenom" : {
+            "type" : "string"
+          },
+          "dateDeNaissance" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "ContratRisque" : {
+        "type" : "object",
+        "properties" : {
+          "numero" : {
+            "type" : "string"
+          },
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
+          },
+          "objet" : {
+            "$ref" : "#/components/schemas/Risque"
+          }
+        }
+      },
+      "Ouverture" : {
+        "type" : "object",
+        "properties" : {
+          "sinistre" : {
+            "$ref" : "#/components/schemas/Sinistre"
+          }
+        }
+      },
+      "Risque" : {
+        "type" : "object"
+      },
+      "Sinistre" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratRisque"
+          },
+          "dateSinistre" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "numero" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Evaluation" : {
+        "type" : "object"
+      },
+      "OuvertureSinistreAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "evaluation" : {
+            "$ref" : "#/components/schemas/Evaluation"
+          },
+          "sinistre" : {
+            "$ref" : "#/components/schemas/Sinistre"
+          }
+        }
+      },
+      "Cloture" : {
+        "type" : "object",
+        "properties" : {
+          "sinistre" : {
+            "$ref" : "#/components/schemas/SinistreRisque"
+          },
+          "dateCloture" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "decision" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SinistreRisque" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratRisque"
+          },
+          "dateSinistre" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "numero" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Animal" : {
+        "type" : "object",
+        "properties" : {
+          "typeAnimal" : {
+            "type" : "string",
+            "enum" : [ "Chien", "Chat" ]
+          },
+          "dateNaissance" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "ContratAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "numero" : {
+            "type" : "string"
+          },
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
+          },
+          "objet" : {
+            "$ref" : "#/components/schemas/Animal"
+          }
+        }
+      },
+      "DemandeClotureAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "sinistre" : {
+            "$ref" : "#/components/schemas/SinistreAnimal"
+          },
+          "decision" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SinistreAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
+          },
+          "dateSinistre" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "numero" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Reglement" : {
+        "type" : "object",
+        "properties" : {
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "dateEffet" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "DemandeReglementAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "sinistre" : {
+            "$ref" : "#/components/schemas/SinistreAnimal"
+          },
+          "nature" : {
+            "type" : "string"
+          },
+          "sens" : {
+            "type" : "string"
+          },
+          "destinataire" : {
+            "$ref" : "#/components/schemas/Personne"
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "nouvelleEvaluation" : {
+            "$ref" : "#/components/schemas/Evaluation"
+          }
+        }
+      },
+      "Personne" : {
+        "type" : "object",
+        "properties" : {
+          "nom" : {
+            "type" : "string"
+          },
+          "prenom" : {
+            "type" : "string"
+          },
+          "dateDeNaissance" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      }
+    }
+  }
+}

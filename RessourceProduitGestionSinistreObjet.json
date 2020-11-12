@@ -1,0 +1,312 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Gestion sinistre d'assurance de biens",
+    "description" : "",
+    "termsOfService" : "http://swagger.io/terms/",
+    "contact" : {
+      "email" : "apiteam@swagger.io"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "paths" : {
+    "/objet/ouverture" : {
+      "post" : {
+        "tags" : [ "Gestion sinistre d'assurance de biens" ],
+        "description" : "Demande d'informations sur les nouveaux sinistres",
+        "operationId" : "ouverture",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OuvertureSinistreObjet"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Ouverture"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/objet/cloture" : {
+      "post" : {
+        "tags" : [ "Gestion sinistre d'assurance de biens" ],
+        "description" : "Demande d'informations sur les sinistres clôts",
+        "operationId" : "cloture",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeClotureObjet"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Cloture"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/objet/reglement" : {
+      "post" : {
+        "tags" : [ "Gestion sinistre d'assurance de biens" ],
+        "description" : "Demande d'informations sur les sinistres règlés",
+        "operationId" : "reglement",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeReglementObjet"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Reglement"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Client" : {
+        "type" : "object",
+        "properties" : {
+          "nom" : {
+            "type" : "string"
+          },
+          "prenom" : {
+            "type" : "string"
+          },
+          "dateDeNaissance" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "ContratRisque" : {
+        "type" : "object",
+        "properties" : {
+          "numero" : {
+            "type" : "string"
+          },
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
+          },
+          "objet" : {
+            "$ref" : "#/components/schemas/Risque"
+          }
+        }
+      },
+      "Ouverture" : {
+        "type" : "object",
+        "properties" : {
+          "sinistre" : {
+            "$ref" : "#/components/schemas/Sinistre"
+          }
+        }
+      },
+      "Risque" : {
+        "type" : "object"
+      },
+      "Sinistre" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratRisque"
+          },
+          "dateSinistre" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "numero" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Evaluation" : {
+        "type" : "object"
+      },
+      "OuvertureSinistreObjet" : {
+        "type" : "object",
+        "properties" : {
+          "evaluation" : {
+            "$ref" : "#/components/schemas/Evaluation"
+          },
+          "sinistre" : {
+            "$ref" : "#/components/schemas/Sinistre"
+          }
+        }
+      },
+      "Cloture" : {
+        "type" : "object",
+        "properties" : {
+          "sinistre" : {
+            "$ref" : "#/components/schemas/SinistreRisque"
+          },
+          "dateCloture" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "decision" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SinistreRisque" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratRisque"
+          },
+          "dateSinistre" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "numero" : {
+            "type" : "string"
+          }
+        }
+      },
+      "ContratObjet" : {
+        "type" : "object",
+        "properties" : {
+          "numero" : {
+            "type" : "string"
+          },
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
+          },
+          "objet" : {
+            "$ref" : "#/components/schemas/Objet"
+          }
+        }
+      },
+      "DemandeClotureObjet" : {
+        "type" : "object",
+        "properties" : {
+          "sinistre" : {
+            "$ref" : "#/components/schemas/SinistreObjet"
+          },
+          "decision" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Objet" : {
+        "type" : "object",
+        "properties" : {
+          "typeObjet" : {
+            "type" : "string",
+            "enum" : [ "Tablette", "Smartphone" ]
+          },
+          "marque" : {
+            "type" : "string"
+          },
+          "prix" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      },
+      "SinistreObjet" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratObjet"
+          },
+          "dateSinistre" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "numero" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Reglement" : {
+        "type" : "object",
+        "properties" : {
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "dateEffet" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "DemandeReglementObjet" : {
+        "type" : "object",
+        "properties" : {
+          "sinistre" : {
+            "$ref" : "#/components/schemas/SinistreObjet"
+          },
+          "nature" : {
+            "type" : "string"
+          },
+          "sens" : {
+            "type" : "string"
+          },
+          "destinataire" : {
+            "$ref" : "#/components/schemas/Personne"
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "nouvelleEvaluation" : {
+            "$ref" : "#/components/schemas/Evaluation"
+          }
+        }
+      },
+      "Personne" : {
+        "type" : "object",
+        "properties" : {
+          "nom" : {
+            "type" : "string"
+          },
+          "prenom" : {
+            "type" : "string"
+          },
+          "dateDeNaissance" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      }
+    }
+  }
+}

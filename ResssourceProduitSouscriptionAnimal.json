@@ -1,7 +1,7 @@
 {
   "openapi" : "3.0.1",
   "info" : {
-    "title" : "Distribution assurance de nvei",
+    "title" : "Souscription d'assurance d'animaux de compagnie",
     "description" : "",
     "termsOfService" : "http://swagger.io/terms/",
     "contact" : {
@@ -13,9 +13,9 @@
     }
   },
   "paths" : {
-    "/nvei/tarif" : {
+    "/animaux-compagnie/tarif" : {
       "post" : {
-        "tags" : [ "Distribution assurance de nvei" ],
+        "tags" : [ "Souscription d'assurance d'animaux de compagnie" ],
         "description" : "Demande de tarif",
         "operationId" : "tarif",
         "requestBody" : {
@@ -33,7 +33,7 @@
             "content" : {
               "*/*" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/TarifNVEI"
+                  "$ref" : "#/components/schemas/TarifAnimal"
                 }
               }
             }
@@ -41,9 +41,9 @@
         }
       }
     },
-    "/nvei/documents" : {
+    "/animaux-compagnie/documents" : {
       "post" : {
-        "tags" : [ "Distribution assurance de nvei" ],
+        "tags" : [ "Souscription d'assurance d'animaux de compagnie" ],
         "description" : "Demande d'IPID (DIPA) / FIP / NI",
         "operationId" : "documents",
         "requestBody" : {
@@ -72,44 +72,16 @@
         }
       }
     },
-    "/nvei/offre" : {
+    "/animaux-compagnie/souscription" : {
       "post" : {
-        "tags" : [ "Distribution assurance de nvei" ],
-        "description" : "Consulter l'offre (wording, visuels)",
-        "operationId" : "offre",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/Produit"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Offre"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/nvei/pre-souscription" : {
-      "post" : {
-        "tags" : [ "Distribution assurance de nvei" ],
-        "description" : "Informe d'un début de parcours de souscription ",
+        "tags" : [ "Souscription d'assurance d'animaux de compagnie" ],
+        "description" : "Informe de la souscription ",
         "operationId" : "preSouscription",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
-                "$ref" : "#/components/schemas/DebutParcoursNVEI"
+                "$ref" : "#/components/schemas/SouscriptionAnimal"
               }
             }
           }
@@ -120,7 +92,7 @@
             "content" : {
               "*/*" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/SouscriptionNVEI"
+                  "type" : "string"
                 }
               }
             }
@@ -131,7 +103,7 @@
   },
   "components" : {
     "schemas" : {
-      "TarifNVEI" : {
+      "TarifAnimal" : {
         "type" : "object",
         "properties" : {
           "periode" : {
@@ -153,8 +125,18 @@
       "Produit" : {
         "type" : "object"
       },
-      "Offre" : {
-        "type" : "object"
+      "Animal" : {
+        "type" : "object",
+        "properties" : {
+          "typeAnimal" : {
+            "type" : "string",
+            "enum" : [ "Chien", "Chat" ]
+          },
+          "dateNaissance" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
       },
       "Client" : {
         "type" : "object",
@@ -185,49 +167,20 @@
           }
         }
       },
-      "NVEI" : {
-        "type" : "object",
-        "properties" : {
-          "type" : {
-            "type" : "string",
-            "enum" : [ "Giropode", "Overboard", "Trotinette" ]
-          },
-          "marque" : {
-            "type" : "string"
-          },
-          "modele" : {
-            "type" : "string"
-          }
-        }
-      },
       "Risque" : {
         "type" : "object"
       },
-      "SouscriptionNVEI" : {
+      "SouscriptionAnimal" : {
         "type" : "object",
         "properties" : {
           "contrat" : {
             "$ref" : "#/components/schemas/Contrat"
           },
           "risque" : {
-            "$ref" : "#/components/schemas/NVEI"
+            "$ref" : "#/components/schemas/Animal"
           },
           "tarif" : {
-            "$ref" : "#/components/schemas/TarifNVEI"
-          }
-        }
-      },
-      "DebutParcoursNVEI" : {
-        "type" : "object",
-        "properties" : {
-          "client" : {
-            "$ref" : "#/components/schemas/Client"
-          },
-          "risque" : {
-            "$ref" : "#/components/schemas/NVEI"
-          },
-          "tarif" : {
-            "$ref" : "#/components/schemas/TarifNVEI"
+            "$ref" : "#/components/schemas/TarifAnimal"
           }
         }
       }

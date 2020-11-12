@@ -1,7 +1,7 @@
 {
   "openapi" : "3.0.1",
   "info" : {
-    "title" : "Distribution assurance de nvei",
+    "title" : "Souscription d'assurance de biens",
     "description" : "",
     "termsOfService" : "http://swagger.io/terms/",
     "contact" : {
@@ -13,9 +13,9 @@
     }
   },
   "paths" : {
-    "/nvei/tarif" : {
+    "/objet/tarif" : {
       "post" : {
-        "tags" : [ "Distribution assurance de nvei" ],
+        "tags" : [ "Souscription d'assurance de biens" ],
         "description" : "Demande de tarif",
         "operationId" : "tarif",
         "requestBody" : {
@@ -33,7 +33,7 @@
             "content" : {
               "*/*" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/TarifNVEI"
+                  "$ref" : "#/components/schemas/TarifObjet"
                 }
               }
             }
@@ -41,9 +41,9 @@
         }
       }
     },
-    "/nvei/documents" : {
+    "/objet/documents" : {
       "post" : {
-        "tags" : [ "Distribution assurance de nvei" ],
+        "tags" : [ "Souscription d'assurance de biens" ],
         "description" : "Demande d'IPID (DIPA) / FIP / NI",
         "operationId" : "documents",
         "requestBody" : {
@@ -72,44 +72,16 @@
         }
       }
     },
-    "/nvei/offre" : {
+    "/objet/souscription" : {
       "post" : {
-        "tags" : [ "Distribution assurance de nvei" ],
-        "description" : "Consulter l'offre (wording, visuels)",
-        "operationId" : "offre",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/Produit"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Offre"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/nvei/pre-souscription" : {
-      "post" : {
-        "tags" : [ "Distribution assurance de nvei" ],
-        "description" : "Informe d'un début de parcours de souscription ",
+        "tags" : [ "Souscription d'assurance de biens" ],
+        "description" : "Informe de la souscription ",
         "operationId" : "preSouscription",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
-                "$ref" : "#/components/schemas/DebutParcoursNVEI"
+                "$ref" : "#/components/schemas/SouscriptionObjet"
               }
             }
           }
@@ -120,7 +92,7 @@
             "content" : {
               "*/*" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/SouscriptionNVEI"
+                  "type" : "string"
                 }
               }
             }
@@ -131,7 +103,7 @@
   },
   "components" : {
     "schemas" : {
-      "TarifNVEI" : {
+      "TarifObjet" : {
         "type" : "object",
         "properties" : {
           "periode" : {
@@ -151,9 +123,6 @@
         "type" : "object"
       },
       "Produit" : {
-        "type" : "object"
-      },
-      "Offre" : {
         "type" : "object"
       },
       "Client" : {
@@ -185,49 +154,36 @@
           }
         }
       },
-      "NVEI" : {
+      "Objet" : {
         "type" : "object",
         "properties" : {
-          "type" : {
+          "typeObjet" : {
             "type" : "string",
-            "enum" : [ "Giropode", "Overboard", "Trotinette" ]
+            "enum" : [ "Tablette", "Smartphone" ]
           },
           "marque" : {
             "type" : "string"
           },
-          "modele" : {
-            "type" : "string"
+          "prix" : {
+            "type" : "number",
+            "format" : "float"
           }
         }
       },
       "Risque" : {
         "type" : "object"
       },
-      "SouscriptionNVEI" : {
+      "SouscriptionObjet" : {
         "type" : "object",
         "properties" : {
           "contrat" : {
             "$ref" : "#/components/schemas/Contrat"
           },
           "risque" : {
-            "$ref" : "#/components/schemas/NVEI"
+            "$ref" : "#/components/schemas/Objet"
           },
           "tarif" : {
-            "$ref" : "#/components/schemas/TarifNVEI"
-          }
-        }
-      },
-      "DebutParcoursNVEI" : {
-        "type" : "object",
-        "properties" : {
-          "client" : {
-            "$ref" : "#/components/schemas/Client"
-          },
-          "risque" : {
-            "$ref" : "#/components/schemas/NVEI"
-          },
-          "tarif" : {
-            "$ref" : "#/components/schemas/TarifNVEI"
+            "$ref" : "#/components/schemas/TarifObjet"
           }
         }
       }

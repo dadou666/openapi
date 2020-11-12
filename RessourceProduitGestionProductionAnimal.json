@@ -1,0 +1,310 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Gestion production d'assurance d'animaux de compagnie",
+    "description" : "",
+    "termsOfService" : "http://swagger.io/terms/",
+    "contact" : {
+      "email" : "apiteam@swagger.io"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "paths" : {
+    "/animaux-compagnie/avenant" : {
+      "post" : {
+        "tags" : [ "Gestion production d'assurance d'animaux de compagnie" ],
+        "description" : "Demande des modifications sur les adhésions",
+        "operationId" : "avenant",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationAvenantAnimal"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AvenantAnimal"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/animaux-compagnie/emission" : {
+      "post" : {
+        "tags" : [ "Gestion production d'assurance d'animaux de compagnie" ],
+        "description" : " Demande d'informations sur les primes",
+        "operationId" : "emission",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationPrimesAnimal"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/EmissionAnimal"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/animaux-compagnie/annulation" : {
+      "post" : {
+        "tags" : [ "Gestion production d'assurance d'animaux de compagnie" ],
+        "description" : "Demande d'informations sur les annulations contrats",
+        "operationId" : "annulation",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationAnimal"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AnnulationAnimal"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/animaux-compagnie/resiliation" : {
+      "post" : {
+        "tags" : [ "Gestion production d'assurance d'animaux de compagnie" ],
+        "description" : "Demande d'informations sur  les résiliations contrats",
+        "operationId" : "resiliation",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationAnimal"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResiliationAnimal"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Animal" : {
+        "type" : "object",
+        "properties" : {
+          "typeAnimal" : {
+            "type" : "string",
+            "enum" : [ "Chien", "Chat" ]
+          },
+          "dateNaissance" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "AvenantAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "dateAvenant" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "contratAvant" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
+          },
+          "contratApres" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
+          }
+        }
+      },
+      "Client" : {
+        "type" : "object",
+        "properties" : {
+          "nom" : {
+            "type" : "string"
+          },
+          "prenom" : {
+            "type" : "string"
+          },
+          "dateDeNaissance" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "ContratAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "numero" : {
+            "type" : "string"
+          },
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
+          },
+          "objet" : {
+            "$ref" : "#/components/schemas/Animal"
+          }
+        }
+      },
+      "DemandeInformationAvenantAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "contratAncien" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
+          },
+          "contratNouveau" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
+          },
+          "dateEffet" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "EmissionAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
+          },
+          "primes" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Prime"
+            }
+          }
+        }
+      },
+      "Prime" : {
+        "type" : "object",
+        "properties" : {
+          "dateEmmision" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      },
+      "DemandeInformationPrimesAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
+          },
+          "sens" : {
+            "type" : "string"
+          },
+          "evenement" : {
+            "type" : "string"
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "periode" : {
+            "type" : "string",
+            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
+          }
+        }
+      },
+      "AnnulationAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
+          },
+          "dateAnnulation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "DemandeInformationAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
+          },
+          "dateEffet" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "ResiliationAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
+          },
+          "dateResiliation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      }
+    }
+  }
+}

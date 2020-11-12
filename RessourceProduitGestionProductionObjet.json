@@ -1,0 +1,313 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Gestion production d'assurance de biens",
+    "description" : "",
+    "termsOfService" : "http://swagger.io/terms/",
+    "contact" : {
+      "email" : "apiteam@swagger.io"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "paths" : {
+    "/objet/avenant" : {
+      "post" : {
+        "tags" : [ "Gestion production d'assurance de biens" ],
+        "description" : "Demande des modifications sur les adhésions",
+        "operationId" : "avenant",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationAvenantObjet"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AvenantObjet"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/objet/emission" : {
+      "post" : {
+        "tags" : [ "Gestion production d'assurance de biens" ],
+        "description" : " Demande d'informations sur les primes",
+        "operationId" : "emission",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationPrimesObjet"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/EmissionObjet"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/objet/annulation" : {
+      "post" : {
+        "tags" : [ "Gestion production d'assurance de biens" ],
+        "description" : "Demande d'informations sur les annulations contrats",
+        "operationId" : "annulation",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationObjet"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AnnulationObjet"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/objet/resiliation" : {
+      "post" : {
+        "tags" : [ "Gestion production d'assurance de biens" ],
+        "description" : "Demande d'informations sur  les résiliations contrats",
+        "operationId" : "resiliation",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationObjet"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResiliationObjet"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "AvenantObjet" : {
+        "type" : "object",
+        "properties" : {
+          "dateAvenant" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "contratAvant" : {
+            "$ref" : "#/components/schemas/ContratObjet"
+          },
+          "contratApres" : {
+            "$ref" : "#/components/schemas/ContratObjet"
+          }
+        }
+      },
+      "Client" : {
+        "type" : "object",
+        "properties" : {
+          "nom" : {
+            "type" : "string"
+          },
+          "prenom" : {
+            "type" : "string"
+          },
+          "dateDeNaissance" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "ContratObjet" : {
+        "type" : "object",
+        "properties" : {
+          "numero" : {
+            "type" : "string"
+          },
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
+          },
+          "objet" : {
+            "$ref" : "#/components/schemas/Objet"
+          }
+        }
+      },
+      "Objet" : {
+        "type" : "object",
+        "properties" : {
+          "typeObjet" : {
+            "type" : "string",
+            "enum" : [ "Tablette", "Smartphone" ]
+          },
+          "marque" : {
+            "type" : "string"
+          },
+          "prix" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      },
+      "DemandeInformationAvenantObjet" : {
+        "type" : "object",
+        "properties" : {
+          "contratAncien" : {
+            "$ref" : "#/components/schemas/ContratObjet"
+          },
+          "contratNouveau" : {
+            "$ref" : "#/components/schemas/ContratObjet"
+          },
+          "dateEffet" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "EmissionObjet" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratObjet"
+          },
+          "primes" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Prime"
+            }
+          }
+        }
+      },
+      "Prime" : {
+        "type" : "object",
+        "properties" : {
+          "dateEmmision" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      },
+      "DemandeInformationPrimesObjet" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratObjet"
+          },
+          "sens" : {
+            "type" : "string"
+          },
+          "evenement" : {
+            "type" : "string"
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "periode" : {
+            "type" : "string",
+            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
+          }
+        }
+      },
+      "AnnulationObjet" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratObjet"
+          },
+          "dateAnnulation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "DemandeInformationObjet" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratObjet"
+          },
+          "dateEffet" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "ResiliationObjet" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratObjet"
+          },
+          "dateResiliation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      }
+    }
+  }
+}

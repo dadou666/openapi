@@ -1,0 +1,178 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Recouvrement d'assurance de vélo",
+    "description" : "",
+    "termsOfService" : "http://swagger.io/terms/",
+    "contact" : {
+      "email" : "apiteam@swagger.io"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "paths" : {
+    "/velo/prime" : {
+      "post" : {
+        "tags" : [ "Recouvrement d'assurance de vélo" ],
+        "description" : "Demande d'informations sur le recouvrement ou le reversement d'une prime",
+        "operationId" : "preSouscription",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationPrimesVelo"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Prime"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/velo/impaye" : {
+      "post" : {
+        "tags" : [ "Recouvrement d'assurance de vélo" ],
+        "description" : "Demande d'informations sur les impayés",
+        "operationId" : "impaye",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationPrimesVelo"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Impaye"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Prime" : {
+        "type" : "object",
+        "properties" : {
+          "dateEmmision" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      },
+      "Client" : {
+        "type" : "object",
+        "properties" : {
+          "nom" : {
+            "type" : "string"
+          },
+          "prenom" : {
+            "type" : "string"
+          },
+          "dateDeNaissance" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "ContratVelo" : {
+        "type" : "object",
+        "properties" : {
+          "numero" : {
+            "type" : "string"
+          },
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
+          },
+          "objet" : {
+            "$ref" : "#/components/schemas/Velo"
+          }
+        }
+      },
+      "DemandeInformationPrimesVelo" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratVelo"
+          },
+          "sens" : {
+            "type" : "string"
+          },
+          "evenement" : {
+            "type" : "string"
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "periode" : {
+            "type" : "string",
+            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
+          }
+        }
+      },
+      "Velo" : {
+        "type" : "object",
+        "properties" : {
+          "marque" : {
+            "type" : "string"
+          },
+          "modele" : {
+            "type" : "string"
+          },
+          "numeroDeCadre" : {
+            "type" : "string"
+          },
+          "numeroAntiVol" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Impaye" : {
+        "type" : "object",
+        "properties" : {
+          "dateDemande" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
   "openapi" : "3.0.1",
   "info" : {
-    "title" : "Assurance d'animaux de compagnie",
+    "title" : "Distribution assurance d'animaux de compagnie",
     "description" : "",
     "termsOfService" : "http://swagger.io/terms/",
     "contact" : {
@@ -15,7 +15,7 @@
   "paths" : {
     "/animaux-compagnie/tarif" : {
       "post" : {
-        "tags" : [ "Assurance d'animaux de compagnie" ],
+        "tags" : [ "Distribution assurance d'animaux de compagnie" ],
         "description" : "Demande de tarif",
         "operationId" : "tarif",
         "requestBody" : {
@@ -43,7 +43,7 @@
     },
     "/animaux-compagnie/documents" : {
       "post" : {
-        "tags" : [ "Assurance d'animaux de compagnie" ],
+        "tags" : [ "Distribution assurance d'animaux de compagnie" ],
         "description" : "Demande d'IPID (DIPA) / FIP / NI",
         "operationId" : "documents",
         "requestBody" : {
@@ -74,7 +74,7 @@
     },
     "/animaux-compagnie/offre" : {
       "post" : {
-        "tags" : [ "Assurance d'animaux de compagnie" ],
+        "tags" : [ "Distribution assurance d'animaux de compagnie" ],
         "description" : "Consulter l'offre (wording, visuels)",
         "operationId" : "offre",
         "requestBody" : {
@@ -102,7 +102,7 @@
     },
     "/animaux-compagnie/pre-souscription" : {
       "post" : {
-        "tags" : [ "Assurance d'animaux de compagnie" ],
+        "tags" : [ "Distribution assurance d'animaux de compagnie" ],
         "description" : "Informe d'un début de parcours de souscription ",
         "operationId" : "preSouscription",
         "requestBody" : {
@@ -170,13 +170,42 @@
         }
       },
       "Client" : {
+        "type" : "object",
+        "properties" : {
+          "nom" : {
+            "type" : "string"
+          },
+          "prenom" : {
+            "type" : "string"
+          },
+          "dateDeNaissance" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "Contrat" : {
+        "type" : "object",
+        "properties" : {
+          "numero" : {
+            "type" : "string"
+          },
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
+          },
+          "objet" : {
+            "$ref" : "#/components/schemas/Risque"
+          }
+        }
+      },
+      "Risque" : {
         "type" : "object"
       },
       "SouscriptionAnimal" : {
         "type" : "object",
         "properties" : {
-          "client" : {
-            "$ref" : "#/components/schemas/Client"
+          "contrat" : {
+            "$ref" : "#/components/schemas/Contrat"
           },
           "risque" : {
             "$ref" : "#/components/schemas/Animal"

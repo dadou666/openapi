@@ -1,7 +1,7 @@
 {
   "openapi" : "3.0.1",
   "info" : {
-    "title" : "Distribution assurance de nvei",
+    "title" : "Distribution assurance de biens",
     "description" : "",
     "termsOfService" : "http://swagger.io/terms/",
     "contact" : {
@@ -13,9 +13,9 @@
     }
   },
   "paths" : {
-    "/nvei/tarif" : {
+    "/objet/tarif" : {
       "post" : {
-        "tags" : [ "Distribution assurance de nvei" ],
+        "tags" : [ "Distribution assurance de biens" ],
         "description" : "Demande de tarif",
         "operationId" : "tarif",
         "requestBody" : {
@@ -33,7 +33,7 @@
             "content" : {
               "*/*" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/TarifNVEI"
+                  "$ref" : "#/components/schemas/TarifObjet"
                 }
               }
             }
@@ -41,9 +41,9 @@
         }
       }
     },
-    "/nvei/documents" : {
+    "/objet/documents" : {
       "post" : {
-        "tags" : [ "Distribution assurance de nvei" ],
+        "tags" : [ "Distribution assurance de biens" ],
         "description" : "Demande d'IPID (DIPA) / FIP / NI",
         "operationId" : "documents",
         "requestBody" : {
@@ -72,9 +72,9 @@
         }
       }
     },
-    "/nvei/offre" : {
+    "/objet/offre" : {
       "post" : {
-        "tags" : [ "Distribution assurance de nvei" ],
+        "tags" : [ "Distribution assurance de biens" ],
         "description" : "Consulter l'offre (wording, visuels)",
         "operationId" : "offre",
         "requestBody" : {
@@ -100,16 +100,16 @@
         }
       }
     },
-    "/nvei/pre-souscription" : {
+    "/objet/pre-souscription" : {
       "post" : {
-        "tags" : [ "Distribution assurance de nvei" ],
+        "tags" : [ "Distribution assurance de biens" ],
         "description" : "Informe d'un début de parcours de souscription ",
         "operationId" : "preSouscription",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
-                "$ref" : "#/components/schemas/DebutParcoursNVEI"
+                "$ref" : "#/components/schemas/DebutParcoursObjet"
               }
             }
           }
@@ -120,7 +120,7 @@
             "content" : {
               "*/*" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/SouscriptionNVEI"
+                  "$ref" : "#/components/schemas/SouscriptionObjet"
                 }
               }
             }
@@ -131,7 +131,7 @@
   },
   "components" : {
     "schemas" : {
-      "TarifNVEI" : {
+      "TarifObjet" : {
         "type" : "object",
         "properties" : {
           "periode" : {
@@ -185,49 +185,50 @@
           }
         }
       },
-      "NVEI" : {
+      "Objet" : {
         "type" : "object",
         "properties" : {
-          "type" : {
+          "typeObjet" : {
             "type" : "string",
-            "enum" : [ "Giropode", "Overboard", "Trotinette" ]
+            "enum" : [ "Tablette", "Smartphone" ]
           },
           "marque" : {
             "type" : "string"
           },
-          "modele" : {
-            "type" : "string"
+          "prix" : {
+            "type" : "number",
+            "format" : "float"
           }
         }
       },
       "Risque" : {
         "type" : "object"
       },
-      "SouscriptionNVEI" : {
+      "SouscriptionObjet" : {
         "type" : "object",
         "properties" : {
           "contrat" : {
             "$ref" : "#/components/schemas/Contrat"
           },
           "risque" : {
-            "$ref" : "#/components/schemas/NVEI"
+            "$ref" : "#/components/schemas/Objet"
           },
           "tarif" : {
-            "$ref" : "#/components/schemas/TarifNVEI"
+            "$ref" : "#/components/schemas/TarifObjet"
           }
         }
       },
-      "DebutParcoursNVEI" : {
+      "DebutParcoursObjet" : {
         "type" : "object",
         "properties" : {
           "client" : {
             "$ref" : "#/components/schemas/Client"
           },
           "risque" : {
-            "$ref" : "#/components/schemas/NVEI"
+            "$ref" : "#/components/schemas/Objet"
           },
           "tarif" : {
-            "$ref" : "#/components/schemas/TarifNVEI"
+            "$ref" : "#/components/schemas/TarifObjet"
           }
         }
       }

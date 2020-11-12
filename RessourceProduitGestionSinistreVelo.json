@@ -1,0 +1,313 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Gestion sinistre d'assurance de vélo",
+    "description" : "",
+    "termsOfService" : "http://swagger.io/terms/",
+    "contact" : {
+      "email" : "apiteam@swagger.io"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "paths" : {
+    "/velo/ouverture" : {
+      "post" : {
+        "tags" : [ "Gestion sinistre d'assurance de vélo" ],
+        "description" : "Demande d'informations sur les nouveaux sinistres",
+        "operationId" : "ouverture",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OuvertureSinistreVelo"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Ouverture"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/velo/cloture" : {
+      "post" : {
+        "tags" : [ "Gestion sinistre d'assurance de vélo" ],
+        "description" : "Demande d'informations sur les sinistres clôts",
+        "operationId" : "cloture",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeClotureVelo"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Cloture"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/velo/reglement" : {
+      "post" : {
+        "tags" : [ "Gestion sinistre d'assurance de vélo" ],
+        "description" : "Demande d'informations sur les sinistres règlés",
+        "operationId" : "reglement",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeReglementVelo"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Reglement"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Client" : {
+        "type" : "object",
+        "properties" : {
+          "nom" : {
+            "type" : "string"
+          },
+          "prenom" : {
+            "type" : "string"
+          },
+          "dateDeNaissance" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "ContratRisque" : {
+        "type" : "object",
+        "properties" : {
+          "numero" : {
+            "type" : "string"
+          },
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
+          },
+          "objet" : {
+            "$ref" : "#/components/schemas/Risque"
+          }
+        }
+      },
+      "Ouverture" : {
+        "type" : "object",
+        "properties" : {
+          "sinistre" : {
+            "$ref" : "#/components/schemas/Sinistre"
+          }
+        }
+      },
+      "Risque" : {
+        "type" : "object"
+      },
+      "Sinistre" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratRisque"
+          },
+          "dateSinistre" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "numero" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Evaluation" : {
+        "type" : "object"
+      },
+      "OuvertureSinistreVelo" : {
+        "type" : "object",
+        "properties" : {
+          "evaluation" : {
+            "$ref" : "#/components/schemas/Evaluation"
+          },
+          "sinistre" : {
+            "$ref" : "#/components/schemas/Sinistre"
+          }
+        }
+      },
+      "Cloture" : {
+        "type" : "object",
+        "properties" : {
+          "sinistre" : {
+            "$ref" : "#/components/schemas/SinistreRisque"
+          },
+          "dateCloture" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "decision" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SinistreRisque" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratRisque"
+          },
+          "dateSinistre" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "numero" : {
+            "type" : "string"
+          }
+        }
+      },
+      "ContratVelo" : {
+        "type" : "object",
+        "properties" : {
+          "numero" : {
+            "type" : "string"
+          },
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
+          },
+          "objet" : {
+            "$ref" : "#/components/schemas/Velo"
+          }
+        }
+      },
+      "DemandeClotureVelo" : {
+        "type" : "object",
+        "properties" : {
+          "sinistre" : {
+            "$ref" : "#/components/schemas/SinistreVelo"
+          },
+          "decision" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SinistreVelo" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratVelo"
+          },
+          "dateSinistre" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "numero" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Velo" : {
+        "type" : "object",
+        "properties" : {
+          "marque" : {
+            "type" : "string"
+          },
+          "modele" : {
+            "type" : "string"
+          },
+          "numeroDeCadre" : {
+            "type" : "string"
+          },
+          "numeroAntiVol" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Reglement" : {
+        "type" : "object",
+        "properties" : {
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "dateEffet" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "DemandeReglementVelo" : {
+        "type" : "object",
+        "properties" : {
+          "sinistre" : {
+            "$ref" : "#/components/schemas/SinistreVelo"
+          },
+          "nature" : {
+            "type" : "string"
+          },
+          "sens" : {
+            "type" : "string"
+          },
+          "destinataire" : {
+            "$ref" : "#/components/schemas/Personne"
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "nouvelleEvaluation" : {
+            "$ref" : "#/components/schemas/Evaluation"
+          }
+        }
+      },
+      "Personne" : {
+        "type" : "object",
+        "properties" : {
+          "nom" : {
+            "type" : "string"
+          },
+          "prenom" : {
+            "type" : "string"
+          },
+          "dateDeNaissance" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      }
+    }
+  }
+}
