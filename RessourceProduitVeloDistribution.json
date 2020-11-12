@@ -13,6 +13,34 @@
     }
   },
   "paths" : {
+    "/velo/tarif" : {
+      "post" : {
+        "tags" : [ "Assurance vélo" ],
+        "description" : "Demande de tarif",
+        "operationId" : "tarif",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeDeTarif"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TarifVelo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/velo/documents" : {
       "post" : {
         "tags" : [ "Assurance vélo" ],
@@ -72,34 +100,6 @@
         }
       }
     },
-    "/velo/tarif" : {
-      "post" : {
-        "tags" : [ "Assurance vélo" ],
-        "description" : "Demande de tarif",
-        "operationId" : "tarif",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeDeTarif"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/TarifVelo"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/velo/pre-souscription" : {
       "post" : {
         "tags" : [ "Assurance vélo" ],
@@ -131,15 +131,6 @@
   },
   "components" : {
     "schemas" : {
-      "Document" : {
-        "type" : "object"
-      },
-      "Produit" : {
-        "type" : "object"
-      },
-      "Offre" : {
-        "type" : "object"
-      },
       "TarifVelo" : {
         "type" : "object",
         "properties" : {
@@ -154,6 +145,15 @@
         }
       },
       "DemandeDeTarif" : {
+        "type" : "object"
+      },
+      "Document" : {
+        "type" : "object"
+      },
+      "Produit" : {
+        "type" : "object"
+      },
+      "Offre" : {
         "type" : "object"
       },
       "Client" : {

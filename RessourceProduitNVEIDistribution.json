@@ -13,6 +13,34 @@
     }
   },
   "paths" : {
+    "/nvei/tarif" : {
+      "post" : {
+        "tags" : [ "Aassurance nvei" ],
+        "description" : "Demande de tarif",
+        "operationId" : "tarif",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeDeTarif"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TarifNVEI"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/nvei/documents" : {
       "post" : {
         "tags" : [ "Aassurance nvei" ],
@@ -72,34 +100,6 @@
         }
       }
     },
-    "/nvei/tarif" : {
-      "post" : {
-        "tags" : [ "Aassurance nvei" ],
-        "description" : "Demande de tarif",
-        "operationId" : "tarif",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeDeTarif"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/TarifNVEI"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/nvei/pre-souscription" : {
       "post" : {
         "tags" : [ "Aassurance nvei" ],
@@ -131,15 +131,6 @@
   },
   "components" : {
     "schemas" : {
-      "Document" : {
-        "type" : "object"
-      },
-      "Produit" : {
-        "type" : "object"
-      },
-      "Offre" : {
-        "type" : "object"
-      },
       "TarifNVEI" : {
         "type" : "object",
         "properties" : {
@@ -154,6 +145,15 @@
         }
       },
       "DemandeDeTarif" : {
+        "type" : "object"
+      },
+      "Document" : {
+        "type" : "object"
+      },
+      "Produit" : {
+        "type" : "object"
+      },
+      "Offre" : {
         "type" : "object"
       },
       "Client" : {

@@ -13,7 +13,35 @@
     }
   },
   "paths" : {
-    "/animal/documents" : {
+    "/animaux-compagnie/tarif" : {
+      "post" : {
+        "tags" : [ "Assurance d'animaux de compagnie" ],
+        "description" : "Demande de tarif",
+        "operationId" : "tarif",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeDeTarif"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TarifAnimal"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/animaux-compagnie/documents" : {
       "post" : {
         "tags" : [ "Assurance d'animaux de compagnie" ],
         "description" : "Demande d'IPID (DIPA) / FIP / NI",
@@ -44,7 +72,7 @@
         }
       }
     },
-    "/animal/offre" : {
+    "/animaux-compagnie/offre" : {
       "post" : {
         "tags" : [ "Assurance d'animaux de compagnie" ],
         "description" : "Consulter l'offre (wording, visuels)",
@@ -72,35 +100,7 @@
         }
       }
     },
-    "/animal/tarif" : {
-      "post" : {
-        "tags" : [ "Assurance d'animaux de compagnie" ],
-        "description" : "Demande de tarif",
-        "operationId" : "tarif",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeDeTarif"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/TarifAnimal"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/animal/pre-souscription" : {
+    "/animaux-compagnie/pre-souscription" : {
       "post" : {
         "tags" : [ "Assurance d'animaux de compagnie" ],
         "description" : "Informe d'un début de parcours de souscription ",
@@ -131,15 +131,6 @@
   },
   "components" : {
     "schemas" : {
-      "Document" : {
-        "type" : "object"
-      },
-      "Produit" : {
-        "type" : "object"
-      },
-      "Offre" : {
-        "type" : "object"
-      },
       "TarifAnimal" : {
         "type" : "object",
         "properties" : {
@@ -154,6 +145,15 @@
         }
       },
       "DemandeDeTarif" : {
+        "type" : "object"
+      },
+      "Document" : {
+        "type" : "object"
+      },
+      "Produit" : {
+        "type" : "object"
+      },
+      "Offre" : {
         "type" : "object"
       },
       "Animal" : {
