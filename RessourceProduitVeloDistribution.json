@@ -13,36 +13,6 @@
     }
   },
   "paths" : {
-    "/velo/documents" : {
-      "post" : {
-        "description" : "Demande d'IPID (DIPA) / FIP / NI",
-        "operationId" : "documents",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/Produit"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "$ref" : "#/components/schemas/Document"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/velo/pre-souscription" : {
       "post" : {
         "description" : "Informe d'un début de parcours de souscription ",
@@ -123,16 +93,40 @@
           }
         }
       }
+    },
+    "/velo/documents" : {
+      "post" : {
+        "description" : "Demande d'IPID (DIPA) / FIP / NI",
+        "operationId" : "documents",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Produit"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Document"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components" : {
     "schemas" : {
-      "Document" : {
-        "type" : "object"
-      },
-      "Produit" : {
-        "type" : "object"
-      },
       "Client" : {
         "type" : "object"
       },
@@ -197,7 +191,13 @@
       "Offre" : {
         "type" : "object"
       },
+      "Produit" : {
+        "type" : "object"
+      },
       "DemandeDeTarif" : {
+        "type" : "object"
+      },
+      "Document" : {
         "type" : "object"
       }
     }
