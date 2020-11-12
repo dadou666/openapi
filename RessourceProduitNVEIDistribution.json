@@ -13,16 +13,99 @@
     }
   },
   "paths" : {
-    "/nvei/tarifer" : {
+    "/nvei/offre" : {
       "post" : {
-        "summary" : "Donner un tarif pour assurer un objet de risque",
-        "description" : "Donner un tarif pour assurer un objet de risque",
-        "operationId" : "tarifer",
+        "description" : "- Consulter l'offre (wording, visuels)",
+        "operationId" : "offre",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
-                "$ref" : "#/components/schemas/SouscriptionNVEI"
+                "$ref" : "#/components/schemas/Produit"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Offre"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/nvei/documents" : {
+      "post" : {
+        "description" : "Demande d'IPID (DIPA) / FIP / NI",
+        "operationId" : "documents",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Produit"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Document"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/nvei/pre-souscription" : {
+      "post" : {
+        "description" : "Informe d'un début de parcours de souscription ",
+        "operationId" : "preSouscription",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DebutParcoursNVEI"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SouscriptionNVEI"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/nvei/tarif" : {
+      "post" : {
+        "description" : "Demande de tarif",
+        "operationId" : "tarif",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeDeTarif"
               }
             }
           }
@@ -40,50 +123,21 @@
           }
         }
       }
-    },
-    "/nvei/souscrire" : {
-      "post" : {
-        "summary" : "Souscrire un contrat d'assurance pour un objet de risque",
-        "description" : "Souscrire un contrat d'assurance pour un objet de risque",
-        "operationId" : "souscrire",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/SouscriptionNVEI"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ContratNVEI"
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components" : {
     "schemas" : {
-      "TarifNVEI" : {
-        "type" : "object",
-        "properties" : {
-          "periode" : {
-            "type" : "string",
-            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
-          },
-          "montant" : {
-            "type" : "number",
-            "format" : "float"
-          }
-        }
+      "Offre" : {
+        "type" : "object"
+      },
+      "Produit" : {
+        "type" : "object"
+      },
+      "Document" : {
+        "type" : "object"
+      },
+      "Client" : {
+        "type" : "object"
       },
       "NVEI" : {
         "type" : "object",
@@ -100,33 +154,49 @@
           }
         }
       },
-      "Personne" : {
-        "type" : "object"
-      },
       "SouscriptionNVEI" : {
         "type" : "object",
         "properties" : {
-          "personne" : {
-            "$ref" : "#/components/schemas/Personne"
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
           },
-          "objetDuRisque" : {
+          "risque" : {
             "$ref" : "#/components/schemas/NVEI"
+          },
+          "tarif" : {
+            "$ref" : "#/components/schemas/TarifNVEI"
           }
         }
       },
-      "ContratNVEI" : {
+      "TarifNVEI" : {
         "type" : "object",
         "properties" : {
-          "numero" : {
-            "type" : "string"
+          "periode" : {
+            "type" : "string",
+            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
           },
-          "personne" : {
-            "$ref" : "#/components/schemas/Personne"
-          },
-          "objet" : {
-            "$ref" : "#/components/schemas/NVEI"
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
           }
         }
+      },
+      "DebutParcoursNVEI" : {
+        "type" : "object",
+        "properties" : {
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
+          },
+          "risque" : {
+            "$ref" : "#/components/schemas/NVEI"
+          },
+          "tarif" : {
+            "$ref" : "#/components/schemas/TarifNVEI"
+          }
+        }
+      },
+      "DemandeDeTarif" : {
+        "type" : "object"
       }
     }
   }

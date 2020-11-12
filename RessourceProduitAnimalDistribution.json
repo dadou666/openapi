@@ -13,16 +13,99 @@
     }
   },
   "paths" : {
-    "/velo/tarifer" : {
+    "/animal/offre" : {
       "post" : {
-        "summary" : "Donner un tarif pour assurer un objet de risque",
-        "description" : "Donner un tarif pour assurer un objet de risque",
-        "operationId" : "tarifer",
+        "description" : "- Consulter l'offre (wording, visuels)",
+        "operationId" : "offre",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
-                "$ref" : "#/components/schemas/SouscriptionAnimal"
+                "$ref" : "#/components/schemas/Produit"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Offre"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/animal/documents" : {
+      "post" : {
+        "description" : "Demande d'IPID (DIPA) / FIP / NI",
+        "operationId" : "documents",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Produit"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Document"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/animal/pre-souscription" : {
+      "post" : {
+        "description" : "Informe d'un début de parcours de souscription ",
+        "operationId" : "preSouscription",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DebutParcoursAnimal"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SouscriptionAnimal"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/animal/tarif" : {
+      "post" : {
+        "description" : "Demande de tarif",
+        "operationId" : "tarif",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeDeTarif"
               }
             }
           }
@@ -40,50 +123,18 @@
           }
         }
       }
-    },
-    "/velo/souscrire" : {
-      "post" : {
-        "summary" : "Souscrire un contrat d'assurance pour un objet de risque",
-        "description" : "Souscrire un contrat d'assurance pour un objet de risque",
-        "operationId" : "souscrire",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/SouscriptionAnimal"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ContratAnimal"
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components" : {
     "schemas" : {
-      "TarifAnimal" : {
-        "type" : "object",
-        "properties" : {
-          "periode" : {
-            "type" : "string",
-            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
-          },
-          "montant" : {
-            "type" : "number",
-            "format" : "float"
-          }
-        }
+      "Offre" : {
+        "type" : "object"
+      },
+      "Produit" : {
+        "type" : "object"
+      },
+      "Document" : {
+        "type" : "object"
       },
       "Animal" : {
         "type" : "object",
@@ -98,33 +149,52 @@
           }
         }
       },
-      "Personne" : {
+      "Client" : {
         "type" : "object"
       },
       "SouscriptionAnimal" : {
         "type" : "object",
         "properties" : {
-          "personne" : {
-            "$ref" : "#/components/schemas/Personne"
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
           },
-          "objetDuRisque" : {
+          "risque" : {
             "$ref" : "#/components/schemas/Animal"
+          },
+          "tarif" : {
+            "$ref" : "#/components/schemas/TarifAnimal"
           }
         }
       },
-      "ContratAnimal" : {
+      "TarifAnimal" : {
         "type" : "object",
         "properties" : {
-          "numero" : {
-            "type" : "string"
+          "periode" : {
+            "type" : "string",
+            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
           },
-          "personne" : {
-            "$ref" : "#/components/schemas/Personne"
-          },
-          "objet" : {
-            "$ref" : "#/components/schemas/Animal"
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
           }
         }
+      },
+      "DebutParcoursAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
+          },
+          "risque" : {
+            "$ref" : "#/components/schemas/Animal"
+          },
+          "tarif" : {
+            "$ref" : "#/components/schemas/TarifAnimal"
+          }
+        }
+      },
+      "DemandeDeTarif" : {
+        "type" : "object"
       }
     }
   }

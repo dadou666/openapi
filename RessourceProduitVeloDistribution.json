@@ -13,16 +13,99 @@
     }
   },
   "paths" : {
-    "/animal/tarifer" : {
+    "/velo/offre" : {
       "post" : {
-        "summary" : "Donner un tarif pour assurer un objet de risque",
-        "description" : "Donner un tarif pour assurer un objet de risque",
-        "operationId" : "tarifer",
+        "description" : "- Consulter l'offre (wording, visuels)",
+        "operationId" : "offre",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
-                "$ref" : "#/components/schemas/SouscriptionVelo"
+                "$ref" : "#/components/schemas/Produit"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Offre"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/velo/documents" : {
+      "post" : {
+        "description" : "Demande d'IPID (DIPA) / FIP / NI",
+        "operationId" : "documents",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Produit"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Document"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/velo/pre-souscription" : {
+      "post" : {
+        "description" : "Informe d'un début de parcours de souscription ",
+        "operationId" : "preSouscription",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DebutParcoursVelo"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SouscriptionVelo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/velo/tarif" : {
+      "post" : {
+        "description" : "Demande de tarif",
+        "operationId" : "tarif",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeDeTarif"
               }
             }
           }
@@ -40,38 +123,36 @@
           }
         }
       }
-    },
-    "/animal/souscrire" : {
-      "post" : {
-        "summary" : "Souscrire un contrat d'assurance pour un objet de risque",
-        "description" : "Souscrire un contrat d'assurance pour un objet de risque",
-        "operationId" : "souscrire",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/SouscriptionVelo"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ContratVelo"
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components" : {
     "schemas" : {
+      "Offre" : {
+        "type" : "object"
+      },
+      "Produit" : {
+        "type" : "object"
+      },
+      "Document" : {
+        "type" : "object"
+      },
+      "Client" : {
+        "type" : "object"
+      },
+      "SouscriptionVelo" : {
+        "type" : "object",
+        "properties" : {
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
+          },
+          "risque" : {
+            "$ref" : "#/components/schemas/Velo"
+          },
+          "tarif" : {
+            "$ref" : "#/components/schemas/TarifVelo"
+          }
+        }
+      },
       "TarifVelo" : {
         "type" : "object",
         "properties" : {
@@ -82,20 +163,6 @@
           "montant" : {
             "type" : "number",
             "format" : "float"
-          }
-        }
-      },
-      "Personne" : {
-        "type" : "object"
-      },
-      "SouscriptionVelo" : {
-        "type" : "object",
-        "properties" : {
-          "personne" : {
-            "$ref" : "#/components/schemas/Personne"
-          },
-          "objetDuRisque" : {
-            "$ref" : "#/components/schemas/Velo"
           }
         }
       },
@@ -116,19 +183,22 @@
           }
         }
       },
-      "ContratVelo" : {
+      "DebutParcoursVelo" : {
         "type" : "object",
         "properties" : {
-          "numero" : {
-            "type" : "string"
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
           },
-          "personne" : {
-            "$ref" : "#/components/schemas/Personne"
-          },
-          "objet" : {
+          "risque" : {
             "$ref" : "#/components/schemas/Velo"
+          },
+          "tarif" : {
+            "$ref" : "#/components/schemas/TarifVelo"
           }
         }
+      },
+      "DemandeDeTarif" : {
+        "type" : "object"
       }
     }
   }
