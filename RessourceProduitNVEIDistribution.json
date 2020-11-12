@@ -13,33 +13,6 @@
     }
   },
   "paths" : {
-    "/nvei/offre" : {
-      "post" : {
-        "description" : "- Consulter l'offre (wording, visuels)",
-        "operationId" : "offre",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/Produit"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Offre"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/nvei/documents" : {
       "post" : {
         "description" : "Demande d'IPID (DIPA) / FIP / NI",
@@ -97,6 +70,33 @@
         }
       }
     },
+    "/nvei/offre" : {
+      "post" : {
+        "description" : "Consulter l'offre (wording, visuels)",
+        "operationId" : "offre",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Produit"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Offre"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/nvei/tarif" : {
       "post" : {
         "description" : "Demande de tarif",
@@ -127,13 +127,10 @@
   },
   "components" : {
     "schemas" : {
-      "Offre" : {
+      "Document" : {
         "type" : "object"
       },
       "Produit" : {
-        "type" : "object"
-      },
-      "Document" : {
         "type" : "object"
       },
       "Client" : {
@@ -194,6 +191,9 @@
             "$ref" : "#/components/schemas/TarifNVEI"
           }
         }
+      },
+      "Offre" : {
+        "type" : "object"
       },
       "DemandeDeTarif" : {
         "type" : "object"
