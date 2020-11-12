@@ -1,7 +1,7 @@
 {
   "openapi" : "3.0.1",
   "info" : {
-    "title" : "Produit d'assurance nvei",
+    "title" : "Aassurance nvei",
     "description" : "",
     "termsOfService" : "http://swagger.io/terms/",
     "contact" : {
@@ -13,89 +13,9 @@
     }
   },
   "paths" : {
-    "/nvei/pre-souscription" : {
-      "post" : {
-        "description" : "Informe d'un début de parcours de souscription ",
-        "operationId" : "preSouscription",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DebutParcoursNVEI"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/SouscriptionNVEI"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/nvei/offre" : {
-      "post" : {
-        "description" : "Consulter l'offre (wording, visuels)",
-        "operationId" : "offre",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/Produit"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Offre"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/nvei/tarif" : {
-      "post" : {
-        "description" : "Demande de tarif",
-        "operationId" : "tarif",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeDeTarif"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/TarifNVEI"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/nvei/documents" : {
       "post" : {
+        "tags" : [ "Aassurance nvei" ],
         "description" : "Demande d'IPID (DIPA) / FIP / NI",
         "operationId" : "documents",
         "requestBody" : {
@@ -123,10 +43,119 @@
           }
         }
       }
+    },
+    "/nvei/offre" : {
+      "post" : {
+        "tags" : [ "Aassurance nvei" ],
+        "description" : "Consulter l'offre (wording, visuels)",
+        "operationId" : "offre",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Produit"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Offre"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/nvei/tarif" : {
+      "post" : {
+        "tags" : [ "Aassurance nvei" ],
+        "description" : "Demande de tarif",
+        "operationId" : "tarif",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeDeTarif"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TarifNVEI"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/nvei/pre-souscription" : {
+      "post" : {
+        "tags" : [ "Aassurance nvei" ],
+        "description" : "Informe d'un début de parcours de souscription ",
+        "operationId" : "preSouscription",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DebutParcoursNVEI"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SouscriptionNVEI"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components" : {
     "schemas" : {
+      "Document" : {
+        "type" : "object"
+      },
+      "Produit" : {
+        "type" : "object"
+      },
+      "Offre" : {
+        "type" : "object"
+      },
+      "TarifNVEI" : {
+        "type" : "object",
+        "properties" : {
+          "periode" : {
+            "type" : "string",
+            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      },
+      "DemandeDeTarif" : {
+        "type" : "object"
+      },
       "Client" : {
         "type" : "object"
       },
@@ -159,19 +188,6 @@
           }
         }
       },
-      "TarifNVEI" : {
-        "type" : "object",
-        "properties" : {
-          "periode" : {
-            "type" : "string",
-            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
-          },
-          "montant" : {
-            "type" : "number",
-            "format" : "float"
-          }
-        }
-      },
       "DebutParcoursNVEI" : {
         "type" : "object",
         "properties" : {
@@ -185,18 +201,6 @@
             "$ref" : "#/components/schemas/TarifNVEI"
           }
         }
-      },
-      "Offre" : {
-        "type" : "object"
-      },
-      "Produit" : {
-        "type" : "object"
-      },
-      "DemandeDeTarif" : {
-        "type" : "object"
-      },
-      "Document" : {
-        "type" : "object"
       }
     }
   }
