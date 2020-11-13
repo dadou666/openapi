@@ -1,178 +1,56 @@
 {
-  "openapi" : "3.0.1",
-  "info" : {
-    "title" : "Recouvrement d'assurance de nvei",
-    "description" : "",
-    "termsOfService" : "http://swagger.io/terms/",
-    "contact" : {
-      "email" : "apiteam@swagger.io"
-    },
-    "license" : {
-      "name" : "Apache 2.0",
-      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
-    }
-  },
-  "paths" : {
-    "/nvei/prime" : {
-      "post" : {
-        "tags" : [ "Recouvrement d'assurance de nvei" ],
-        "description" : "Demande d'informations sur le recouvrement ou le reversement d'une prime",
-        "operationId" : "prime",
-        "requestBody" : {
-          "description" : "Demande d'information",
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationPrimesNVEI"
-              }
-            }
-          },
-          "required" : true
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Prime"
+    "post": {
+        "requestBody": {
+            "content": {
+                "*/*": {
+                    "schema": {
+                        "$ref": "#/components/schemas/DemandeInformationPrimesNVEI"
+                    },
+                    "examples": {
+                        "exemple1": {
+                            "value": {
+                                "contrat": {
+                                    "numero": "some text",
+                                    "client": {
+                                        "nom": "some text",
+                                        "prenom": "some text",
+                                        "dateDeNaissance": "2018-02-10T09:30Z"
+                                    },
+                                    "objet": {
+                                        "type": "Giropode",
+                                        "marque": "some text",
+                                        "modele": "some text"
+                                    }
+                                },
+                                "sens": "some text",
+                                "evenement": "some text",
+                                "montant": 73.06,
+                                "periode": "Mensuel"
+                            }
+                        }
+                    }
                 }
-              }
             }
-          }
-        }
-      }
-    },
-    "/nvei/impaye" : {
-      "post" : {
-        "tags" : [ "Recouvrement d'assurance de nvei" ],
-        "description" : "Demande d'informations sur les impayés",
-        "operationId" : "impaye",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationPrimesNVEI"
-              }
-            }
-          }
         },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "$ref" : "#/components/schemas/Impaye"
-                  }
-                }
-              }
+        "tags": [
+            "Recouvrement d'assurance de nvei"
+        ],
+        "responses": {
+            "default": {
+                "content": {
+                    "*/*": {
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Impaye"
+                            }
+                        }
+                    }
+                },
+                "description": "default response"
             }
-          }
-        }
-      }
+        },
+        "operationId": "impaye",
+        "description": "Demande d'informations sur les impayés"
     }
-  },
-  "components" : {
-    "schemas" : {
-      "Prime" : {
-        "type" : "object",
-        "properties" : {
-          "dateEmmision" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "dateCreation" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "montant" : {
-            "type" : "number",
-            "format" : "float"
-          }
-        }
-      },
-      "Client" : {
-        "type" : "object",
-        "properties" : {
-          "nom" : {
-            "type" : "string"
-          },
-          "prenom" : {
-            "type" : "string"
-          },
-          "dateDeNaissance" : {
-            "type" : "string",
-            "format" : "date-time"
-          }
-        }
-      },
-      "ContratNVEI" : {
-        "type" : "object",
-        "properties" : {
-          "numero" : {
-            "type" : "string"
-          },
-          "client" : {
-            "$ref" : "#/components/schemas/Client"
-          },
-          "objet" : {
-            "$ref" : "#/components/schemas/NVEI"
-          }
-        }
-      },
-      "DemandeInformationPrimesNVEI" : {
-        "type" : "object",
-        "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratNVEI"
-          },
-          "sens" : {
-            "type" : "string"
-          },
-          "evenement" : {
-            "type" : "string"
-          },
-          "montant" : {
-            "type" : "number",
-            "format" : "float"
-          },
-          "periode" : {
-            "type" : "string",
-            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
-          }
-        }
-      },
-      "NVEI" : {
-        "type" : "object",
-        "properties" : {
-          "type" : {
-            "type" : "string",
-            "enum" : [ "Giropode", "Overboard", "Trotinette" ]
-          },
-          "marque" : {
-            "type" : "string"
-          },
-          "modele" : {
-            "type" : "string"
-          }
-        }
-      },
-      "Impaye" : {
-        "type" : "object",
-        "properties" : {
-          "dateDemande" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "montant" : {
-            "type" : "number",
-            "format" : "float"
-          }
-        }
-      }
-    }
-  }
 }
