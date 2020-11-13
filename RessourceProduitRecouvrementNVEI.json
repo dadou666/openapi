@@ -21,7 +21,7 @@
         "requestBody" : {
           "description" : "Demande d'information",
           "content" : {
-            "application/json" : {
+            "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/DemandeInformationPrimesNVEI"
               },  "examples": { }
