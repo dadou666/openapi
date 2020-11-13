@@ -13,6 +13,34 @@
     }
   },
   "paths" : {
+    "/animaux-compagnie/souscription" : {
+      "post" : {
+        "tags" : [ "Souscription d'assurance d'animaux de compagnie" ],
+        "description" : "Informe de la souscription ",
+        "operationId" : "preSouscription",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SouscriptionAnimal"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/animaux-compagnie/tarif" : {
       "post" : {
         "tags" : [ "Souscription d'assurance d'animaux de compagnie" ],
@@ -71,60 +99,10 @@
           }
         }
       }
-    },
-    "/animaux-compagnie/souscription" : {
-      "post" : {
-        "tags" : [ "Souscription d'assurance d'animaux de compagnie" ],
-        "description" : "Informe de la souscription ",
-        "operationId" : "preSouscription",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/SouscriptionAnimal"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components" : {
     "schemas" : {
-      "TarifAnimal" : {
-        "type" : "object",
-        "properties" : {
-          "periode" : {
-            "type" : "string",
-            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
-          },
-          "montant" : {
-            "type" : "number",
-            "format" : "float"
-          }
-        }
-      },
-      "DemandeDeTarif" : {
-        "type" : "object"
-      },
-      "Document" : {
-        "type" : "object"
-      },
-      "Produit" : {
-        "type" : "object"
-      },
       "Animal" : {
         "type" : "object",
         "properties" : {
@@ -183,6 +161,28 @@
             "$ref" : "#/components/schemas/TarifAnimal"
           }
         }
+      },
+      "TarifAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "periode" : {
+            "type" : "string",
+            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      },
+      "DemandeDeTarif" : {
+        "type" : "object"
+      },
+      "Document" : {
+        "type" : "object"
+      },
+      "Produit" : {
+        "type" : "object"
       }
     }
   }

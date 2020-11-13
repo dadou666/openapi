@@ -13,6 +13,62 @@
     }
   },
   "paths" : {
+    "/animaux-compagnie/offre" : {
+      "post" : {
+        "tags" : [ "Distribution assurance d'animaux de compagnie" ],
+        "description" : "Consulter l'offre (wording, visuels)",
+        "operationId" : "offre",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Produit"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Offre"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/animaux-compagnie/pre-souscription" : {
+      "post" : {
+        "tags" : [ "Distribution assurance d'animaux de compagnie" ],
+        "description" : "Informe d'un début de parcours de souscription ",
+        "operationId" : "preSouscription",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DebutParcoursAnimal"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SouscriptionAnimal"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/animaux-compagnie/tarif" : {
       "post" : {
         "tags" : [ "Distribution assurance d'animaux de compagnie" ],
@@ -71,89 +127,14 @@
           }
         }
       }
-    },
-    "/animaux-compagnie/offre" : {
-      "post" : {
-        "tags" : [ "Distribution assurance d'animaux de compagnie" ],
-        "description" : "Consulter l'offre (wording, visuels)",
-        "operationId" : "offre",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/Produit"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Offre"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/animaux-compagnie/pre-souscription" : {
-      "post" : {
-        "tags" : [ "Distribution assurance d'animaux de compagnie" ],
-        "description" : "Informe d'un début de parcours de souscription ",
-        "operationId" : "preSouscription",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DebutParcoursAnimal"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/SouscriptionAnimal"
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components" : {
     "schemas" : {
-      "TarifAnimal" : {
-        "type" : "object",
-        "properties" : {
-          "periode" : {
-            "type" : "string",
-            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
-          },
-          "montant" : {
-            "type" : "number",
-            "format" : "float"
-          }
-        }
-      },
-      "DemandeDeTarif" : {
-        "type" : "object"
-      },
-      "Document" : {
+      "Offre" : {
         "type" : "object"
       },
       "Produit" : {
-        "type" : "object"
-      },
-      "Offre" : {
         "type" : "object"
       },
       "Animal" : {
@@ -215,6 +196,19 @@
           }
         }
       },
+      "TarifAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "periode" : {
+            "type" : "string",
+            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      },
       "DebutParcoursAnimal" : {
         "type" : "object",
         "properties" : {
@@ -228,6 +222,12 @@
             "$ref" : "#/components/schemas/TarifAnimal"
           }
         }
+      },
+      "DemandeDeTarif" : {
+        "type" : "object"
+      },
+      "Document" : {
+        "type" : "object"
       }
     }
   }

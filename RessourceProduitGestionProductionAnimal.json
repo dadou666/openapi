@@ -13,16 +13,16 @@
     }
   },
   "paths" : {
-    "/animaux-compagnie/avenant" : {
+    "/animaux-compagnie/resiliation" : {
       "post" : {
         "tags" : [ "Gestion production d'assurance d'animaux de compagnie" ],
-        "description" : "Demande des modifications sur les adhésions",
-        "operationId" : "avenant",
+        "description" : "Demande d'informations sur  les résiliations contrats",
+        "operationId" : "resiliation",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationAvenantAnimal"
+                "$ref" : "#/components/schemas/DemandeInformationAnimal"
               }
             }
           }
@@ -33,7 +33,7 @@
             "content" : {
               "*/*" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/AvenantAnimal"
+                  "$ref" : "#/components/schemas/ResiliationAnimal"
                 }
               }
             }
@@ -97,16 +97,16 @@
         }
       }
     },
-    "/animaux-compagnie/resiliation" : {
+    "/animaux-compagnie/avenant" : {
       "post" : {
         "tags" : [ "Gestion production d'assurance d'animaux de compagnie" ],
-        "description" : "Demande d'informations sur  les résiliations contrats",
-        "operationId" : "resiliation",
+        "description" : "Demande des modifications sur les adhésions",
+        "operationId" : "avenant",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationAnimal"
+                "$ref" : "#/components/schemas/DemandeInformationAvenantAnimal"
               }
             }
           }
@@ -117,7 +117,7 @@
             "content" : {
               "*/*" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ResiliationAnimal"
+                  "$ref" : "#/components/schemas/AvenantAnimal"
                 }
               }
             }
@@ -138,21 +138,6 @@
           "dateNaissance" : {
             "type" : "string",
             "format" : "date-time"
-          }
-        }
-      },
-      "AvenantAnimal" : {
-        "type" : "object",
-        "properties" : {
-          "dateAvenant" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "contratAvant" : {
-            "$ref" : "#/components/schemas/ContratAnimal"
-          },
-          "contratApres" : {
-            "$ref" : "#/components/schemas/ContratAnimal"
           }
         }
       },
@@ -185,13 +170,26 @@
           }
         }
       },
-      "DemandeInformationAvenantAnimal" : {
+      "ResiliationAnimal" : {
         "type" : "object",
         "properties" : {
-          "contratAncien" : {
+          "contrat" : {
             "$ref" : "#/components/schemas/ContratAnimal"
           },
-          "contratNouveau" : {
+          "dateResiliation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "DemandeInformationAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
             "$ref" : "#/components/schemas/ContratAnimal"
           },
           "dateEffet" : {
@@ -273,29 +271,31 @@
           }
         }
       },
-      "DemandeInformationAnimal" : {
+      "AvenantAnimal" : {
         "type" : "object",
         "properties" : {
-          "contrat" : {
+          "dateAvenant" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "contratAvant" : {
             "$ref" : "#/components/schemas/ContratAnimal"
           },
-          "dateEffet" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "dateCreation" : {
-            "type" : "string",
-            "format" : "date-time"
+          "contratApres" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
           }
         }
       },
-      "ResiliationAnimal" : {
+      "DemandeInformationAvenantAnimal" : {
         "type" : "object",
         "properties" : {
-          "contrat" : {
+          "contratAncien" : {
             "$ref" : "#/components/schemas/ContratAnimal"
           },
-          "dateResiliation" : {
+          "contratNouveau" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
+          },
+          "dateEffet" : {
             "type" : "string",
             "format" : "date-time"
           },

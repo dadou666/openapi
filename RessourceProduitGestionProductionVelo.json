@@ -13,16 +13,16 @@
     }
   },
   "paths" : {
-    "/velo/avenant" : {
+    "/velo/resiliation" : {
       "post" : {
         "tags" : [ "Gestion production d'assurance de vélo" ],
-        "description" : "Demande des modifications sur les adhésions",
-        "operationId" : "avenant",
+        "description" : "Demande d'informations sur  les résiliations contrats",
+        "operationId" : "resiliation",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationAvenantVelo"
+                "$ref" : "#/components/schemas/DemandeInformationVelo"
               }
             }
           }
@@ -33,7 +33,7 @@
             "content" : {
               "*/*" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/AvenantVelo"
+                  "$ref" : "#/components/schemas/ResiliationVelo"
                 }
               }
             }
@@ -97,16 +97,16 @@
         }
       }
     },
-    "/velo/resiliation" : {
+    "/velo/avenant" : {
       "post" : {
         "tags" : [ "Gestion production d'assurance de vélo" ],
-        "description" : "Demande d'informations sur  les résiliations contrats",
-        "operationId" : "resiliation",
+        "description" : "Demande des modifications sur les adhésions",
+        "operationId" : "avenant",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationVelo"
+                "$ref" : "#/components/schemas/DemandeInformationAvenantVelo"
               }
             }
           }
@@ -117,7 +117,7 @@
             "content" : {
               "*/*" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ResiliationVelo"
+                  "$ref" : "#/components/schemas/AvenantVelo"
                 }
               }
             }
@@ -128,21 +128,6 @@
   },
   "components" : {
     "schemas" : {
-      "AvenantVelo" : {
-        "type" : "object",
-        "properties" : {
-          "dateAvenant" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "contratAvant" : {
-            "$ref" : "#/components/schemas/ContratVelo"
-          },
-          "contratApres" : {
-            "$ref" : "#/components/schemas/ContratVelo"
-          }
-        }
-      },
       "Client" : {
         "type" : "object",
         "properties" : {
@@ -172,6 +157,22 @@
           }
         }
       },
+      "ResiliationVelo" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratVelo"
+          },
+          "dateResiliation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
       "Velo" : {
         "type" : "object",
         "properties" : {
@@ -189,13 +190,10 @@
           }
         }
       },
-      "DemandeInformationAvenantVelo" : {
+      "DemandeInformationVelo" : {
         "type" : "object",
         "properties" : {
-          "contratAncien" : {
-            "$ref" : "#/components/schemas/ContratVelo"
-          },
-          "contratNouveau" : {
+          "contrat" : {
             "$ref" : "#/components/schemas/ContratVelo"
           },
           "dateEffet" : {
@@ -277,29 +275,31 @@
           }
         }
       },
-      "DemandeInformationVelo" : {
+      "AvenantVelo" : {
         "type" : "object",
         "properties" : {
-          "contrat" : {
+          "dateAvenant" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "contratAvant" : {
             "$ref" : "#/components/schemas/ContratVelo"
           },
-          "dateEffet" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "dateCreation" : {
-            "type" : "string",
-            "format" : "date-time"
+          "contratApres" : {
+            "$ref" : "#/components/schemas/ContratVelo"
           }
         }
       },
-      "ResiliationVelo" : {
+      "DemandeInformationAvenantVelo" : {
         "type" : "object",
         "properties" : {
-          "contrat" : {
+          "contratAncien" : {
             "$ref" : "#/components/schemas/ContratVelo"
           },
-          "dateResiliation" : {
+          "contratNouveau" : {
+            "$ref" : "#/components/schemas/ContratVelo"
+          },
+          "dateEffet" : {
             "type" : "string",
             "format" : "date-time"
           },
