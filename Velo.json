@@ -13,6 +13,34 @@
     }
   },
   "paths" : {
+    "/velo/distribution/offre" : {
+      "post" : {
+        "tags" : [ "Distribution" ],
+        "description" : "Consulter l'offre (wording, visuels)",
+        "operationId" : "offre",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Produit"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Offre"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/velo/distribution/documents" : {
       "post" : {
         "tags" : [ "Distribution" ],
@@ -100,39 +128,11 @@
         }
       }
     },
-    "/velo/distribution/offre" : {
-      "post" : {
-        "tags" : [ "Distribution" ],
-        "description" : "Consulter l'offre (wording, visuels)",
-        "operationId" : "offre",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/Produit"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Offre"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/velo/gestion-production/resiliation" : {
+    "/velo/gestion-production/annulation" : {
       "post" : {
         "tags" : [ "Gestion production" ],
-        "description" : "Demande d'informations sur  les résiliations contrats",
-        "operationId" : "resiliation",
+        "description" : "Demande d'informations sur les annulations contrats",
+        "operationId" : "annulation",
         "requestBody" : {
           "content" : {
             "*/*" : {
@@ -148,7 +148,7 @@
             "content" : {
               "*/*" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ResiliationVelo"
+                  "$ref" : "#/components/schemas/AnnulationVelo"
                 }
               }
             }
@@ -184,6 +184,34 @@
         }
       }
     },
+    "/velo/gestion-production/resiliation" : {
+      "post" : {
+        "tags" : [ "Gestion production" ],
+        "description" : "Demande d'informations sur  les résiliations contrats",
+        "operationId" : "resiliation",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationVelo"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResiliationVelo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/velo/gestion-production/avenant" : {
       "post" : {
         "tags" : [ "Gestion production" ],
@@ -205,34 +233,6 @@
               "*/*" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/AvenantVelo"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/velo/gestion-production/annulation" : {
-      "post" : {
-        "tags" : [ "Gestion production" ],
-        "description" : "Demande d'informations sur les annulations contrats",
-        "operationId" : "annulation",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationVelo"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/AnnulationVelo"
                 }
               }
             }
@@ -324,36 +324,6 @@
         }
       }
     },
-    "/velo/recouvrement/prime" : {
-      "post" : {
-        "tags" : [ "Recouvrement" ],
-        "description" : "Demande d'informations sur le recouvrement ou le reversement d'une prime",
-        "operationId" : "prime",
-        "requestBody" : {
-          "description" : "Demande d'information",
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationPrimesVelo"
-              }
-            }
-          },
-          "required" : true
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Prime"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/velo/recouvrement/impaye" : {
       "post" : {
         "tags" : [ "Recouvrement" ],
@@ -385,19 +355,21 @@
         }
       }
     },
-    "/velo/souscription/tarif" : {
+    "/velo/recouvrement/prime" : {
       "post" : {
-        "tags" : [ "Souscription" ],
-        "description" : "Demande de tarif",
-        "operationId" : "souscritionTarif",
+        "tags" : [ "Recouvrement" ],
+        "description" : "Demande d'informations sur le recouvrement ou le reversement d'une prime",
+        "operationId" : "prime",
         "requestBody" : {
+          "description" : "Demande d'information",
           "content" : {
-            "*/*" : {
+            "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/DemandeDeTarif"
+                "$ref" : "#/components/schemas/DemandeInformationPrimesVelo"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "default" : {
@@ -405,7 +377,7 @@
             "content" : {
               "*/*" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/TarifVelo"
+                  "$ref" : "#/components/schemas/Prime"
                 }
               }
             }
@@ -434,6 +406,34 @@
               "*/*" : {
                 "schema" : {
                   "type" : "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/velo/souscription/tarif" : {
+      "post" : {
+        "tags" : [ "Souscription" ],
+        "description" : "Demande de tarif",
+        "operationId" : "souscritionTarif",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeDeTarif"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TarifVelo"
                 }
               }
             }
@@ -475,10 +475,13 @@
   },
   "components" : {
     "schemas" : {
-      "Document" : {
+      "Offre" : {
         "type" : "object"
       },
       "Produit" : {
+        "type" : "object"
+      },
+      "Document" : {
         "type" : "object"
       },
       "Client" : {
@@ -574,8 +577,21 @@
       "DemandeDeTarif" : {
         "type" : "object"
       },
-      "Offre" : {
-        "type" : "object"
+      "AnnulationVelo" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratVelo"
+          },
+          "dateAnnulation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
       },
       "ContratVelo" : {
         "type" : "object",
@@ -588,22 +604,6 @@
           },
           "objet" : {
             "$ref" : "#/components/schemas/Velo"
-          }
-        }
-      },
-      "ResiliationVelo" : {
-        "type" : "object",
-        "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratVelo"
-          },
-          "dateResiliation" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "dateCreation" : {
-            "type" : "string",
-            "format" : "date-time"
           }
         }
       },
@@ -676,6 +676,22 @@
           }
         }
       },
+      "ResiliationVelo" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratVelo"
+          },
+          "dateResiliation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
       "AvenantVelo" : {
         "type" : "object",
         "properties" : {
@@ -701,22 +717,6 @@
             "$ref" : "#/components/schemas/ContratVelo"
           },
           "dateEffet" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "dateCreation" : {
-            "type" : "string",
-            "format" : "date-time"
-          }
-        }
-      },
-      "AnnulationVelo" : {
-        "type" : "object",
-        "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratVelo"
-          },
-          "dateAnnulation" : {
             "type" : "string",
             "format" : "date-time"
           },
