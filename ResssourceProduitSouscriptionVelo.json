@@ -13,34 +13,6 @@
     }
   },
   "paths" : {
-    "/velo/souscription" : {
-      "post" : {
-        "tags" : [ "Souscription d'assurance de vélo" ],
-        "description" : "Informe de la souscription ",
-        "operationId" : "preSouscription",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/SouscriptionVelo"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/velo/tarif" : {
       "post" : {
         "tags" : [ "Souscription d'assurance de vélo" ],
@@ -62,6 +34,34 @@
               "*/*" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/TarifVelo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/velo/souscription" : {
+      "post" : {
+        "tags" : [ "Souscription d'assurance de vélo" ],
+        "description" : "Informe de la souscription ",
+        "operationId" : "preSouscription",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SouscriptionVelo"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "string"
                 }
               }
             }
@@ -103,6 +103,22 @@
   },
   "components" : {
     "schemas" : {
+      "TarifVelo" : {
+        "type" : "object",
+        "properties" : {
+          "periode" : {
+            "type" : "string",
+            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      },
+      "DemandeDeTarif" : {
+        "type" : "object"
+      },
       "Client" : {
         "type" : "object",
         "properties" : {
@@ -149,19 +165,6 @@
           }
         }
       },
-      "TarifVelo" : {
-        "type" : "object",
-        "properties" : {
-          "periode" : {
-            "type" : "string",
-            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
-          },
-          "montant" : {
-            "type" : "number",
-            "format" : "float"
-          }
-        }
-      },
       "Velo" : {
         "type" : "object",
         "properties" : {
@@ -178,9 +181,6 @@
             "type" : "string"
           }
         }
-      },
-      "DemandeDeTarif" : {
-        "type" : "object"
       },
       "Document" : {
         "type" : "object"

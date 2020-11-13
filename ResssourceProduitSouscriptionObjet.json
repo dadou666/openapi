@@ -13,34 +13,6 @@
     }
   },
   "paths" : {
-    "/objet/souscription" : {
-      "post" : {
-        "tags" : [ "Souscription d'assurance de biens" ],
-        "description" : "Informe de la souscription ",
-        "operationId" : "preSouscription",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/SouscriptionObjet"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/objet/tarif" : {
       "post" : {
         "tags" : [ "Souscription d'assurance de biens" ],
@@ -62,6 +34,34 @@
               "*/*" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/TarifObjet"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/objet/souscription" : {
+      "post" : {
+        "tags" : [ "Souscription d'assurance de biens" ],
+        "description" : "Informe de la souscription ",
+        "operationId" : "preSouscription",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SouscriptionObjet"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "string"
                 }
               }
             }
@@ -103,6 +103,22 @@
   },
   "components" : {
     "schemas" : {
+      "TarifObjet" : {
+        "type" : "object",
+        "properties" : {
+          "periode" : {
+            "type" : "string",
+            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      },
+      "DemandeDeTarif" : {
+        "type" : "object"
+      },
       "Client" : {
         "type" : "object",
         "properties" : {
@@ -164,22 +180,6 @@
             "$ref" : "#/components/schemas/TarifObjet"
           }
         }
-      },
-      "TarifObjet" : {
-        "type" : "object",
-        "properties" : {
-          "periode" : {
-            "type" : "string",
-            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
-          },
-          "montant" : {
-            "type" : "number",
-            "format" : "float"
-          }
-        }
-      },
-      "DemandeDeTarif" : {
-        "type" : "object"
       },
       "Document" : {
         "type" : "object"

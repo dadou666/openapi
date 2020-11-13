@@ -13,34 +13,6 @@
     }
   },
   "paths" : {
-    "/animaux-compagnie/resiliation" : {
-      "post" : {
-        "tags" : [ "Gestion production d'assurance d'animaux de compagnie" ],
-        "description" : "Demande d'informations sur  les résiliations contrats",
-        "operationId" : "resiliation",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationAnimal"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ResiliationAnimal"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/animaux-compagnie/annulation" : {
       "post" : {
         "tags" : [ "Gestion production d'assurance d'animaux de compagnie" ],
@@ -62,6 +34,34 @@
               "*/*" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/AnnulationAnimal"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/animaux-compagnie/avenant" : {
+      "post" : {
+        "tags" : [ "Gestion production d'assurance d'animaux de compagnie" ],
+        "description" : "Demande des modifications sur les adhésions",
+        "operationId" : "avenant",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationAvenantAnimal"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AvenantAnimal"
                 }
               }
             }
@@ -97,16 +97,16 @@
         }
       }
     },
-    "/animaux-compagnie/avenant" : {
+    "/animaux-compagnie/resiliation" : {
       "post" : {
         "tags" : [ "Gestion production d'assurance d'animaux de compagnie" ],
-        "description" : "Demande des modifications sur les adhésions",
-        "operationId" : "avenant",
+        "description" : "Demande d'informations sur  les résiliations contrats",
+        "operationId" : "resiliation",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationAvenantAnimal"
+                "$ref" : "#/components/schemas/DemandeInformationAnimal"
               }
             }
           }
@@ -117,7 +117,7 @@
             "content" : {
               "*/*" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/AvenantAnimal"
+                  "$ref" : "#/components/schemas/ResiliationAnimal"
                 }
               }
             }
@@ -136,6 +136,22 @@
             "enum" : [ "Chien", "Chat" ]
           },
           "dateNaissance" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "AnnulationAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
+          },
+          "dateAnnulation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
             "type" : "string",
             "format" : "date-time"
           }
@@ -170,22 +186,6 @@
           }
         }
       },
-      "ResiliationAnimal" : {
-        "type" : "object",
-        "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratAnimal"
-          },
-          "dateResiliation" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "dateCreation" : {
-            "type" : "string",
-            "format" : "date-time"
-          }
-        }
-      },
       "DemandeInformationAnimal" : {
         "type" : "object",
         "properties" : {
@@ -202,13 +202,31 @@
           }
         }
       },
-      "AnnulationAnimal" : {
+      "AvenantAnimal" : {
         "type" : "object",
         "properties" : {
-          "contrat" : {
+          "dateAvenant" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "contratAvant" : {
             "$ref" : "#/components/schemas/ContratAnimal"
           },
-          "dateAnnulation" : {
+          "contratApres" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
+          }
+        }
+      },
+      "DemandeInformationAvenantAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "contratAncien" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
+          },
+          "contratNouveau" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
+          },
+          "dateEffet" : {
             "type" : "string",
             "format" : "date-time"
           },
@@ -271,31 +289,13 @@
           }
         }
       },
-      "AvenantAnimal" : {
+      "ResiliationAnimal" : {
         "type" : "object",
         "properties" : {
-          "dateAvenant" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "contratAvant" : {
+          "contrat" : {
             "$ref" : "#/components/schemas/ContratAnimal"
           },
-          "contratApres" : {
-            "$ref" : "#/components/schemas/ContratAnimal"
-          }
-        }
-      },
-      "DemandeInformationAvenantAnimal" : {
-        "type" : "object",
-        "properties" : {
-          "contratAncien" : {
-            "$ref" : "#/components/schemas/ContratAnimal"
-          },
-          "contratNouveau" : {
-            "$ref" : "#/components/schemas/ContratAnimal"
-          },
-          "dateEffet" : {
+          "dateResiliation" : {
             "type" : "string",
             "format" : "date-time"
           },

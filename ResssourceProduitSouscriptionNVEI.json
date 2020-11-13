@@ -13,34 +13,6 @@
     }
   },
   "paths" : {
-    "/nvei/souscription" : {
-      "post" : {
-        "tags" : [ "Souscription d'assurance de nvei" ],
-        "description" : "Informe de la souscription ",
-        "operationId" : "preSouscription",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/SouscriptionNVEI"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/nvei/tarif" : {
       "post" : {
         "tags" : [ "Souscription d'assurance de nvei" ],
@@ -62,6 +34,34 @@
               "*/*" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/TarifNVEI"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/nvei/souscription" : {
+      "post" : {
+        "tags" : [ "Souscription d'assurance de nvei" ],
+        "description" : "Informe de la souscription ",
+        "operationId" : "preSouscription",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SouscriptionNVEI"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "string"
                 }
               }
             }
@@ -103,6 +103,22 @@
   },
   "components" : {
     "schemas" : {
+      "TarifNVEI" : {
+        "type" : "object",
+        "properties" : {
+          "periode" : {
+            "type" : "string",
+            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      },
+      "DemandeDeTarif" : {
+        "type" : "object"
+      },
       "Client" : {
         "type" : "object",
         "properties" : {
@@ -163,22 +179,6 @@
             "$ref" : "#/components/schemas/TarifNVEI"
           }
         }
-      },
-      "TarifNVEI" : {
-        "type" : "object",
-        "properties" : {
-          "periode" : {
-            "type" : "string",
-            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
-          },
-          "montant" : {
-            "type" : "number",
-            "format" : "float"
-          }
-        }
-      },
-      "DemandeDeTarif" : {
-        "type" : "object"
       },
       "Document" : {
         "type" : "object"

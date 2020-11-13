@@ -13,34 +13,6 @@
     }
   },
   "paths" : {
-    "/nvei/resiliation" : {
-      "post" : {
-        "tags" : [ "Gestion production d'assurance de nvei" ],
-        "description" : "Demande d'informations sur  les résiliations contrats",
-        "operationId" : "resiliation",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationVelo"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ResiliationVelo"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/nvei/annulation" : {
       "post" : {
         "tags" : [ "Gestion production d'assurance de nvei" ],
@@ -62,6 +34,34 @@
               "*/*" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/AnnulationVelo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/nvei/avenant" : {
+      "post" : {
+        "tags" : [ "Gestion production d'assurance de nvei" ],
+        "description" : "Demande des modifications sur les adhésions",
+        "operationId" : "avenant",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationAvenantVelo"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AvenantVelo"
                 }
               }
             }
@@ -97,16 +97,16 @@
         }
       }
     },
-    "/nvei/avenant" : {
+    "/nvei/resiliation" : {
       "post" : {
         "tags" : [ "Gestion production d'assurance de nvei" ],
-        "description" : "Demande des modifications sur les adhésions",
-        "operationId" : "avenant",
+        "description" : "Demande d'informations sur  les résiliations contrats",
+        "operationId" : "resiliation",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationAvenantVelo"
+                "$ref" : "#/components/schemas/DemandeInformationVelo"
               }
             }
           }
@@ -117,7 +117,7 @@
             "content" : {
               "*/*" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/AvenantVelo"
+                  "$ref" : "#/components/schemas/ResiliationVelo"
                 }
               }
             }
@@ -128,6 +128,22 @@
   },
   "components" : {
     "schemas" : {
+      "AnnulationVelo" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratVelo"
+          },
+          "dateAnnulation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
       "Client" : {
         "type" : "object",
         "properties" : {
@@ -154,22 +170,6 @@
           },
           "objet" : {
             "$ref" : "#/components/schemas/Velo"
-          }
-        }
-      },
-      "ResiliationVelo" : {
-        "type" : "object",
-        "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratVelo"
-          },
-          "dateResiliation" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "dateCreation" : {
-            "type" : "string",
-            "format" : "date-time"
           }
         }
       },
@@ -206,13 +206,31 @@
           }
         }
       },
-      "AnnulationVelo" : {
+      "AvenantVelo" : {
         "type" : "object",
         "properties" : {
-          "contrat" : {
+          "dateAvenant" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "contratAvant" : {
             "$ref" : "#/components/schemas/ContratVelo"
           },
-          "dateAnnulation" : {
+          "contratApres" : {
+            "$ref" : "#/components/schemas/ContratVelo"
+          }
+        }
+      },
+      "DemandeInformationAvenantVelo" : {
+        "type" : "object",
+        "properties" : {
+          "contratAncien" : {
+            "$ref" : "#/components/schemas/ContratVelo"
+          },
+          "contratNouveau" : {
+            "$ref" : "#/components/schemas/ContratVelo"
+          },
+          "dateEffet" : {
             "type" : "string",
             "format" : "date-time"
           },
@@ -275,31 +293,13 @@
           }
         }
       },
-      "AvenantVelo" : {
+      "ResiliationVelo" : {
         "type" : "object",
         "properties" : {
-          "dateAvenant" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "contratAvant" : {
+          "contrat" : {
             "$ref" : "#/components/schemas/ContratVelo"
           },
-          "contratApres" : {
-            "$ref" : "#/components/schemas/ContratVelo"
-          }
-        }
-      },
-      "DemandeInformationAvenantVelo" : {
-        "type" : "object",
-        "properties" : {
-          "contratAncien" : {
-            "$ref" : "#/components/schemas/ContratVelo"
-          },
-          "contratNouveau" : {
-            "$ref" : "#/components/schemas/ContratVelo"
-          },
-          "dateEffet" : {
+          "dateResiliation" : {
             "type" : "string",
             "format" : "date-time"
           },

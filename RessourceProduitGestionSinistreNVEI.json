@@ -13,34 +13,6 @@
     }
   },
   "paths" : {
-    "/nvei/ouverture" : {
-      "post" : {
-        "tags" : [ "Gestion sinistre d'assurance de nvei" ],
-        "description" : "Demande d'informations sur les nouveaux sinistres",
-        "operationId" : "ouverture",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/OuvertureSinistreNVEI"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Ouverture"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/nvei/cloture" : {
       "post" : {
         "tags" : [ "Gestion sinistre d'assurance de nvei" ],
@@ -62,6 +34,34 @@
               "*/*" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/Cloture"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/nvei/ouverture" : {
+      "post" : {
+        "tags" : [ "Gestion sinistre d'assurance de nvei" ],
+        "description" : "Demande d'informations sur les nouveaux sinistres",
+        "operationId" : "ouverture",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OuvertureSinistreNVEI"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Ouverture"
                 }
               }
             }
@@ -115,60 +115,6 @@
           }
         }
       },
-      "ContratRisque" : {
-        "type" : "object",
-        "properties" : {
-          "numero" : {
-            "type" : "string"
-          },
-          "client" : {
-            "$ref" : "#/components/schemas/Client"
-          },
-          "objet" : {
-            "$ref" : "#/components/schemas/Risque"
-          }
-        }
-      },
-      "Ouverture" : {
-        "type" : "object",
-        "properties" : {
-          "sinistre" : {
-            "$ref" : "#/components/schemas/Sinistre"
-          }
-        }
-      },
-      "Risque" : {
-        "type" : "object"
-      },
-      "Sinistre" : {
-        "type" : "object",
-        "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratRisque"
-          },
-          "dateSinistre" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "numero" : {
-            "type" : "string"
-          }
-        }
-      },
-      "Evaluation" : {
-        "type" : "object"
-      },
-      "OuvertureSinistreNVEI" : {
-        "type" : "object",
-        "properties" : {
-          "evaluation" : {
-            "$ref" : "#/components/schemas/Evaluation"
-          },
-          "sinistre" : {
-            "$ref" : "#/components/schemas/Sinistre"
-          }
-        }
-      },
       "Cloture" : {
         "type" : "object",
         "properties" : {
@@ -183,6 +129,23 @@
             "type" : "string"
           }
         }
+      },
+      "ContratRisque" : {
+        "type" : "object",
+        "properties" : {
+          "numero" : {
+            "type" : "string"
+          },
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
+          },
+          "objet" : {
+            "$ref" : "#/components/schemas/Risque"
+          }
+        }
+      },
+      "Risque" : {
+        "type" : "object"
       },
       "SinistreRisque" : {
         "type" : "object",
@@ -251,6 +214,43 @@
           },
           "numero" : {
             "type" : "string"
+          }
+        }
+      },
+      "Ouverture" : {
+        "type" : "object",
+        "properties" : {
+          "sinistre" : {
+            "$ref" : "#/components/schemas/Sinistre"
+          }
+        }
+      },
+      "Sinistre" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratRisque"
+          },
+          "dateSinistre" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "numero" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Evaluation" : {
+        "type" : "object"
+      },
+      "OuvertureSinistreNVEI" : {
+        "type" : "object",
+        "properties" : {
+          "evaluation" : {
+            "$ref" : "#/components/schemas/Evaluation"
+          },
+          "sinistre" : {
+            "$ref" : "#/components/schemas/Sinistre"
           }
         }
       },

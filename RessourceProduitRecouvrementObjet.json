@@ -19,6 +19,7 @@
         "description" : "Demande d'informations sur le recouvrement ou le reversement d'une prime",
         "operationId" : "preSouscription",
         "requestBody" : {
+          "description" : "Demande d'information",
           "content" : {
             "application/json" : {
               "schema" : {

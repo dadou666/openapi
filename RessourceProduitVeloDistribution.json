@@ -13,34 +13,6 @@
     }
   },
   "paths" : {
-    "/velo/pre-souscription" : {
-      "post" : {
-        "tags" : [ "Distribution assurance de vélo" ],
-        "description" : "Informe d'un début de parcours de souscription ",
-        "operationId" : "preSouscription",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DebutParcoursVelo"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/SouscriptionVelo"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/velo/tarif" : {
       "post" : {
         "tags" : [ "Distribution assurance de vélo" ],
@@ -62,6 +34,62 @@
               "*/*" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/TarifVelo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/velo/offre" : {
+      "post" : {
+        "tags" : [ "Distribution assurance de vélo" ],
+        "description" : "Consulter l'offre (wording, visuels)",
+        "operationId" : "offre",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Produit"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Offre"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/velo/pre-souscription" : {
+      "post" : {
+        "tags" : [ "Distribution assurance de vélo" ],
+        "description" : "Informe d'un début de parcours de souscription ",
+        "operationId" : "preSouscription",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DebutParcoursVelo"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SouscriptionVelo"
                 }
               }
             }
@@ -99,38 +127,32 @@
           }
         }
       }
-    },
-    "/velo/offre" : {
-      "post" : {
-        "tags" : [ "Distribution assurance de vélo" ],
-        "description" : "Consulter l'offre (wording, visuels)",
-        "operationId" : "offre",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/Produit"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Offre"
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components" : {
     "schemas" : {
+      "TarifVelo" : {
+        "type" : "object",
+        "properties" : {
+          "periode" : {
+            "type" : "string",
+            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      },
+      "DemandeDeTarif" : {
+        "type" : "object"
+      },
+      "Offre" : {
+        "type" : "object"
+      },
+      "Produit" : {
+        "type" : "object"
+      },
       "Client" : {
         "type" : "object",
         "properties" : {
@@ -177,19 +199,6 @@
           }
         }
       },
-      "TarifVelo" : {
-        "type" : "object",
-        "properties" : {
-          "periode" : {
-            "type" : "string",
-            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
-          },
-          "montant" : {
-            "type" : "number",
-            "format" : "float"
-          }
-        }
-      },
       "Velo" : {
         "type" : "object",
         "properties" : {
@@ -221,16 +230,7 @@
           }
         }
       },
-      "DemandeDeTarif" : {
-        "type" : "object"
-      },
       "Document" : {
-        "type" : "object"
-      },
-      "Produit" : {
-        "type" : "object"
-      },
-      "Offre" : {
         "type" : "object"
       }
     }
