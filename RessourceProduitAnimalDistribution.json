@@ -41,34 +41,6 @@
         }
       }
     },
-    "/animaux-compagnie/offre" : {
-      "post" : {
-        "tags" : [ "Distribution assurance d'animaux de compagnie" ],
-        "description" : "Consulter l'offre (wording, visuels)",
-        "operationId" : "offre",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/Produit"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Offre"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/animaux-compagnie/pre-souscription" : {
       "post" : {
         "tags" : [ "Distribution assurance d'animaux de compagnie" ],
@@ -127,6 +99,34 @@
           }
         }
       }
+    },
+    "/animaux-compagnie/offre" : {
+      "post" : {
+        "tags" : [ "Distribution assurance d'animaux de compagnie" ],
+        "description" : "Consulter l'offre (wording, visuels)",
+        "operationId" : "offre",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Produit"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Offre"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components" : {
@@ -145,12 +145,6 @@
         }
       },
       "DemandeDeTarif" : {
-        "type" : "object"
-      },
-      "Offre" : {
-        "type" : "object"
-      },
-      "Produit" : {
         "type" : "object"
       },
       "Animal" : {
@@ -227,6 +221,12 @@
         }
       },
       "Document" : {
+        "type" : "object"
+      },
+      "Produit" : {
+        "type" : "object"
+      },
+      "Offre" : {
         "type" : "object"
       }
     }

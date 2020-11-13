@@ -13,34 +13,6 @@
     }
   },
   "paths" : {
-    "/objet/annulation" : {
-      "post" : {
-        "tags" : [ "Gestion production d'assurance de biens" ],
-        "description" : "Demande d'informations sur les annulations contrats",
-        "operationId" : "annulation",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationObjet"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/AnnulationObjet"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/objet/avenant" : {
       "post" : {
         "tags" : [ "Gestion production d'assurance de biens" ],
@@ -124,23 +96,50 @@
           }
         }
       }
+    },
+    "/objet/annulation" : {
+      "post" : {
+        "tags" : [ "Gestion production d'assurance de biens" ],
+        "description" : "Demande d'informations sur les annulations contrats",
+        "operationId" : "annulation",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationObjet"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AnnulationObjet"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components" : {
     "schemas" : {
-      "AnnulationObjet" : {
+      "AvenantObjet" : {
         "type" : "object",
         "properties" : {
-          "contrat" : {
+          "dateAvenant" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "contratAvant" : {
             "$ref" : "#/components/schemas/ContratObjet"
           },
-          "dateAnnulation" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "dateCreation" : {
-            "type" : "string",
-            "format" : "date-time"
+          "contratApres" : {
+            "$ref" : "#/components/schemas/ContratObjet"
           }
         }
       },
@@ -186,37 +185,6 @@
           "prix" : {
             "type" : "number",
             "format" : "float"
-          }
-        }
-      },
-      "DemandeInformationObjet" : {
-        "type" : "object",
-        "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratObjet"
-          },
-          "dateEffet" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "dateCreation" : {
-            "type" : "string",
-            "format" : "date-time"
-          }
-        }
-      },
-      "AvenantObjet" : {
-        "type" : "object",
-        "properties" : {
-          "dateAvenant" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "contratAvant" : {
-            "$ref" : "#/components/schemas/ContratObjet"
-          },
-          "contratApres" : {
-            "$ref" : "#/components/schemas/ContratObjet"
           }
         }
       },
@@ -299,6 +267,38 @@
             "$ref" : "#/components/schemas/ContratObjet"
           },
           "dateResiliation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "DemandeInformationObjet" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratObjet"
+          },
+          "dateEffet" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "AnnulationObjet" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratObjet"
+          },
+          "dateAnnulation" : {
             "type" : "string",
             "format" : "date-time"
           },

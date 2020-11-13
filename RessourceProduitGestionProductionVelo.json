@@ -13,34 +13,6 @@
     }
   },
   "paths" : {
-    "/velo/annulation" : {
-      "post" : {
-        "tags" : [ "Gestion production d'assurance de vélo" ],
-        "description" : "Demande d'informations sur les annulations contrats",
-        "operationId" : "annulation",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationVelo"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/AnnulationVelo"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/velo/avenant" : {
       "post" : {
         "tags" : [ "Gestion production d'assurance de vélo" ],
@@ -124,23 +96,50 @@
           }
         }
       }
+    },
+    "/velo/annulation" : {
+      "post" : {
+        "tags" : [ "Gestion production d'assurance de vélo" ],
+        "description" : "Demande d'informations sur les annulations contrats",
+        "operationId" : "annulation",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationVelo"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AnnulationVelo"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components" : {
     "schemas" : {
-      "AnnulationVelo" : {
+      "AvenantVelo" : {
         "type" : "object",
         "properties" : {
-          "contrat" : {
+          "dateAvenant" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "contratAvant" : {
             "$ref" : "#/components/schemas/ContratVelo"
           },
-          "dateAnnulation" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "dateCreation" : {
-            "type" : "string",
-            "format" : "date-time"
+          "contratApres" : {
+            "$ref" : "#/components/schemas/ContratVelo"
           }
         }
       },
@@ -187,37 +186,6 @@
           },
           "numeroAntiVol" : {
             "type" : "string"
-          }
-        }
-      },
-      "DemandeInformationVelo" : {
-        "type" : "object",
-        "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratVelo"
-          },
-          "dateEffet" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "dateCreation" : {
-            "type" : "string",
-            "format" : "date-time"
-          }
-        }
-      },
-      "AvenantVelo" : {
-        "type" : "object",
-        "properties" : {
-          "dateAvenant" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "contratAvant" : {
-            "$ref" : "#/components/schemas/ContratVelo"
-          },
-          "contratApres" : {
-            "$ref" : "#/components/schemas/ContratVelo"
           }
         }
       },
@@ -300,6 +268,38 @@
             "$ref" : "#/components/schemas/ContratVelo"
           },
           "dateResiliation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "DemandeInformationVelo" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratVelo"
+          },
+          "dateEffet" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "AnnulationVelo" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratVelo"
+          },
+          "dateAnnulation" : {
             "type" : "string",
             "format" : "date-time"
           },

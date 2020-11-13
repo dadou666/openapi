@@ -17,7 +17,7 @@
       "post" : {
         "tags" : [ "Recouvrement d'assurance d'animaux de compagnie" ],
         "description" : "Demande d'informations sur le recouvrement ou le reversement d'une prime",
-        "operationId" : "preSouscription",
+        "operationId" : "prime",
         "requestBody" : {
           "description" : "Demande d'information",
           "content" : {

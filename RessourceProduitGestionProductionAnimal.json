@@ -13,34 +13,6 @@
     }
   },
   "paths" : {
-    "/animaux-compagnie/annulation" : {
-      "post" : {
-        "tags" : [ "Gestion production d'assurance d'animaux de compagnie" ],
-        "description" : "Demande d'informations sur les annulations contrats",
-        "operationId" : "annulation",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationAnimal"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/AnnulationAnimal"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/animaux-compagnie/avenant" : {
       "post" : {
         "tags" : [ "Gestion production d'assurance d'animaux de compagnie" ],
@@ -124,6 +96,34 @@
           }
         }
       }
+    },
+    "/animaux-compagnie/annulation" : {
+      "post" : {
+        "tags" : [ "Gestion production d'assurance d'animaux de compagnie" ],
+        "description" : "Demande d'informations sur les annulations contrats",
+        "operationId" : "annulation",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationAnimal"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AnnulationAnimal"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components" : {
@@ -141,19 +141,18 @@
           }
         }
       },
-      "AnnulationAnimal" : {
+      "AvenantAnimal" : {
         "type" : "object",
         "properties" : {
-          "contrat" : {
+          "dateAvenant" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "contratAvant" : {
             "$ref" : "#/components/schemas/ContratAnimal"
           },
-          "dateAnnulation" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "dateCreation" : {
-            "type" : "string",
-            "format" : "date-time"
+          "contratApres" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
           }
         }
       },
@@ -183,37 +182,6 @@
           },
           "objet" : {
             "$ref" : "#/components/schemas/Animal"
-          }
-        }
-      },
-      "DemandeInformationAnimal" : {
-        "type" : "object",
-        "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratAnimal"
-          },
-          "dateEffet" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "dateCreation" : {
-            "type" : "string",
-            "format" : "date-time"
-          }
-        }
-      },
-      "AvenantAnimal" : {
-        "type" : "object",
-        "properties" : {
-          "dateAvenant" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "contratAvant" : {
-            "$ref" : "#/components/schemas/ContratAnimal"
-          },
-          "contratApres" : {
-            "$ref" : "#/components/schemas/ContratAnimal"
           }
         }
       },
@@ -296,6 +264,38 @@
             "$ref" : "#/components/schemas/ContratAnimal"
           },
           "dateResiliation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "DemandeInformationAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
+          },
+          "dateEffet" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "AnnulationAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
+          },
+          "dateAnnulation" : {
             "type" : "string",
             "format" : "date-time"
           },

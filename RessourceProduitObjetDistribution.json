@@ -41,34 +41,6 @@
         }
       }
     },
-    "/objet/offre" : {
-      "post" : {
-        "tags" : [ "Distribution assurance de biens" ],
-        "description" : "Consulter l'offre (wording, visuels)",
-        "operationId" : "offre",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/Produit"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Offre"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/objet/pre-souscription" : {
       "post" : {
         "tags" : [ "Distribution assurance de biens" ],
@@ -127,6 +99,34 @@
           }
         }
       }
+    },
+    "/objet/offre" : {
+      "post" : {
+        "tags" : [ "Distribution assurance de biens" ],
+        "description" : "Consulter l'offre (wording, visuels)",
+        "operationId" : "offre",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Produit"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Offre"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components" : {
@@ -145,12 +145,6 @@
         }
       },
       "DemandeDeTarif" : {
-        "type" : "object"
-      },
-      "Offre" : {
-        "type" : "object"
-      },
-      "Produit" : {
         "type" : "object"
       },
       "Client" : {
@@ -230,6 +224,12 @@
         }
       },
       "Document" : {
+        "type" : "object"
+      },
+      "Produit" : {
+        "type" : "object"
+      },
+      "Offre" : {
         "type" : "object"
       }
     }
