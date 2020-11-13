@@ -41,34 +41,6 @@
         }
       }
     },
-    "/velo/emission" : {
-      "post" : {
-        "tags" : [ "Gestion production d'assurance de vélo" ],
-        "description" : " Demande d'informations sur les primes",
-        "operationId" : "emission",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationPrimesVelo"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/EmissionVelo"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/velo/annulation" : {
       "post" : {
         "tags" : [ "Gestion production d'assurance de vélo" ],
@@ -90,6 +62,34 @@
               "*/*" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/AnnulationVelo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/velo/emission" : {
+      "post" : {
+        "tags" : [ "Gestion production d'assurance de vélo" ],
+        "description" : " Demande d'informations sur les primes",
+        "operationId" : "emission",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationPrimesVelo"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/EmissionVelo"
                 }
               }
             }
@@ -206,6 +206,22 @@
           }
         }
       },
+      "AnnulationVelo" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratVelo"
+          },
+          "dateAnnulation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
       "EmissionVelo" : {
         "type" : "object",
         "properties" : {
@@ -256,22 +272,6 @@
           "periode" : {
             "type" : "string",
             "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
-          }
-        }
-      },
-      "AnnulationVelo" : {
-        "type" : "object",
-        "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratVelo"
-          },
-          "dateAnnulation" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "dateCreation" : {
-            "type" : "string",
-            "format" : "date-time"
           }
         }
       },

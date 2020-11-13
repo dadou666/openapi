@@ -20,12 +20,13 @@
         "operationId" : "preSouscription",
         "requestBody" : {
           "content" : {
-            "*/*" : {
+            "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/DemandeInformationPrimesNVEI"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "default" : {

@@ -13,34 +13,6 @@
     }
   },
   "paths" : {
-    "/animaux-compagnie/reglement" : {
-      "post" : {
-        "tags" : [ "Gestion sinistre d'assurance d'animaux de compagnie" ],
-        "description" : "Demande d'informations sur les sinistres règlés",
-        "operationId" : "reglement",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeReglementAnimal"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Reglement"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/animaux-compagnie/ouverture" : {
       "post" : {
         "tags" : [ "Gestion sinistre d'assurance d'animaux de compagnie" ],
@@ -96,36 +68,38 @@
           }
         }
       }
+    },
+    "/animaux-compagnie/reglement" : {
+      "post" : {
+        "tags" : [ "Gestion sinistre d'assurance d'animaux de compagnie" ],
+        "description" : "Demande d'informations sur les sinistres règlés",
+        "operationId" : "reglement",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeReglementAnimal"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Reglement"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components" : {
     "schemas" : {
-      "Reglement" : {
-        "type" : "object",
-        "properties" : {
-          "montant" : {
-            "type" : "number",
-            "format" : "float"
-          },
-          "dateEffet" : {
-            "type" : "string",
-            "format" : "date-time"
-          }
-        }
-      },
-      "Animal" : {
-        "type" : "object",
-        "properties" : {
-          "typeAnimal" : {
-            "type" : "string",
-            "enum" : [ "Chien", "Chat" ]
-          },
-          "dateNaissance" : {
-            "type" : "string",
-            "format" : "date-time"
-          }
-        }
-      },
       "Client" : {
         "type" : "object",
         "properties" : {
@@ -138,77 +112,6 @@
           "dateDeNaissance" : {
             "type" : "string",
             "format" : "date-time"
-          }
-        }
-      },
-      "ContratAnimal" : {
-        "type" : "object",
-        "properties" : {
-          "numero" : {
-            "type" : "string"
-          },
-          "client" : {
-            "$ref" : "#/components/schemas/Client"
-          },
-          "objet" : {
-            "$ref" : "#/components/schemas/Animal"
-          }
-        }
-      },
-      "DemandeReglementAnimal" : {
-        "type" : "object",
-        "properties" : {
-          "sinistre" : {
-            "$ref" : "#/components/schemas/SinistreAnimal"
-          },
-          "nature" : {
-            "type" : "string"
-          },
-          "sens" : {
-            "type" : "string"
-          },
-          "destinataire" : {
-            "$ref" : "#/components/schemas/Personne"
-          },
-          "montant" : {
-            "type" : "number",
-            "format" : "float"
-          },
-          "nouvelleEvaluation" : {
-            "$ref" : "#/components/schemas/Evaluation"
-          }
-        }
-      },
-      "Evaluation" : {
-        "type" : "object"
-      },
-      "Personne" : {
-        "type" : "object",
-        "properties" : {
-          "nom" : {
-            "type" : "string"
-          },
-          "prenom" : {
-            "type" : "string"
-          },
-          "dateDeNaissance" : {
-            "type" : "string",
-            "format" : "date-time"
-          }
-        }
-      },
-      "SinistreAnimal" : {
-        "type" : "object",
-        "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratAnimal"
-          },
-          "dateSinistre" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "numero" : {
-            "type" : "string"
           }
         }
       },
@@ -252,6 +155,9 @@
           }
         }
       },
+      "Evaluation" : {
+        "type" : "object"
+      },
       "OuvertureSinistreAnimal" : {
         "type" : "object",
         "properties" : {
@@ -293,6 +199,33 @@
           }
         }
       },
+      "Animal" : {
+        "type" : "object",
+        "properties" : {
+          "typeAnimal" : {
+            "type" : "string",
+            "enum" : [ "Chien", "Chat" ]
+          },
+          "dateNaissance" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "ContratAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "numero" : {
+            "type" : "string"
+          },
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
+          },
+          "objet" : {
+            "$ref" : "#/components/schemas/Animal"
+          }
+        }
+      },
       "DemandeClotureAnimal" : {
         "type" : "object",
         "properties" : {
@@ -301,6 +234,73 @@
           },
           "decision" : {
             "type" : "string"
+          }
+        }
+      },
+      "SinistreAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
+          },
+          "dateSinistre" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "numero" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Reglement" : {
+        "type" : "object",
+        "properties" : {
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "dateEffet" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "DemandeReglementAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "sinistre" : {
+            "$ref" : "#/components/schemas/SinistreAnimal"
+          },
+          "nature" : {
+            "type" : "string"
+          },
+          "sens" : {
+            "type" : "string"
+          },
+          "destinataire" : {
+            "$ref" : "#/components/schemas/Personne"
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "nouvelleEvaluation" : {
+            "$ref" : "#/components/schemas/Evaluation"
+          }
+        }
+      },
+      "Personne" : {
+        "type" : "object",
+        "properties" : {
+          "nom" : {
+            "type" : "string"
+          },
+          "prenom" : {
+            "type" : "string"
+          },
+          "dateDeNaissance" : {
+            "type" : "string",
+            "format" : "date-time"
           }
         }
       }

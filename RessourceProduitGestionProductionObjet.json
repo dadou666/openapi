@@ -41,34 +41,6 @@
         }
       }
     },
-    "/objet/emission" : {
-      "post" : {
-        "tags" : [ "Gestion production d'assurance de biens" ],
-        "description" : " Demande d'informations sur les primes",
-        "operationId" : "emission",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationPrimesObjet"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/EmissionObjet"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/objet/annulation" : {
       "post" : {
         "tags" : [ "Gestion production d'assurance de biens" ],
@@ -90,6 +62,34 @@
               "*/*" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/AnnulationObjet"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/objet/emission" : {
+      "post" : {
+        "tags" : [ "Gestion production d'assurance de biens" ],
+        "description" : " Demande d'informations sur les primes",
+        "operationId" : "emission",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationPrimesObjet"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/EmissionObjet"
                 }
               }
             }
@@ -205,6 +205,22 @@
           }
         }
       },
+      "AnnulationObjet" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratObjet"
+          },
+          "dateAnnulation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
       "EmissionObjet" : {
         "type" : "object",
         "properties" : {
@@ -255,22 +271,6 @@
           "periode" : {
             "type" : "string",
             "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
-          }
-        }
-      },
-      "AnnulationObjet" : {
-        "type" : "object",
-        "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratObjet"
-          },
-          "dateAnnulation" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "dateCreation" : {
-            "type" : "string",
-            "format" : "date-time"
           }
         }
       },

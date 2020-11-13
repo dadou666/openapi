@@ -41,34 +41,6 @@
         }
       }
     },
-    "/animaux-compagnie/emission" : {
-      "post" : {
-        "tags" : [ "Gestion production d'assurance d'animaux de compagnie" ],
-        "description" : " Demande d'informations sur les primes",
-        "operationId" : "emission",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationPrimesAnimal"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/EmissionAnimal"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/animaux-compagnie/annulation" : {
       "post" : {
         "tags" : [ "Gestion production d'assurance d'animaux de compagnie" ],
@@ -90,6 +62,34 @@
               "*/*" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/AnnulationAnimal"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/animaux-compagnie/emission" : {
+      "post" : {
+        "tags" : [ "Gestion production d'assurance d'animaux de compagnie" ],
+        "description" : " Demande d'informations sur les primes",
+        "operationId" : "emission",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationPrimesAnimal"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/EmissionAnimal"
                 }
               }
             }
@@ -202,6 +202,22 @@
           }
         }
       },
+      "AnnulationAnimal" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratAnimal"
+          },
+          "dateAnnulation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
       "EmissionAnimal" : {
         "type" : "object",
         "properties" : {
@@ -252,22 +268,6 @@
           "periode" : {
             "type" : "string",
             "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
-          }
-        }
-      },
-      "AnnulationAnimal" : {
-        "type" : "object",
-        "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratAnimal"
-          },
-          "dateAnnulation" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "dateCreation" : {
-            "type" : "string",
-            "format" : "date-time"
           }
         }
       },

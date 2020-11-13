@@ -13,34 +13,6 @@
     }
   },
   "paths" : {
-    "/objet/reglement" : {
-      "post" : {
-        "tags" : [ "Gestion sinistre d'assurance de biens" ],
-        "description" : "Demande d'informations sur les sinistres règlés",
-        "operationId" : "reglement",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeReglementObjet"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Reglement"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/objet/ouverture" : {
       "post" : {
         "tags" : [ "Gestion sinistre d'assurance de biens" ],
@@ -96,23 +68,38 @@
           }
         }
       }
+    },
+    "/objet/reglement" : {
+      "post" : {
+        "tags" : [ "Gestion sinistre d'assurance de biens" ],
+        "description" : "Demande d'informations sur les sinistres règlés",
+        "operationId" : "reglement",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeReglementObjet"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Reglement"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components" : {
     "schemas" : {
-      "Reglement" : {
-        "type" : "object",
-        "properties" : {
-          "montant" : {
-            "type" : "number",
-            "format" : "float"
-          },
-          "dateEffet" : {
-            "type" : "string",
-            "format" : "date-time"
-          }
-        }
-      },
       "Client" : {
         "type" : "object",
         "properties" : {
@@ -125,93 +112,6 @@
           "dateDeNaissance" : {
             "type" : "string",
             "format" : "date-time"
-          }
-        }
-      },
-      "ContratObjet" : {
-        "type" : "object",
-        "properties" : {
-          "numero" : {
-            "type" : "string"
-          },
-          "client" : {
-            "$ref" : "#/components/schemas/Client"
-          },
-          "objet" : {
-            "$ref" : "#/components/schemas/Objet"
-          }
-        }
-      },
-      "DemandeReglementObjet" : {
-        "type" : "object",
-        "properties" : {
-          "sinistre" : {
-            "$ref" : "#/components/schemas/SinistreObjet"
-          },
-          "nature" : {
-            "type" : "string"
-          },
-          "sens" : {
-            "type" : "string"
-          },
-          "destinataire" : {
-            "$ref" : "#/components/schemas/Personne"
-          },
-          "montant" : {
-            "type" : "number",
-            "format" : "float"
-          },
-          "nouvelleEvaluation" : {
-            "$ref" : "#/components/schemas/Evaluation"
-          }
-        }
-      },
-      "Evaluation" : {
-        "type" : "object"
-      },
-      "Objet" : {
-        "type" : "object",
-        "properties" : {
-          "typeObjet" : {
-            "type" : "string",
-            "enum" : [ "Tablette", "Smartphone" ]
-          },
-          "marque" : {
-            "type" : "string"
-          },
-          "prix" : {
-            "type" : "number",
-            "format" : "float"
-          }
-        }
-      },
-      "Personne" : {
-        "type" : "object",
-        "properties" : {
-          "nom" : {
-            "type" : "string"
-          },
-          "prenom" : {
-            "type" : "string"
-          },
-          "dateDeNaissance" : {
-            "type" : "string",
-            "format" : "date-time"
-          }
-        }
-      },
-      "SinistreObjet" : {
-        "type" : "object",
-        "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratObjet"
-          },
-          "dateSinistre" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "numero" : {
-            "type" : "string"
           }
         }
       },
@@ -255,6 +155,9 @@
           }
         }
       },
+      "Evaluation" : {
+        "type" : "object"
+      },
       "OuvertureSinistreObjet" : {
         "type" : "object",
         "properties" : {
@@ -296,6 +199,20 @@
           }
         }
       },
+      "ContratObjet" : {
+        "type" : "object",
+        "properties" : {
+          "numero" : {
+            "type" : "string"
+          },
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
+          },
+          "objet" : {
+            "$ref" : "#/components/schemas/Objet"
+          }
+        }
+      },
       "DemandeClotureObjet" : {
         "type" : "object",
         "properties" : {
@@ -304,6 +221,89 @@
           },
           "decision" : {
             "type" : "string"
+          }
+        }
+      },
+      "Objet" : {
+        "type" : "object",
+        "properties" : {
+          "typeObjet" : {
+            "type" : "string",
+            "enum" : [ "Tablette", "Smartphone" ]
+          },
+          "marque" : {
+            "type" : "string"
+          },
+          "prix" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      },
+      "SinistreObjet" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratObjet"
+          },
+          "dateSinistre" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "numero" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Reglement" : {
+        "type" : "object",
+        "properties" : {
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "dateEffet" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "DemandeReglementObjet" : {
+        "type" : "object",
+        "properties" : {
+          "sinistre" : {
+            "$ref" : "#/components/schemas/SinistreObjet"
+          },
+          "nature" : {
+            "type" : "string"
+          },
+          "sens" : {
+            "type" : "string"
+          },
+          "destinataire" : {
+            "$ref" : "#/components/schemas/Personne"
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "nouvelleEvaluation" : {
+            "$ref" : "#/components/schemas/Evaluation"
+          }
+        }
+      },
+      "Personne" : {
+        "type" : "object",
+        "properties" : {
+          "nom" : {
+            "type" : "string"
+          },
+          "prenom" : {
+            "type" : "string"
+          },
+          "dateDeNaissance" : {
+            "type" : "string",
+            "format" : "date-time"
           }
         }
       }

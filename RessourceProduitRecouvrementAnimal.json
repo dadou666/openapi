@@ -20,12 +20,13 @@
         "operationId" : "preSouscription",
         "requestBody" : {
           "content" : {
-            "*/*" : {
+            "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/DemandeInformationPrimesAnimal"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "default" : {

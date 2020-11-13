@@ -13,34 +13,6 @@
     }
   },
   "paths" : {
-    "/nvei/offre" : {
-      "post" : {
-        "tags" : [ "Distribution assurance de nvei" ],
-        "description" : "Consulter l'offre (wording, visuels)",
-        "operationId" : "offre",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/Produit"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Offre"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/nvei/pre-souscription" : {
       "post" : {
         "tags" : [ "Distribution assurance de nvei" ],
@@ -127,16 +99,38 @@
           }
         }
       }
+    },
+    "/nvei/offre" : {
+      "post" : {
+        "tags" : [ "Distribution assurance de nvei" ],
+        "description" : "Consulter l'offre (wording, visuels)",
+        "operationId" : "offre",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Produit"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Offre"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components" : {
     "schemas" : {
-      "Offre" : {
-        "type" : "object"
-      },
-      "Produit" : {
-        "type" : "object"
-      },
       "Client" : {
         "type" : "object",
         "properties" : {
@@ -229,6 +223,12 @@
         "type" : "object"
       },
       "Document" : {
+        "type" : "object"
+      },
+      "Produit" : {
+        "type" : "object"
+      },
+      "Offre" : {
         "type" : "object"
       }
     }
