@@ -41,6 +41,34 @@
         }
       }
     },
+    "/velo/distribution/pre-souscription" : {
+      "post" : {
+        "tags" : [ "Distribution" ],
+        "description" : "Informe d'un début de parcours de souscription ",
+        "operationId" : "preSouscription",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DebutParcoursVelo"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SouscriptionVelo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/velo/distribution/documents" : {
       "post" : {
         "tags" : [ "Distribution" ],
@@ -65,34 +93,6 @@
                   "items" : {
                     "$ref" : "#/components/schemas/Document"
                   }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/velo/distribution/pre-souscription" : {
-      "post" : {
-        "tags" : [ "Distribution" ],
-        "description" : "Informe d'un début de parcours de souscription ",
-        "operationId" : "preSouscription",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DebutParcoursVelo"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/SouscriptionVelo"
                 }
               }
             }
@@ -184,34 +184,6 @@
         }
       }
     },
-    "/velo/gestion-production/resiliation" : {
-      "post" : {
-        "tags" : [ "Gestion production" ],
-        "description" : "Demande d'informations sur  les résiliations contrats",
-        "operationId" : "resiliation",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationVelo"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ResiliationVelo"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/velo/gestion-production/avenant" : {
       "post" : {
         "tags" : [ "Gestion production" ],
@@ -240,16 +212,16 @@
         }
       }
     },
-    "/velo/gestion-sinistre/cloture" : {
+    "/velo/gestion-production/resiliation" : {
       "post" : {
-        "tags" : [ "Gestion sinistre" ],
-        "description" : "Demande d'informations sur les sinistres clôts",
-        "operationId" : "cloture",
+        "tags" : [ "Gestion production" ],
+        "description" : "Demande d'informations sur  les résiliations contrats",
+        "operationId" : "resiliation",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
-                "$ref" : "#/components/schemas/DemandeClotureVelo"
+                "$ref" : "#/components/schemas/DemandeInformationVelo"
               }
             }
           }
@@ -260,35 +232,7 @@
             "content" : {
               "*/*" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Cloture"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/velo/gestion-sinistre/reglement" : {
-      "post" : {
-        "tags" : [ "Gestion sinistre" ],
-        "description" : "Demande d'informations sur les sinistres règlés",
-        "operationId" : "reglement",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeReglementVelo"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Reglement"
+                  "$ref" : "#/components/schemas/ResiliationVelo"
                 }
               }
             }
@@ -324,16 +268,16 @@
         }
       }
     },
-    "/velo/recouvrement/impaye" : {
+    "/velo/gestion-sinistre/reglement" : {
       "post" : {
-        "tags" : [ "Recouvrement" ],
-        "description" : "Demande d'informations sur les impayés",
-        "operationId" : "impaye",
+        "tags" : [ "Gestion sinistre" ],
+        "description" : "Demande d'informations sur les sinistres règlés",
+        "operationId" : "reglement",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationPrimesVelo"
+                "$ref" : "#/components/schemas/DemandeReglementVelo"
               }
             }
           }
@@ -344,10 +288,35 @@
             "content" : {
               "*/*" : {
                 "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "$ref" : "#/components/schemas/Impaye"
-                  }
+                  "$ref" : "#/components/schemas/Reglement"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/velo/gestion-sinistre/cloture" : {
+      "post" : {
+        "tags" : [ "Gestion sinistre" ],
+        "description" : "Demande d'informations sur les sinistres clôts",
+        "operationId" : "cloture",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeClotureVelo"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Cloture"
                 }
               }
             }
@@ -378,6 +347,37 @@
               "*/*" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/Prime"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/velo/recouvrement/impaye" : {
+      "post" : {
+        "tags" : [ "Recouvrement" ],
+        "description" : "Demande d'informations sur les impayés",
+        "operationId" : "impaye",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationPrimesVelo"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Impaye"
+                  }
                 }
               }
             }
@@ -481,9 +481,6 @@
       "Produit" : {
         "type" : "object"
       },
-      "Document" : {
-        "type" : "object"
-      },
       "Client" : {
         "type" : "object",
         "properties" : {
@@ -508,7 +505,7 @@
           "client" : {
             "$ref" : "#/components/schemas/Client"
           },
-          "objet" : {
+          "risque" : {
             "$ref" : "#/components/schemas/Risque"
           }
         }
@@ -521,9 +518,6 @@
         "properties" : {
           "contrat" : {
             "$ref" : "#/components/schemas/Contrat"
-          },
-          "risque" : {
-            "$ref" : "#/components/schemas/Velo"
           },
           "tarif" : {
             "$ref" : "#/components/schemas/TarifVelo"
@@ -540,6 +534,20 @@
           "montant" : {
             "type" : "number",
             "format" : "float"
+          }
+        }
+      },
+      "DebutParcoursVelo" : {
+        "type" : "object",
+        "properties" : {
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
+          },
+          "risque" : {
+            "$ref" : "#/components/schemas/Velo"
+          },
+          "tarif" : {
+            "$ref" : "#/components/schemas/TarifVelo"
           }
         }
       },
@@ -560,19 +568,8 @@
           }
         }
       },
-      "DebutParcoursVelo" : {
-        "type" : "object",
-        "properties" : {
-          "client" : {
-            "$ref" : "#/components/schemas/Client"
-          },
-          "risque" : {
-            "$ref" : "#/components/schemas/Velo"
-          },
-          "tarif" : {
-            "$ref" : "#/components/schemas/TarifVelo"
-          }
-        }
+      "Document" : {
+        "type" : "object"
       },
       "DemandeDeTarif" : {
         "type" : "object"
@@ -602,7 +599,7 @@
           "client" : {
             "$ref" : "#/components/schemas/Client"
           },
-          "objet" : {
+          "risque" : {
             "$ref" : "#/components/schemas/Velo"
           }
         }
@@ -676,22 +673,6 @@
           }
         }
       },
-      "ResiliationVelo" : {
-        "type" : "object",
-        "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratVelo"
-          },
-          "dateResiliation" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "dateCreation" : {
-            "type" : "string",
-            "format" : "date-time"
-          }
-        }
-      },
       "AvenantVelo" : {
         "type" : "object",
         "properties" : {
@@ -726,18 +707,19 @@
           }
         }
       },
-      "Cloture" : {
+      "ResiliationVelo" : {
         "type" : "object",
         "properties" : {
-          "sinistre" : {
-            "$ref" : "#/components/schemas/SinistreRisque"
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratVelo"
           },
-          "dateCloture" : {
+          "dateResiliation" : {
             "type" : "string",
             "format" : "date-time"
           },
-          "decision" : {
-            "type" : "string"
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
           }
         }
       },
@@ -750,12 +732,20 @@
           "client" : {
             "$ref" : "#/components/schemas/Client"
           },
-          "objet" : {
+          "risque" : {
             "$ref" : "#/components/schemas/Risque"
           }
         }
       },
-      "SinistreRisque" : {
+      "Ouverture" : {
+        "type" : "object",
+        "properties" : {
+          "sinistre" : {
+            "$ref" : "#/components/schemas/Sinistre"
+          }
+        }
+      },
+      "Sinistre" : {
         "type" : "object",
         "properties" : {
           "contrat" : {
@@ -770,29 +760,17 @@
           }
         }
       },
-      "DemandeClotureVelo" : {
-        "type" : "object",
-        "properties" : {
-          "sinistre" : {
-            "$ref" : "#/components/schemas/SinistreVelo"
-          },
-          "decision" : {
-            "type" : "string"
-          }
-        }
+      "Evaluation" : {
+        "type" : "object"
       },
-      "SinistreVelo" : {
+      "OuvertureSinistreVelo" : {
         "type" : "object",
         "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratVelo"
+          "evaluation" : {
+            "$ref" : "#/components/schemas/Evaluation"
           },
-          "dateSinistre" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "numero" : {
-            "type" : "string"
+          "sinistre" : {
+            "$ref" : "#/components/schemas/Sinistre"
           }
         }
       },
@@ -833,9 +811,6 @@
           }
         }
       },
-      "Evaluation" : {
-        "type" : "object"
-      },
       "Personne" : {
         "type" : "object",
         "properties" : {
@@ -851,15 +826,37 @@
           }
         }
       },
-      "Ouverture" : {
+      "SinistreVelo" : {
         "type" : "object",
         "properties" : {
-          "sinistre" : {
-            "$ref" : "#/components/schemas/Sinistre"
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratVelo"
+          },
+          "dateSinistre" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "numero" : {
+            "type" : "string"
           }
         }
       },
-      "Sinistre" : {
+      "Cloture" : {
+        "type" : "object",
+        "properties" : {
+          "sinistre" : {
+            "$ref" : "#/components/schemas/SinistreRisque"
+          },
+          "dateCloture" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "decision" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SinistreRisque" : {
         "type" : "object",
         "properties" : {
           "contrat" : {
@@ -874,14 +871,14 @@
           }
         }
       },
-      "OuvertureSinistreVelo" : {
+      "DemandeClotureVelo" : {
         "type" : "object",
         "properties" : {
-          "evaluation" : {
-            "$ref" : "#/components/schemas/Evaluation"
-          },
           "sinistre" : {
-            "$ref" : "#/components/schemas/Sinistre"
+            "$ref" : "#/components/schemas/SinistreVelo"
+          },
+          "decision" : {
+            "type" : "string"
           }
         }
       },
