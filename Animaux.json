@@ -14,16 +14,17 @@
     "version" : "1.0.0"
   },
   "paths" : {
-    "/animal-de-compagnie/distribution/offre" : {
+    "/animal-de-compagnie/distribution/pre-souscription" : {
       "post" : {
         "tags" : [ "Distribution" ],
-        "description" : "Consulter l'offre (wording, visuels)",
-        "operationId" : "offre",
+        "summary" : "Pré souscrire une assurance",
+        "description" : "Créer un début de parcours de souscription ",
+        "operationId" : "preSouscription",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
-                "$ref" : "#/components/schemas/Produit"
+                "$ref" : "#/components/schemas/DebutParcoursAnimalDeCompagnie"
               }
             }
           }
@@ -34,7 +35,7 @@
             "content" : {
               "*/*" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Offre"
+                  "$ref" : "#/components/schemas/SouscriptionAnimalDeCompagnie"
                 }
               }
             }
@@ -74,17 +75,17 @@
         }
       }
     },
-    "/animal-de-compagnie/distribution/pre-souscription" : {
-      "post" : {
+    "/animal-de-compagnie/distribution/offre" : {
+      "get" : {
         "tags" : [ "Distribution" ],
-        "summary" : "Pré souscrire une assurance",
-        "description" : "Créer un début de parcours de souscription ",
-        "operationId" : "preSouscription",
+        "summary" : "Consulter une offre",
+        "description" : "Consulter l'offre (wording, visuels)",
+        "operationId" : "offre",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
-                "$ref" : "#/components/schemas/DebutParcoursAnimalDeCompagnie"
+                "$ref" : "#/components/schemas/Produit"
               }
             }
           }
@@ -95,7 +96,7 @@
             "content" : {
               "*/*" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/SouscriptionAnimalDeCompagnie"
+                  "$ref" : "#/components/schemas/Offre"
                 }
               }
             }
@@ -160,12 +161,12 @@
         }
       }
     },
-    "/animal-de-compagnie/gestion-production/annulation" : {
+    "/animal-de-compagnie/gestion-production/resiliation" : {
       "get" : {
         "tags" : [ "Gestion production" ],
-        "summary" : "Consulter les annulations",
-        "description" : "Faire unne demande d'informations sur les annulations contrats",
-        "operationId" : "annulation",
+        "summary" : "Consulter les résiliations",
+        "description" : "Faire une demande d'informations sur  les résiliations contrats",
+        "operationId" : "resiliation",
         "requestBody" : {
           "content" : {
             "*/*" : {
@@ -181,7 +182,7 @@
             "content" : {
               "*/*" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/AnnulationAnimalDeCompagnie"
+                  "$ref" : "#/components/schemas/ResiliationAnimalDeCompagnie"
                 }
               }
             }
@@ -218,35 +219,6 @@
         }
       }
     },
-    "/animal-de-compagnie/gestion-production/resiliation" : {
-      "get" : {
-        "tags" : [ "Gestion production" ],
-        "summary" : "Consulter les résiliations",
-        "description" : "Faire une demande d'informations sur  les résiliations contrats",
-        "operationId" : "resiliation",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationAnimalDeCompagnie"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ResiliationAnimalDeCompagnie"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/animal-de-compagnie/gestion-production/emission" : {
       "get" : {
         "tags" : [ "Gestion production" ],
@@ -276,17 +248,17 @@
         }
       }
     },
-    "/animal-de-compagnie/gestion-sinistre/ouverture" : {
-      "post" : {
-        "tags" : [ "Gestion sinistre" ],
-        "summary" : "Ouvrir un sinistre",
-        "description" : "Faire une demande d'ouverture d'un nouveau sinistre",
-        "operationId" : "ouverture",
+    "/animal-de-compagnie/gestion-production/annulation" : {
+      "get" : {
+        "tags" : [ "Gestion production" ],
+        "summary" : "Consulter les annulations",
+        "description" : "Faire unne demande d'informations sur les annulations contrats",
+        "operationId" : "annulation",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
-                "$ref" : "#/components/schemas/OuvertureSinistreAnimalDeCompagnie"
+                "$ref" : "#/components/schemas/DemandeInformationAnimalDeCompagnie"
               }
             }
           }
@@ -297,7 +269,7 @@
             "content" : {
               "*/*" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/Ouverture"
+                  "$ref" : "#/components/schemas/AnnulationAnimalDeCompagnie"
                 }
               }
             }
@@ -355,6 +327,35 @@
               "*/*" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/SinistreAnimalDeCompagnie"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/animal-de-compagnie/gestion-sinistre/ouverture" : {
+      "post" : {
+        "tags" : [ "Gestion sinistre" ],
+        "summary" : "Ouvrir un sinistre",
+        "description" : "Faire une demande d'ouverture d'un nouveau sinistre",
+        "operationId" : "ouverture",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OuvertureSinistreAnimalDeCompagnie"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Ouverture"
                 }
               }
             }
@@ -454,35 +455,6 @@
         }
       }
     },
-    "/animal-de-compagnie/souscription" : {
-      "post" : {
-        "tags" : [ "Souscription" ],
-        "summary" : "Souscrire une assurance",
-        "description" : "Faire une demande de souscription d'assurance ",
-        "operationId" : "souscription",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/SouscriptionAnimalDeCompagnie"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "type" : "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/animal-de-compagnie/souscription/tarif" : {
       "post" : {
         "tags" : [ "Souscription" ],
@@ -505,6 +477,35 @@
               "*/*" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/TarifAnimalDeCompagnie"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/animal-de-compagnie/souscription" : {
+      "post" : {
+        "tags" : [ "Souscription" ],
+        "summary" : "Souscrire une assurance",
+        "description" : "Faire une demande de souscription d'assurance ",
+        "operationId" : "souscription",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SouscriptionAnimalDeCompagnie"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "string"
                 }
               }
             }
@@ -547,15 +548,6 @@
   },
   "components" : {
     "schemas" : {
-      "Offre" : {
-        "type" : "object"
-      },
-      "Produit" : {
-        "type" : "object"
-      },
-      "Document" : {
-        "type" : "object"
-      },
       "AnimalDeCompagnie" : {
         "type" : "object",
         "properties" : {
@@ -636,16 +628,25 @@
           }
         }
       },
+      "Document" : {
+        "type" : "object"
+      },
+      "Produit" : {
+        "type" : "object"
+      },
+      "Offre" : {
+        "type" : "object"
+      },
       "DemandeDeTarif" : {
         "type" : "object"
       },
-      "AnnulationAnimalDeCompagnie" : {
+      "ResiliationAnimalDeCompagnie" : {
         "type" : "object",
         "properties" : {
           "contrat" : {
             "$ref" : "#/components/schemas/ContratAnimalDeCompagnie"
           },
-          "dateAnnulation" : {
+          "dateResiliation" : {
             "type" : "string",
             "format" : "date-time"
           },
@@ -696,22 +697,6 @@
             "$ref" : "#/components/schemas/ContratAnimalDeCompagnie"
           },
           "dateEffet" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "dateCreation" : {
-            "type" : "string",
-            "format" : "date-time"
-          }
-        }
-      },
-      "ResiliationAnimalDeCompagnie" : {
-        "type" : "object",
-        "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratAnimalDeCompagnie"
-          },
-          "dateResiliation" : {
             "type" : "string",
             "format" : "date-time"
           },
@@ -774,57 +759,19 @@
           }
         }
       },
-      "ContratRisque" : {
-        "type" : "object",
-        "properties" : {
-          "numero" : {
-            "type" : "string"
-          },
-          "client" : {
-            "$ref" : "#/components/schemas/Client"
-          },
-          "risque" : {
-            "$ref" : "#/components/schemas/Risque"
-          }
-        }
-      },
-      "Ouverture" : {
-        "type" : "object",
-        "properties" : {
-          "sinistre" : {
-            "$ref" : "#/components/schemas/Sinistre"
-          }
-        }
-      },
-      "Risque" : {
-        "type" : "object"
-      },
-      "Sinistre" : {
+      "AnnulationAnimalDeCompagnie" : {
         "type" : "object",
         "properties" : {
           "contrat" : {
-            "$ref" : "#/components/schemas/ContratRisque"
+            "$ref" : "#/components/schemas/ContratAnimalDeCompagnie"
           },
-          "dateSinistre" : {
+          "dateAnnulation" : {
             "type" : "string",
             "format" : "date-time"
           },
-          "numero" : {
-            "type" : "string"
-          }
-        }
-      },
-      "Evaluation" : {
-        "type" : "object"
-      },
-      "OuvertureSinistreAnimalDeCompagnie" : {
-        "type" : "object",
-        "properties" : {
-          "evaluation" : {
-            "$ref" : "#/components/schemas/Evaluation"
-          },
-          "sinistre" : {
-            "$ref" : "#/components/schemas/Sinistre"
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
           }
         }
       },
@@ -842,6 +789,23 @@
             "type" : "string"
           }
         }
+      },
+      "ContratRisque" : {
+        "type" : "object",
+        "properties" : {
+          "numero" : {
+            "type" : "string"
+          },
+          "client" : {
+            "$ref" : "#/components/schemas/Client"
+          },
+          "risque" : {
+            "$ref" : "#/components/schemas/Risque"
+          }
+        }
+      },
+      "Risque" : {
+        "type" : "object"
       },
       "SinistreRisque" : {
         "type" : "object",
@@ -881,6 +845,43 @@
           },
           "numero" : {
             "type" : "string"
+          }
+        }
+      },
+      "Ouverture" : {
+        "type" : "object",
+        "properties" : {
+          "sinistre" : {
+            "$ref" : "#/components/schemas/Sinistre"
+          }
+        }
+      },
+      "Sinistre" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratRisque"
+          },
+          "dateSinistre" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "numero" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Evaluation" : {
+        "type" : "object"
+      },
+      "OuvertureSinistreAnimalDeCompagnie" : {
+        "type" : "object",
+        "properties" : {
+          "evaluation" : {
+            "$ref" : "#/components/schemas/Evaluation"
+          },
+          "sinistre" : {
+            "$ref" : "#/components/schemas/Sinistre"
           }
         }
       },
