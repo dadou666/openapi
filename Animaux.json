@@ -14,65 +14,6 @@
     "version" : "1.0.0"
   },
   "paths" : {
-    "/animal-de-compagnie/distribution/tarif" : {
-      "post" : {
-        "tags" : [ "Distribution" ],
-        "description" : "Demande de tarif",
-        "operationId" : "tarif",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeDeTarif"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/TarifAnimalDeCompagnie"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/animal-de-compagnie/distribution/documents" : {
-      "post" : {
-        "tags" : [ "Distribution" ],
-        "description" : "Demande d'IPID (DIPA) / FIP / NI",
-        "operationId" : "documents",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/Produit"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "type" : "array",
-                  "items" : {
-                    "$ref" : "#/components/schemas/Document"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/animal-de-compagnie/distribution/offre" : {
       "post" : {
         "tags" : [ "Distribution" ],
@@ -101,10 +42,43 @@
         }
       }
     },
+    "/animal-de-compagnie/distribution/documents" : {
+      "post" : {
+        "tags" : [ "Souscription" ],
+        "summary" : "Consulter les documents",
+        "description" : "Faire une demande de consultation des documents d'IPID (DIPA) / FIP / NI",
+        "operationId" : "documents",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Produit"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Document"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/animal-de-compagnie/distribution/pre-souscription" : {
       "post" : {
         "tags" : [ "Distribution" ],
-        "description" : "Informe d'un début de parcours de souscription ",
+        "summary" : "Pré souscrire une assurance",
+        "description" : "Créer un début de parcours de souscription ",
         "operationId" : "preSouscription",
         "requestBody" : {
           "content" : {
@@ -129,10 +103,40 @@
         }
       }
     },
+    "/animal-de-compagnie/distribution/tarif" : {
+      "post" : {
+        "tags" : [ "Distribution" ],
+        "summary" : "Récupérer un tarif",
+        "description" : "Faire une demande de tarif",
+        "operationId" : "tarif",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeDeTarif"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TarifAnimalDeCompagnie"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/animal-de-compagnie/gestion-production/consulter/contrat/{numero}" : {
       "get" : {
         "tags" : [ "Gestion production" ],
-        "description" : "Demande d'informations sur  les résiliations contrats",
+        "summary" : "Consulter un contrat",
+        "description" : "Faire une demande d'informations pour un contrat",
         "operationId" : "consulter",
         "parameters" : [ {
           "name" : "numero",
@@ -156,38 +160,11 @@
         }
       }
     },
-    "/animal-de-compagnie/gestion-production/emission" : {
-      "post" : {
-        "tags" : [ "Gestion production" ],
-        "description" : " Demande d'informations sur les primes",
-        "operationId" : "emission",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeInformationPrimesAnimalDeCompagnie"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/EmissionAnimalDeCompagnie"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/animal-de-compagnie/gestion-production/annulation" : {
-      "post" : {
+      "get" : {
         "tags" : [ "Gestion production" ],
-        "description" : "Demande d'informations sur les annulations contrats",
+        "summary" : "Consulter les annulations",
+        "description" : "Faire unne demande d'informations sur les annulations contrats",
         "operationId" : "annulation",
         "requestBody" : {
           "content" : {
@@ -215,7 +192,8 @@
     "/animal-de-compagnie/gestion-production/avenant" : {
       "post" : {
         "tags" : [ "Gestion production" ],
-        "description" : "Demande des modifications sur les adhésions",
+        "summary" : "Créer un avenant",
+        "description" : "Faire une demande des modifications sur les adhésions",
         "operationId" : "avenant",
         "requestBody" : {
           "content" : {
@@ -241,9 +219,10 @@
       }
     },
     "/animal-de-compagnie/gestion-production/resiliation" : {
-      "post" : {
+      "get" : {
         "tags" : [ "Gestion production" ],
-        "description" : "Demande d'informations sur  les résiliations contrats",
+        "summary" : "Consulter les résiliations",
+        "description" : "Faire une demande d'informations sur  les résiliations contrats",
         "operationId" : "resiliation",
         "requestBody" : {
           "content" : {
@@ -268,10 +247,40 @@
         }
       }
     },
+    "/animal-de-compagnie/gestion-production/emission" : {
+      "get" : {
+        "tags" : [ "Gestion production" ],
+        "summary" : "Consulter les primes",
+        "description" : "Faire une demande d'informations sur les primes",
+        "operationId" : "emission",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeInformationPrimesAnimalDeCompagnie"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/EmissionAnimalDeCompagnie"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/animal-de-compagnie/gestion-sinistre/ouverture" : {
       "post" : {
         "tags" : [ "Gestion sinistre" ],
-        "description" : "Demande d'informations sur les nouveaux sinistres",
+        "summary" : "Ouvrir un sinistre",
+        "description" : "Faire une demande d'ouverture d'un nouveau sinistre",
         "operationId" : "ouverture",
         "requestBody" : {
           "content" : {
@@ -296,38 +305,11 @@
         }
       }
     },
-    "/animal-de-compagnie/gestion-sinistre/reglement" : {
-      "post" : {
-        "tags" : [ "Gestion sinistre" ],
-        "description" : "Demande d'informations sur les sinistres règlés",
-        "operationId" : "reglement",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/DemandeReglementAnimalDeCompagnie"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/Reglement"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/animal-de-compagnie/gestion-sinistre/cloture" : {
       "post" : {
         "tags" : [ "Gestion sinistre" ],
-        "description" : "Demande d'informations sur les sinistres clôts",
+        "summary" : "Cloturer un sinistre",
+        "description" : "Faire une demande de cloture pour un  sinistre ouvert",
         "operationId" : "cloture",
         "requestBody" : {
           "content" : {
@@ -355,7 +337,8 @@
     "/animal-de-compagnie/gestion-production/consulter/sinistre/{numero}" : {
       "get" : {
         "tags" : [ "Gestion production" ],
-        "description" : "Demande d'informations sur  les résiliations contrats",
+        "summary" : "Consulter un sinistre",
+        "description" : "Consulter les informations d'un sinistre",
         "operationId" : "consulter_1",
         "parameters" : [ {
           "name" : "numero",
@@ -379,10 +362,40 @@
         }
       }
     },
+    "/animal-de-compagnie/gestion-sinistre/reglement" : {
+      "post" : {
+        "tags" : [ "Gestion sinistre" ],
+        "summary" : "Régler un sinistre",
+        "description" : "Faire une demande de réglement pour un sinistre existant",
+        "operationId" : "reglement",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DemandeReglementAnimalDeCompagnie"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Reglement"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/animal-de-compagnie/recouvrement/prime" : {
       "post" : {
         "tags" : [ "Recouvrement" ],
-        "description" : "Demande d'informations sur le recouvrement ou le reversement d'une prime",
+        "summary" : "Récuperer un recouvrement",
+        "description" : "Faire un demande d'informations sur le recouvrement ou le reversement d'une prime",
         "operationId" : "prime",
         "requestBody" : {
           "description" : "Demande d'information",
@@ -412,7 +425,8 @@
     "/animal-de-compagnie/recouvrement/impaye" : {
       "post" : {
         "tags" : [ "Recouvrement" ],
-        "description" : "Demande d'informations sur les impayés",
+        "summary" : "Récupérer les impayés",
+        "description" : "Faire une demande d'informations sur les impayés",
         "operationId" : "impaye",
         "requestBody" : {
           "content" : {
@@ -443,7 +457,8 @@
     "/animal-de-compagnie/souscription" : {
       "post" : {
         "tags" : [ "Souscription" ],
-        "description" : "Informe de la souscription ",
+        "summary" : "Souscrire une assurance",
+        "description" : "Faire une demande de souscription d'assurance ",
         "operationId" : "souscription",
         "requestBody" : {
           "content" : {
@@ -471,7 +486,8 @@
     "/animal-de-compagnie/souscription/tarif" : {
       "post" : {
         "tags" : [ "Souscription" ],
-        "description" : "Demande de tarif",
+        "summary" : "Récupérer un tarif",
+        "description" : "Faire une demande de tarif",
         "operationId" : "souscritionTarif",
         "requestBody" : {
           "content" : {
@@ -499,7 +515,8 @@
     "/animal-de-compagnie/souscription/documents" : {
       "post" : {
         "tags" : [ "Souscription" ],
-        "description" : "Demande d'IPID (DIPA) / FIP / NI",
+        "summary" : "Consulter les documents",
+        "description" : "Faire une demande de consultation des documents d'IPID (DIPA) / FIP / NI",
         "operationId" : "souscriptionDocuments",
         "requestBody" : {
           "content" : {
@@ -530,29 +547,13 @@
   },
   "components" : {
     "schemas" : {
-      "TarifAnimalDeCompagnie" : {
-        "type" : "object",
-        "properties" : {
-          "periode" : {
-            "type" : "string",
-            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
-          },
-          "montant" : {
-            "type" : "number",
-            "format" : "float"
-          }
-        }
-      },
-      "DemandeDeTarif" : {
-        "type" : "object"
-      },
-      "Document" : {
+      "Offre" : {
         "type" : "object"
       },
       "Produit" : {
         "type" : "object"
       },
-      "Offre" : {
+      "Document" : {
         "type" : "object"
       },
       "AnimalDeCompagnie" : {
@@ -608,6 +609,19 @@
           }
         }
       },
+      "TarifAnimalDeCompagnie" : {
+        "type" : "object",
+        "properties" : {
+          "periode" : {
+            "type" : "string",
+            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      },
       "DebutParcoursAnimalDeCompagnie" : {
         "type" : "object",
         "properties" : {
@@ -622,58 +636,8 @@
           }
         }
       },
-      "EmissionAnimalDeCompagnie" : {
-        "type" : "object",
-        "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratAnimalDeCompagnie"
-          },
-          "primes" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/Prime"
-            }
-          }
-        }
-      },
-      "Prime" : {
-        "type" : "object",
-        "properties" : {
-          "dateEmmision" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "dateCreation" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "montant" : {
-            "type" : "number",
-            "format" : "float"
-          }
-        }
-      },
-      "DemandeInformationPrimesAnimalDeCompagnie" : {
-        "type" : "object",
-        "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratAnimalDeCompagnie"
-          },
-          "sens" : {
-            "type" : "string"
-          },
-          "evenement" : {
-            "type" : "string"
-          },
-          "montant" : {
-            "type" : "number",
-            "format" : "float"
-          },
-          "periode" : {
-            "type" : "string",
-            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
-          }
-        }
+      "DemandeDeTarif" : {
+        "type" : "object"
       },
       "AnnulationAnimalDeCompagnie" : {
         "type" : "object",
@@ -757,6 +721,59 @@
           }
         }
       },
+      "EmissionAnimalDeCompagnie" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratAnimalDeCompagnie"
+          },
+          "primes" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Prime"
+            }
+          }
+        }
+      },
+      "Prime" : {
+        "type" : "object",
+        "properties" : {
+          "dateEmmision" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "dateCreation" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          }
+        }
+      },
+      "DemandeInformationPrimesAnimalDeCompagnie" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratAnimalDeCompagnie"
+          },
+          "sens" : {
+            "type" : "string"
+          },
+          "evenement" : {
+            "type" : "string"
+          },
+          "montant" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "periode" : {
+            "type" : "string",
+            "enum" : [ "Annuel", "Mensuel", "Trimestriel" ]
+          }
+        }
+      },
       "ContratRisque" : {
         "type" : "object",
         "properties" : {
@@ -811,6 +828,62 @@
           }
         }
       },
+      "Cloture" : {
+        "type" : "object",
+        "properties" : {
+          "sinistre" : {
+            "$ref" : "#/components/schemas/SinistreRisque"
+          },
+          "dateCloture" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "decision" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SinistreRisque" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratRisque"
+          },
+          "dateSinistre" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "numero" : {
+            "type" : "string"
+          }
+        }
+      },
+      "DemandeClotureAnimalDeCompagnie" : {
+        "type" : "object",
+        "properties" : {
+          "sinistre" : {
+            "$ref" : "#/components/schemas/SinistreAnimalDeCompagnie"
+          },
+          "decision" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SinistreAnimalDeCompagnie" : {
+        "type" : "object",
+        "properties" : {
+          "contrat" : {
+            "$ref" : "#/components/schemas/ContratAnimalDeCompagnie"
+          },
+          "dateSinistre" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "numero" : {
+            "type" : "string"
+          }
+        }
+      },
       "Reglement" : {
         "type" : "object",
         "properties" : {
@@ -860,62 +933,6 @@
           "dateDeNaissance" : {
             "type" : "string",
             "format" : "date-time"
-          }
-        }
-      },
-      "SinistreAnimalDeCompagnie" : {
-        "type" : "object",
-        "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratAnimalDeCompagnie"
-          },
-          "dateSinistre" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "numero" : {
-            "type" : "string"
-          }
-        }
-      },
-      "Cloture" : {
-        "type" : "object",
-        "properties" : {
-          "sinistre" : {
-            "$ref" : "#/components/schemas/SinistreRisque"
-          },
-          "dateCloture" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "decision" : {
-            "type" : "string"
-          }
-        }
-      },
-      "SinistreRisque" : {
-        "type" : "object",
-        "properties" : {
-          "contrat" : {
-            "$ref" : "#/components/schemas/ContratRisque"
-          },
-          "dateSinistre" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "numero" : {
-            "type" : "string"
-          }
-        }
-      },
-      "DemandeClotureAnimalDeCompagnie" : {
-        "type" : "object",
-        "properties" : {
-          "sinistre" : {
-            "$ref" : "#/components/schemas/SinistreAnimalDeCompagnie"
-          },
-          "decision" : {
-            "type" : "string"
           }
         }
       },
