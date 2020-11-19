@@ -1,0 +1,83 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "tesGeneration",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/test": {
+            "summary": "blabla",
+            "description": "blaba",
+            "post": {
+                "requestBody": {
+                    "description": "blabla",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Test2"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "description": "blabla"
+                    }
+                },
+                "summary": "blabla",
+                "description": "blabla"
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Test": {
+                "description": "blabla",
+                "type": "object",
+                "allOf": [
+                    {
+                        "required": [
+                            "type"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "description": "",
+                                "enum": [
+                                    "Truc",
+                                    "Machain",
+                                    "Chose"
+                                ],
+                                "type": "string"
+                            }
+                        }
+                    },
+                    {
+                        "$ref": "#/components/schemas/Test2"
+                    }
+                ]
+            },
+            "Test2": {
+                "description": "blabla",
+                "required": [
+                    "bidule"
+                ],
+                "type": "object",
+                "properties": {
+                    "bidule": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
