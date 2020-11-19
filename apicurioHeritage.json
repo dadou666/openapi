@@ -14,7 +14,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Test2"
+                                "$ref": "#/components/schemas/Base"
                             }
                         }
                     },
@@ -39,7 +39,41 @@
     },
     "components": {
         "schemas": {
-            "Test": {
+            "Test3": {
+                "anyOf": [
+                    {
+                        "required": [
+                            "parent"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "parent": {
+                                "description": "",
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    {
+                        "$ref": "#/components/schemas/Base"
+                    }
+                ],
+                "description": "",
+                "type": "object"
+            },
+            "Base": {
+                "description": "blabla",
+                "required": [
+                    "bidule"
+                ],
+                "type": "object",
+                "properties": {
+                    "bidule": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "Test1": {
                 "description": "blabla",
                 "type": "object",
                 "allOf": [
@@ -57,26 +91,38 @@
                                     "Chose"
                                 ],
                                 "type": "string"
+                            },
+                            "mot": {
+                                "description": "",
+                                "type": "string"
                             }
                         }
                     },
                     {
-                        "$ref": "#/components/schemas/Test2"
+                        "$ref": "#/components/schemas/Base"
                     }
                 ]
             },
             "Test2": {
-                "description": "blabla",
-                "required": [
-                    "bidule"
-                ],
-                "type": "object",
-                "properties": {
-                    "bidule": {
-                        "description": "",
-                        "type": "string"
+                "oneOf": [
+                    {
+                        "required": [
+                            "vitesse"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "vitesse": {
+                                "description": "",
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    {
+                        "$ref": "#/components/schemas/Base"
                     }
-                }
+                ],
+                "description": "",
+                "type": "object"
             }
         }
     }
