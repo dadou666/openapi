@@ -1,0 +1,59 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "heritage",
+    "description" : "heritage",
+    "termsOfService" : "http://swagger.io/terms/",
+    "contact" : {
+      "email" : "apiteam@swagger.io"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version" : "1.0.0"
+  },
+  "paths" : {
+    "/test" : {
+      "post" : {
+        "tags" : [ "Gestion sinistre" ],
+        "summary" : "Test api avec héritage ",
+        "description" : "Faire une demande d'ouverture d'un nouveau sinistre",
+        "operationId" : "test",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Base"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Base" : {
+        "type" : "object",
+        "properties" : {
+          "nom" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}
