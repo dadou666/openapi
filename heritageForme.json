@@ -1,0 +1,60 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "heritage",
+    "description" : "heritage",
+    "termsOfService" : "http://swagger.io/terms/",
+    "contact" : {
+      "email" : "apiteam@swagger.io"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version" : "1.0.0"
+  },
+  "paths" : {
+    "/calculerAire" : {
+      "post" : {
+        "tags" : [ "Calculer une aire" ],
+        "summary" : "Test api avec héritage ",
+        "description" : "Calcul une aire pour une forme passé en paramètre",
+        "operationId" : "test",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Forme"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "number",
+                  "format" : "float"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Forme" : {
+        "type" : "object",
+        "properties" : {
+          "nom" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}
