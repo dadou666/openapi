@@ -1,0 +1,133 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "api geometrie",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/ajouter": {
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Forme"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "description": "Retourne l'identifiant de la forme si il y a une création"
+                    }
+                },
+                "summary": "Ajoute ou modifie une forme pour un dessin",
+                "description": "Ajoute ou modifie une forme pour un dessin , pour être vectorialisé plutard"
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Forme": {
+                "description": "Une forme géométrique",
+                "required": [
+                    "id",
+                    "idDessin"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "Identifiant",
+                        "type": "string"
+                    },
+                    "idDessin": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "echelle": {
+                        "description": "Echelle de la forme , permet d'agrandir ou réduire",
+                        "type": "number"
+                    }
+                }
+            },
+            "Cercle": {
+                "description": "",
+                "type": "object",
+                "allOf": [
+                    {
+                        "required": [
+                            "rayon",
+                            "centre"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "rayon": {
+                                "description": "Rayon du cercle",
+                                "type": "number"
+                            },
+                            "centre": {
+                                "$ref": "#/components/schemas/Point",
+                                "description": "Centre du cercle"
+                            }
+                        }
+                    },
+                    {
+                        "$ref": "#/components/schemas/Forme"
+                    }
+                ]
+            },
+            "Point": {
+                "description": "",
+                "required": [
+                    "x",
+                    "y"
+                ],
+                "type": "object",
+                "properties": {
+                    "x": {
+                        "description": "Abscisse",
+                        "type": "number"
+                    },
+                    "y": {
+                        "description": "Ordonnee",
+                        "type": "number"
+                    }
+                }
+            },
+            "Rectangle": {
+                "description": "",
+                "type": "object",
+                "allOf": [
+                    {
+                        "required": [
+                            "p",
+                            "q"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "p": {
+                                "$ref": "#/components/schemas/Point",
+                                "description": "Un point du rectangle"
+                            },
+                            "q": {
+                                "$ref": "#/components/schemas/Point",
+                                "description": "Un second point du rectangle"
+                            }
+                        }
+                    },
+                    {
+                        "$ref": "#/components/schemas/Forme"
+                    }
+                ]
+            }
+        }
+    }
+}
