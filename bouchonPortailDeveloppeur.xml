@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="b2a7b638-fd3f-4b97-8452-d17cb66ef50f" activeEnvironment="Default" name="bouchonPortailDeveloppeur.xml" soapui-version="5.4.0-EB" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="2ba2a7fe-defa-4511-ae78-4ea816633cf1" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost:8080" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints/><con:resource name="GET:/animal/contrat/consulter" path="/animal/contrat/consulter" id="f0d4db35-00ef-4647-859a-cd158908cbd7"><con:settings/><con:parameters/><con:method name="0" id="05d125aa-c909-407f-bdba-6ee6d13925ba" method="GET"><con:settings/><con:parameters/><con:request name="0 Request" id="49cf9340-6f40-4479-97a3-65442f298497" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="1" id="7876b2cc-babd-40a6-8db0-477e52190fd4" method="GET"><con:settings/><con:parameters/><con:request name="1 Request" id="a502923d-a638-4350-ac04-bc256ccb69e6" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="2" id="93fcdd7f-e088-4fe6-9771-3a9d635ab412" method="GET"><con:settings/><con:parameters/><con:request name="2 Request" id="62be80f5-4c1f-41e0-8934-6ba970a1a2a1" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="POST:/nvei/contrat/tarifer/" path="/nvei/contrat/tarifer/" id="e6d6a798-a974-44a3-832a-2cd08760e6af"><con:settings/><con:parameters/><con:method name="16" id="82dae0d2-40ef-4a1f-8f6a-3c57e7ecd016" method="POST"><con:settings/><con:parameters/><con:request name="16 Request" id="13be3653-91c3-4c11-ae37-69eb82239137" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="17" id="4e063d95-dbc3-48b9-bea5-64bc410dba16" method="POST"><con:settings/><con:parameters/><con:request name="17 Request" id="f2baeba0-2025-4db1-9245-8d0ea288c538" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="18" id="c2cc0772-a138-4ae5-9d71-3fb955ed5fd8" method="POST"><con:settings/><con:parameters/><con:request name="18 Request" id="ef799535-f789-4b9c-ae09-47c3d5141a7c" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="POST:/animal/contrat/tarifer/" path="/animal/contrat/tarifer/" id="9c489fd9-b195-40ad-978c-20576240def8"><con:settings/><con:parameters/><con:method name="12" id="b688076c-8af8-4be9-b2b2-fd3c2a8ce4d0" method="POST"><con:settings/><con:parameters/><con:request name="12 Request" id="267c39f9-c4be-44ea-ab55-67523a266236" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="13" id="e8793160-aeb2-4fbf-9521-c025bf648c31" method="POST"><con:settings/><con:parameters/><con:request name="13 Request" id="e36197cb-6a38-4d86-85c7-abee79412d08" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="14" id="247f446e-2bef-4589-aecc-e0d15c4dfa13" method="POST"><con:settings/><con:parameters/><con:request name="14 Request" id="726536df-8108-42b4-8448-30697b01fbd8" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="POST:/animal/sinistre/declarer" path="/animal/sinistre/declarer" id="a00d7fdd-1c5e-4d20-95d5-a99da6b692fe"><con:settings/><con:parameters/><con:method name="39" id="a1fb392b-87bd-47c2-ab73-73418a17fc85" method="POST"><con:settings/><con:parameters/><con:request name="39 Request" id="80c8a6a7-274d-4a1b-b586-801040285462" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="40" id="9cd4a546-95b3-4eef-8278-08a2b4344eb0" method="POST"><con:settings/><con:parameters/><con:request name="40 Request" id="fb39ea25-d736-4f42-be95-f05344ba76c5" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="41" id="bd96b1b1-f12f-4b08-8c84-0727efe71480" method="POST"><con:settings/><con:parameters/><con:request name="41 Request" id="10aa0159-24a7-4847-b635-7fd76afd8fb7" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="GET:/velo/contrat/consulter" path="/velo/contrat/consulter" id="3a8a46c5-a20d-45a2-bc47-06c72991c6e5"><con:settings/><con:parameters/><con:method name="6" id="60aaae91-2894-46a8-a517-dfa5fb942aef" method="GET"><con:settings/><con:parameters/><con:request name="6 Request" id="d8798d66-5fd1-4fdf-b5ef-859547dca621" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="7" id="d0a1c667-9a2f-4ffa-9488-fc7682bc81a7" method="GET"><con:settings/><con:parameters/><con:request name="7 Request" id="595854e1-97b5-496a-a164-8dfe85315614" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="8" id="53a73fcc-0bde-49cb-be9f-ff0aa17cb659" method="GET"><con:settings/><con:parameters/><con:request name="8 Request" id="776f7d34-6b17-4e0d-8aa8-5d1ed81dbca4" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="POST:/velo/contrat/tarifer" path="/velo/contrat/tarifer" id="873d3571-3484-4589-934a-59b7c4aa373f"><con:settings/><con:parameters/><con:method name="9" id="ff16c267-1304-4afb-9a9b-5e806d3c548b" method="POST"><con:settings/><con:parameters/><con:request name="9 Request" id="aa60c29b-e84e-4d33-a9cb-524e78481d8b" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="10" id="25bc17d9-08e8-4fcc-ad2f-6c2a9e04af9b" method="POST"><con:settings/><con:parameters/><con:request name="10 Request" id="6b3d267c-1566-4faa-a242-a4d284d123de" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="11" id="d33160e2-e34f-4447-86a9-66d9cad0b50f" method="POST"><con:settings/><con:parameters/><con:request name="11 Request" id="d4128ea0-b6fb-40f0-9c88-1f85a8feb767" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="OPTIONS:/animal/contrat/tarifer/" path="/animal/contrat/tarifer/" id="204f083b-e05a-41fc-8da9-f119439017f9"><con:settings/><con:parameters/><con:method name="4" id="9a06440e-98cb-42dd-9b05-515528fe447b" method="OPTIONS"><con:settings/><con:parameters/><con:request name="4 Request" id="10253358-c3a9-4e89-a3e4-9ce92e65e9e9" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="POST:/nvei/sinistre/declarer" path="/nvei/sinistre/declarer" id="a776a86a-1e81-41b3-8bbd-3bc46feb8928"><con:settings/><con:parameters/><con:method name="23" id="f7bd5c85-0edc-47cd-8381-776c12df8b9d" method="POST"><con:settings/><con:parameters/><con:request name="23 Request" id="6052604a-1aa0-4ad2-98e0-c9c53b601533" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="24" id="615f534d-92e7-4df4-8530-e942794fadef" method="POST"><con:settings/><con:parameters/><con:request name="24 Request" id="47834052-d258-4727-831b-f05e74407447" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="25" id="c3b87da2-df9d-4e69-8383-3155027d2490" method="POST"><con:settings/><con:parameters/><con:request name="25 Request" id="2bb594ec-be06-4fe5-ba76-6f9fc613a047" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="OPTIONS:/nvei/contrat/tarifer/" path="/nvei/contrat/tarifer/" id="0c8cf168-6e42-4297-bc2f-b7e25b3d79b3"><con:settings/><con:parameters/><con:method name="3" id="6aad9b87-c23a-4281-95c1-f200a9fc9b21" method="OPTIONS"><con:settings/><con:parameters/><con:request name="3 Request" id="6ccdb504-62f6-4800-afd6-5a838ddc8345" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="POST:/nvei/contrat/souscrire" path="/nvei/contrat/souscrire" id="6520ead3-9a60-4dcb-9c8d-0d4bc9d532b5"><con:settings/><con:parameters/><con:method name="43" id="714b4efb-fa81-4aa7-8851-1346d3997413" method="POST"><con:settings/><con:parameters/><con:request name="43 Request" id="c46e431c-e9bf-4b0f-91b7-14bce4f9a9f7" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="44" id="23989259-e47c-4981-a790-2864032ff7d3" method="POST"><con:settings/><con:parameters/><con:request name="44 Request" id="494f2403-9c62-48a1-bae3-61eaf1f6aad5" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="45" id="c213b363-257d-454b-a4a3-f84158ce2352" method="POST"><con:settings/><con:parameters/><con:request name="45 Request" id="edfb4310-2e0f-4150-a146-9f6a2f51a43f" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="POST:/velo/sinistre/declarer" path="/velo/sinistre/declarer" id="919184a8-ac10-4306-80df-0c7da0e428a0"><con:settings/><con:parameters/><con:method name="20" id="f4061a6f-1974-46f3-beda-7efc86e2f648" method="POST"><con:settings/><con:parameters/><con:request name="20 Request" id="e07f420f-8910-4348-b1f6-776bfe5b58c5" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="21" id="b5ed7144-5fd3-40ed-bb35-72e23a8774b6" method="POST"><con:settings/><con:parameters/><con:request name="21 Request" id="fbf0d818-8a6f-4529-b30e-735a12f163a1" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="22" id="db33de06-962f-400e-a75b-6dd81fe8d85c" method="POST"><con:settings/><con:parameters/><con:request name="22 Request" id="97b6509f-c764-4a1b-80af-c62456c80831" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="OPTIONS:/nvei/sinistre/declarer" path="/nvei/sinistre/declarer" id="47afef32-2fb6-49d0-bffb-93bfbe4ac95a"><con:settings/><con:parameters/><con:method name="15" id="9e86bde1-8727-4279-a26a-f96353911487" method="OPTIONS"><con:settings/><con:parameters/><con:request name="15 Request" id="7d3e418d-ed6e-4837-a788-73a3c118f3e4" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="POST:/velo/contrat/souscrire" path="/velo/contrat/souscrire" id="4fcccba3-1630-47f8-b808-cd580aa839a1"><con:settings/><con:parameters/><con:method name="26" id="4eea5c72-8372-4425-a678-9e7e673afadc" method="POST"><con:settings/><con:parameters/><con:request name="26 Request" id="40698503-bd65-4164-818f-38bbaf41c5ac" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="27" id="812e3782-426a-4a31-8d7c-82c1b72b48c6" method="POST"><con:settings/><con:parameters/><con:request name="27 Request" id="c1cf1f95-d330-4fed-b5f1-6492c7b91a54" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="28" id="e4b0ab12-b1c3-4827-9fee-c1aeb2a1fd8f" method="POST"><con:settings/><con:parameters/><con:request name="28 Request" id="f614d937-bdf8-40e8-8b0b-1dec44cc1560" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="POST:/animal/contrat/souscrire/" path="/animal/contrat/souscrire/" id="a8329723-ac5f-4494-be4d-26b295e80eea"><con:settings/><con:parameters/><con:method name="31" id="9a091006-d50d-4506-879b-4e789da8f52c" method="POST"><con:settings/><con:parameters/><con:request name="31 Request" id="95ec6552-ea61-426a-94ec-ddc9509ece84" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="32" id="fd6c8413-b328-41cc-92ab-3144967a16a6" method="POST"><con:settings/><con:parameters/><con:request name="32 Request" id="35dfd344-0af0-468c-b6b0-675f4a5094d2" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="33" id="35261a96-c0e9-4dec-a668-d9496aefae5b" method="POST"><con:settings/><con:parameters/><con:request name="33 Request" id="02aa3055-7230-4aa1-be95-9963f9f813e9" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="OPTIONS:/velo/contrat/souscrire" path="/velo/contrat/souscrire" id="85837843-5a30-479b-a917-5d91d7dba1f8"><con:settings/><con:parameters/><con:method name="30" id="183024c8-c6ef-4e62-95e6-9462774669ef" method="OPTIONS"><con:settings/><con:parameters/><con:request name="30 Request" id="b71ac891-0ed5-43ea-83ea-41192329eec2" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="OPTIONS:/animal/contrat/souscrire/" path="/animal/contrat/souscrire/" id="02694bd1-4b59-448e-82b8-0c40afae3054"><con:settings/><con:parameters/><con:method name="29" id="4ff7a278-5c3b-4d85-b0b9-032a6c5e854f" method="OPTIONS"><con:settings/><con:parameters/><con:request name="29 Request" id="d7c93050-a856-4731-af7f-bdc396c3b5b0" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="OPTIONS:/velo/sinistre/declarer" path="/velo/sinistre/declarer" id="2ddf5b2e-6423-4211-9681-77de80fa4027"><con:settings/><con:parameters/><con:method name="34" id="dcb33227-c053-41fc-9a6c-3e2875bc5d82" method="OPTIONS"><con:settings/><con:parameters/><con:request name="34 Request" id="0d689c98-04cf-45b7-a844-9c8bc4efd9a8" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="OPTIONS:/velo/contrat/consulter" path="/velo/contrat/consulter" id="2ca139b5-05a6-42a7-8c3c-810d6f527f95"><con:settings/><con:parameters/><con:method name="35" id="8648a0d8-a587-462b-bb71-9c6fd3bb40bf" method="OPTIONS"><con:settings/><con:parameters/><con:request name="35 Request" id="6e04a5eb-ad54-492e-bb5f-b16fbc8785c6" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="GET:/nvei/contrat/consulter" path="/nvei/contrat/consulter" id="b2f3211b-cf65-4ab6-b593-5469cb3915c8"><con:settings/><con:parameters/><con:method name="36" id="00561174-562c-4572-9938-b6e160597011" method="GET"><con:settings/><con:parameters/><con:request name="36 Request" id="608b12f7-7173-4a0b-9f75-5a24697ddfea" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="37" id="baf88779-ebe5-429a-b2fd-8d030c271b01" method="GET"><con:settings/><con:parameters/><con:request name="37 Request" id="e260dc45-aded-4516-af13-45890d8a2def" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method><con:method name="38" id="97610438-19aa-4cf8-9e14-5ab4f4500763" method="GET"><con:settings/><con:parameters/><con:request name="38 Request" id="3a093030-bb48-4253-80ec-51d45c4e867f" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="OPTIONS:/animal/sinistre/declarer" path="/animal/sinistre/declarer" id="61191bcd-8087-48c5-9b2e-0a2120d18b02"><con:settings/><con:parameters/><con:method name="5" id="9bbc2e83-2b89-48eb-842d-489af34b1e86" method="OPTIONS"><con:settings/><con:parameters/><con:request name="5 Request" id="4c4488e0-b7bb-4447-9ee1-4db955fdd972" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="OPTIONS:/nvei/contrat/consulter" path="/nvei/contrat/consulter" id="e3cd12ed-d925-44bf-9e8c-5c5556cbe707"><con:settings/><con:parameters/><con:method name="42" id="14333350-898a-4e3c-8ea0-64d0fe584fb1" method="OPTIONS"><con:settings/><con:parameters/><con:request name="42 Request" id="72a552a0-2008-478e-9ab6-facdbceb2ea5" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="OPTIONS:/nvei/contrat/souscrire" path="/nvei/contrat/souscrire" id="4fa77b36-4748-40a7-8dee-4eaf8a611c5f"><con:settings/><con:parameters/><con:method name="19" id="955bdd9a-e5aa-41f3-9fb2-16bf8dcd0ec6" method="OPTIONS"><con:settings/><con:parameters/><con:request name="19 Request" id="b68efcee-ea8c-4469-a171-384676a31f9f" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="OPTIONS:/animal/contrat/consulter" path="/animal/contrat/consulter" id="df66154d-c164-48e9-bdeb-2bc3099258ab"><con:settings/><con:parameters/><con:method name="46" id="15a864fe-2bc9-42b3-8b00-adfacffb72cc" method="OPTIONS"><con:settings/><con:parameters/><con:request name="46 Request" id="532b369d-5eca-49fe-a56c-db37b6aa07b6" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource><con:resource name="OPTIONS:/velo/contrat/tarifer" path="/velo/contrat/tarifer" id="4a2da75f-3da4-4e3d-9b23-34fc4098622a"><con:settings/><con:parameters/><con:method name="47" id="6e92a7fc-5a11-4e8f-b366-963bd7c40da2" method="OPTIONS"><con:settings/><con:parameters/><con:request name="47 Request" id="0d97cd25-eed0-442f-af3c-2b4d71ff184f" mediaType="application/json"><con:settings/><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite id="2ca4ccd6-607b-40fe-91be-6148c5b9a64c" name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="94efad04-87e7-4dfd-af5a-7195d9a2dce8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Test Case 1" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="0 Request" id="80fad199-ce99-4a14-b387-21f0d3926568"><con:settings/><con:config service="http://localhost:8080" resourcePath="/animal/contrat/consulter" methodName="0" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="0 Request" id="49cf9340-6f40-4479-97a3-65442f298497" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="1 Request" id="f01af6b0-d6f3-4805-bec2-af2d5af4923e"><con:settings/><con:config service="http://localhost:8080" resourcePath="/animal/contrat/consulter" methodName="1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="1 Request" id="a502923d-a638-4350-ac04-bc256ccb69e6" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="2 Request" id="ce519124-b2c8-4c09-a0c9-545189a5ab37"><con:settings/><con:config service="http://localhost:8080" resourcePath="/animal/contrat/consulter" methodName="2" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="2 Request" id="62be80f5-4c1f-41e0-8934-6ba970a1a2a1" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="16 Request" id="391d5c1c-3193-4fc1-8a25-7e7f0ca23c6f"><con:settings/><con:config service="http://localhost:8080" resourcePath="/nvei/contrat/tarifer/" methodName="16" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="16 Request" id="13be3653-91c3-4c11-ae37-69eb82239137" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="17 Request" id="be12e089-53e6-4b1b-a0e1-1533ad939be8"><con:settings/><con:config service="http://localhost:8080" resourcePath="/nvei/contrat/tarifer/" methodName="17" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="17 Request" id="f2baeba0-2025-4db1-9245-8d0ea288c538" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="18 Request" id="db379505-1a6c-452b-ac86-4bdf9698b072"><con:settings/><con:config service="http://localhost:8080" resourcePath="/nvei/contrat/tarifer/" methodName="18" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="18 Request" id="ef799535-f789-4b9c-ae09-47c3d5141a7c" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="12 Request" id="6d5efd55-41e0-4c0d-ae7f-a54bf3696fe8"><con:settings/><con:config service="http://localhost:8080" resourcePath="/animal/contrat/tarifer/" methodName="12" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="12 Request" id="267c39f9-c4be-44ea-ab55-67523a266236" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="13 Request" id="e06b1979-8029-446b-8aa8-5c006a915522"><con:settings/><con:config service="http://localhost:8080" resourcePath="/animal/contrat/tarifer/" methodName="13" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="13 Request" id="e36197cb-6a38-4d86-85c7-abee79412d08" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="14 Request" id="2163af39-0ff5-4420-bb22-43a25625bda0"><con:settings/><con:config service="http://localhost:8080" resourcePath="/animal/contrat/tarifer/" methodName="14" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="14 Request" id="726536df-8108-42b4-8448-30697b01fbd8" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="39 Request" id="91042991-5ba6-4c28-bb38-805ac241231a"><con:settings/><con:config service="http://localhost:8080" resourcePath="/animal/sinistre/declarer" methodName="39" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="39 Request" id="80c8a6a7-274d-4a1b-b586-801040285462" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="40 Request" id="127dd552-941c-49db-b6b5-43917b7b8058"><con:settings/><con:config service="http://localhost:8080" resourcePath="/animal/sinistre/declarer" methodName="40" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="40 Request" id="fb39ea25-d736-4f42-be95-f05344ba76c5" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="41 Request" id="3db7809e-df1c-4072-b6a2-76612e177d5f"><con:settings/><con:config service="http://localhost:8080" resourcePath="/animal/sinistre/declarer" methodName="41" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="41 Request" id="10aa0159-24a7-4847-b635-7fd76afd8fb7" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="6 Request" id="f70610ac-7735-4d2d-9fc2-00aa6621c7c3"><con:settings/><con:config service="http://localhost:8080" resourcePath="/velo/contrat/consulter" methodName="6" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="6 Request" id="d8798d66-5fd1-4fdf-b5ef-859547dca621" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="7 Request" id="d57a0737-97bc-4b5d-8b48-8508c169150c"><con:settings/><con:config service="http://localhost:8080" resourcePath="/velo/contrat/consulter" methodName="7" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="7 Request" id="595854e1-97b5-496a-a164-8dfe85315614" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="8 Request" id="2c63fdc6-94b0-473c-af2f-d74298485b3e"><con:settings/><con:config service="http://localhost:8080" resourcePath="/velo/contrat/consulter" methodName="8" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="8 Request" id="776f7d34-6b17-4e0d-8aa8-5d1ed81dbca4" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="9 Request" id="8ff00c96-98b2-47b5-9cfb-99d51095f9b2"><con:settings/><con:config service="http://localhost:8080" resourcePath="/velo/contrat/tarifer" methodName="9" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="9 Request" id="aa60c29b-e84e-4d33-a9cb-524e78481d8b" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="10 Request" id="5ae981e8-9ea3-4ccc-a8f5-a38ec640a861"><con:settings/><con:config service="http://localhost:8080" resourcePath="/velo/contrat/tarifer" methodName="10" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="10 Request" id="6b3d267c-1566-4faa-a242-a4d284d123de" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="11 Request" id="71ce1788-3219-48f1-9df7-3a7e2a8df42c"><con:settings/><con:config service="http://localhost:8080" resourcePath="/velo/contrat/tarifer" methodName="11" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="11 Request" id="d4128ea0-b6fb-40f0-9c88-1f85a8feb767" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="4 Request" id="5ec37804-0c1d-45a7-9357-16b24485c268"><con:settings/><con:config service="http://localhost:8080" resourcePath="/animal/contrat/tarifer/" methodName="4" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="4 Request" id="10253358-c3a9-4e89-a3e4-9ce92e65e9e9" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="23 Request" id="d393c7c9-96b4-4e60-98f6-d8d177ae0d37"><con:settings/><con:config service="http://localhost:8080" resourcePath="/nvei/sinistre/declarer" methodName="23" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="23 Request" id="6052604a-1aa0-4ad2-98e0-c9c53b601533" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="24 Request" id="ade26681-8d1f-4576-9490-aec0d6759add"><con:settings/><con:config service="http://localhost:8080" resourcePath="/nvei/sinistre/declarer" methodName="24" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="24 Request" id="47834052-d258-4727-831b-f05e74407447" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="25 Request" id="37659499-808b-4db4-a337-72c012894125"><con:settings/><con:config service="http://localhost:8080" resourcePath="/nvei/sinistre/declarer" methodName="25" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="25 Request" id="2bb594ec-be06-4fe5-ba76-6f9fc613a047" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="3 Request" id="24664b38-0e9d-4bec-b61d-920c73a03871"><con:settings/><con:config service="http://localhost:8080" resourcePath="/nvei/contrat/tarifer/" methodName="3" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="3 Request" id="6ccdb504-62f6-4800-afd6-5a838ddc8345" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="43 Request" id="cf81ce5e-6cd4-46a1-a749-802108134946"><con:settings/><con:config service="http://localhost:8080" resourcePath="/nvei/contrat/souscrire" methodName="43" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="43 Request" id="c46e431c-e9bf-4b0f-91b7-14bce4f9a9f7" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="44 Request" id="f3c9ac3e-c189-4a83-904b-b2655eeaa75a"><con:settings/><con:config service="http://localhost:8080" resourcePath="/nvei/contrat/souscrire" methodName="44" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="44 Request" id="494f2403-9c62-48a1-bae3-61eaf1f6aad5" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="45 Request" id="f9674cfc-2821-4892-bd92-46ad486da454"><con:settings/><con:config service="http://localhost:8080" resourcePath="/nvei/contrat/souscrire" methodName="45" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="45 Request" id="edfb4310-2e0f-4150-a146-9f6a2f51a43f" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="20 Request" id="98554591-071a-4d6e-817e-cc94fe7a373a"><con:settings/><con:config service="http://localhost:8080" resourcePath="/velo/sinistre/declarer" methodName="20" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="20 Request" id="e07f420f-8910-4348-b1f6-776bfe5b58c5" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="21 Request" id="43e2f1bd-564a-4627-a746-dba3d85bb6f8"><con:settings/><con:config service="http://localhost:8080" resourcePath="/velo/sinistre/declarer" methodName="21" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="21 Request" id="fbf0d818-8a6f-4529-b30e-735a12f163a1" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="22 Request" id="64320d7d-d757-4fc7-8437-101a66e0af10"><con:settings/><con:config service="http://localhost:8080" resourcePath="/velo/sinistre/declarer" methodName="22" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="22 Request" id="97b6509f-c764-4a1b-80af-c62456c80831" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="15 Request" id="4b0eab49-288c-4548-82ce-48a73e1936e2"><con:settings/><con:config service="http://localhost:8080" resourcePath="/nvei/sinistre/declarer" methodName="15" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="15 Request" id="7d3e418d-ed6e-4837-a788-73a3c118f3e4" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="26 Request" id="bcd5480b-2f73-464b-9d74-b617b30658df"><con:settings/><con:config service="http://localhost:8080" resourcePath="/velo/contrat/souscrire" methodName="26" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="26 Request" id="40698503-bd65-4164-818f-38bbaf41c5ac" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="27 Request" id="488e8d99-1253-41e1-a611-edd70f0c0d73"><con:settings/><con:config service="http://localhost:8080" resourcePath="/velo/contrat/souscrire" methodName="27" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="27 Request" id="c1cf1f95-d330-4fed-b5f1-6492c7b91a54" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="28 Request" id="e9921814-7bc3-41e4-8fdc-7ecaa69bfd3c"><con:settings/><con:config service="http://localhost:8080" resourcePath="/velo/contrat/souscrire" methodName="28" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="28 Request" id="f614d937-bdf8-40e8-8b0b-1dec44cc1560" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="31 Request" id="35196e4a-08a0-45fd-88e4-f6bf3a08d2a6"><con:settings/><con:config service="http://localhost:8080" resourcePath="/animal/contrat/souscrire/" methodName="31" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="31 Request" id="95ec6552-ea61-426a-94ec-ddc9509ece84" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="32 Request" id="0071a7e4-a49f-4627-ba20-23ff3ebdb367"><con:settings/><con:config service="http://localhost:8080" resourcePath="/animal/contrat/souscrire/" methodName="32" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="32 Request" id="35dfd344-0af0-468c-b6b0-675f4a5094d2" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="33 Request" id="0026129d-67eb-4acb-863d-2e4337126f2a"><con:settings/><con:config service="http://localhost:8080" resourcePath="/animal/contrat/souscrire/" methodName="33" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="33 Request" id="02aa3055-7230-4aa1-be95-9963f9f813e9" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="30 Request" id="e3c9a398-5e96-4e3d-aabe-50f7626f3170"><con:settings/><con:config service="http://localhost:8080" resourcePath="/velo/contrat/souscrire" methodName="30" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="30 Request" id="b71ac891-0ed5-43ea-83ea-41192329eec2" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="29 Request" id="a06f8541-3484-4cbb-94cb-300c4f58c23e"><con:settings/><con:config service="http://localhost:8080" resourcePath="/animal/contrat/souscrire/" methodName="29" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="29 Request" id="d7c93050-a856-4731-af7f-bdc396c3b5b0" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="34 Request" id="856d8ec8-8129-421c-8d98-1d40c6c50a62"><con:settings/><con:config service="http://localhost:8080" resourcePath="/velo/sinistre/declarer" methodName="34" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="34 Request" id="0d689c98-04cf-45b7-a844-9c8bc4efd9a8" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="35 Request" id="9696ac8f-8ddd-43d6-8a9f-edfdfa7f3226"><con:settings/><con:config service="http://localhost:8080" resourcePath="/velo/contrat/consulter" methodName="35" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="35 Request" id="6e04a5eb-ad54-492e-bb5f-b16fbc8785c6" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="36 Request" id="1d536e19-5b55-4761-b4de-1a90e16064ed"><con:settings/><con:config service="http://localhost:8080" resourcePath="/nvei/contrat/consulter" methodName="36" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="36 Request" id="608b12f7-7173-4a0b-9f75-5a24697ddfea" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="37 Request" id="9231a6dc-7f5a-4649-b335-eb5d88383ef9"><con:settings/><con:config service="http://localhost:8080" resourcePath="/nvei/contrat/consulter" methodName="37" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="37 Request" id="e260dc45-aded-4516-af13-45890d8a2def" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="38 Request" id="747376dd-b2d4-4148-8505-9eed8b89275f"><con:settings/><con:config service="http://localhost:8080" resourcePath="/nvei/contrat/consulter" methodName="38" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="38 Request" id="3a093030-bb48-4253-80ec-51d45c4e867f" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="5 Request" id="55376197-38ee-4276-8bb9-eb6b9867d4f2"><con:settings/><con:config service="http://localhost:8080" resourcePath="/animal/sinistre/declarer" methodName="5" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="5 Request" id="4c4488e0-b7bb-4447-9ee1-4db955fdd972" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="42 Request" id="9a00b288-80e2-413f-9318-a537776d3063"><con:settings/><con:config service="http://localhost:8080" resourcePath="/nvei/contrat/consulter" methodName="42" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="42 Request" id="72a552a0-2008-478e-9ab6-facdbceb2ea5" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="19 Request" id="00a4839f-938e-42fa-b1bb-c368e9e910e2"><con:settings/><con:config service="http://localhost:8080" resourcePath="/nvei/contrat/souscrire" methodName="19" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="19 Request" id="b68efcee-ea8c-4469-a171-384676a31f9f" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="46 Request" id="5dd4e724-d4f1-41ae-8312-4432a106ba33"><con:settings/><con:config service="http://localhost:8080" resourcePath="/animal/contrat/consulter" methodName="46" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="46 Request" id="532b369d-5eca-49fe-a56c-db37b6aa07b6" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="47 Request" id="1174aeb9-b3a3-4ada-bc6f-c97b67ac60cb"><con:settings/><con:config service="http://localhost:8080" resourcePath="/velo/contrat/tarifer" methodName="47" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="47 Request" id="0d97cd25-eed0-442f-af3c-2b4d71ff184f" mediaType="application/json"><con:settings/><con:request/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:restMockService id="a026d9c4-368a-4e7b-93e2-940449854a69" port="8080" path="/" host="PP20045973" name="bouchonPortailDeveloppeur.xml"><con:settings/><con:properties><con:property><con:name>version</con:name><con:value>1.0</con:value></con:property></con:properties><con:restMockAction name="/animal/contrat/consulter" method="GET" resourcePath="/animal/contrat/consulter" id="8b200f7d-e0fe-4265-ae7f-d9ee36502a25"><con:settings/><con:defaultResponse>0 Response</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath><![CDATA[def queryString = mockRequest.getRequest().getQueryString()
+def js = new groovy.json.JsonSlurper()
+def rc = "" 
+        try {  rc = js.parseText(mockRequest.requestContent) } catch(java.lang.Throwable e) { }
+ def v0 ="""null"""
+ def v1 ="""null"""
+ def v2 ="""null"""
+
+ if ( queryString != null && queryString == """numero=%2200XE4555%22""" ){
+return "0 Response"
+}
+ if ( queryString != null && queryString == """numero=%22000XERF45%22""" ){
+return "1 Response"
+}
+ if ( queryString != null && queryString == """numero=%2255ERF5545%22""" ){
+return "2 Response"
+}]]></con:dispatchPath><con:response name="0 Response" id="6b8bad87-67b7-453b-93ee-52b16ac1ecb5" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"souscripteur":{"nom":"La porte","prenom":"Pierre","email":"pierre.laporte@gmail.com"},"animal":{"race":"caniche","dateNaissance":"2017-01-10","type":"Chien"}}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="1 Response" id="b8470b87-9db9-4fed-b846-6d72785d3529" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"souscripteur":{"nom":"Dupont","prenom":"Prenom","email":"jean.dupont@gmail.com"},"animal":{"race":"teckel","dateNaissance":"2018-01-10","type":"Chien"}}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="2 Response" id="d2499c82-8f08-4739-b166-421aac79ebaf" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"souscripteur":{"nom":"Olqui","prenom":"Sophie","email":"sophie.olqui@gmail.com"},"animal":{"race":"Persan","dateNaissance":"2017-08-05","type":"Chat"}}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/nvei/contrat/tarifer/" method="OPTIONS" resourcePath="/nvei/contrat/tarifer/" id="7b8f3d6a-ba22-48a6-b8ef-1b407eb72c42"><con:settings/><con:defaultResponse>3 Response</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="3 Response" id="927eced3-6337-4deb-b3d5-2ea90fd42ff8" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent/><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/animal/contrat/tarifer/" method="OPTIONS" resourcePath="/animal/contrat/tarifer/" id="e9c30dd9-ffd7-483d-a507-fd4ba9ae7622"><con:settings/><con:defaultResponse>4 Response</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="4 Response" id="50082cc3-9795-45e9-9405-c6df1b291f4c" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent/><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/animal/sinistre/declarer" method="OPTIONS" resourcePath="/animal/sinistre/declarer" id="da4af960-8a7f-45c2-a0d4-3a1b40395b39"><con:settings/><con:defaultResponse>5 Response</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="5 Response" id="d3e4b5b6-b57f-431f-8923-93ec382073fb" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent/><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/velo/contrat/consulter" method="GET" resourcePath="/velo/contrat/consulter" id="c1d5a88b-7aa2-4181-9d40-3237624872ea"><con:settings/><con:defaultResponse>6 Response</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath><![CDATA[def queryString = mockRequest.getRequest().getQueryString()
+def js = new groovy.json.JsonSlurper()
+def rc = "" 
+        try {  rc = js.parseText(mockRequest.requestContent) } catch(java.lang.Throwable e) { }
+ def v0 ="""null"""
+ def v1 ="""null"""
+ def v2 ="""null"""
+
+ if ( queryString != null && queryString == """numero=%2200XE444E%22""" ){
+return "6 Response"
+}
+ if ( queryString != null && queryString == """numero=%2200XCSD55%22""" ){
+return "7 Response"
+}
+ if ( queryString != null && queryString == """numero=%220125SSZD5%22""" ){
+return "8 Response"
+}]]></con:dispatchPath><con:response name="6 Response" id="d3287c36-e4fc-438f-86cb-685d644a5fd3" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"souscripteur":{"nom":"La foret","prenom":"Sylvie","email":"sylvie.laforet@gmail.com"},"velo":{"numeroCadre":"00454545","numeroAntiVol":"55SD","modele":"Beta1","marque":"Peugeot"}}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="7 Response" id="0f2b7d11-9000-4efd-b3c5-c5b1c06bcdce" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"souscripteur":{"nom":"Toufe","prenom":"Mathieu","email":"mathieu.toufe@gmail.com"},"velo":{"numeroCadre":"4545eet","numeroAntiVol":"666","modele":"ERRR5","marque":"Sony"}}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="8 Response" id="32f4d965-222e-4dee-9b74-bc7b2e2a2aca" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"souscripteur":{"nom":"Etoile","prenom":"Olivier","email":"olivier.etoile@gmail.com"},"velo":{"numeroCadre":"S01255","numeroAntiVol":"1111ZE","modele":"Gold","marque":"Renault"}}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/velo/contrat/tarifer" method="POST" resourcePath="/velo/contrat/tarifer" id="c8a72c79-34f8-44b9-a883-c236cd2940a1"><con:settings/><con:defaultResponse>9 Response</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>def queryString = mockRequest.getRequest().getQueryString()
+def js = new groovy.json.JsonSlurper()
+def rc = "" 
+        try {  rc = js.parseText(mockRequest.requestContent) } catch(java.lang.Throwable e) { }
+ def v0 ="""{"souscripteur":{"nom":"La foret","prenom":"Sylvie","email":"sylvie.laforet@gmail.com"},"velo":{"numeroCadre":"00454545","numeroAntiVol":"55SD","modele":"Beta1","marque":"Peugeot"}}"""
+ def v1 ="""{"souscripteur":{"nom":"Toufe","prenom":"Mathieu","email":"mathieu.toufe@gmail.com"},"velo":{"numeroCadre":"4545eet","numeroAntiVol":"666","modele":"ERRR5","marque":"Sony"}}"""
+ def v2 ="""{"souscripteur":{"nom":"Etoile","prenom":"Olivier","email":"olivier.etoile@gmail.com"},"velo":{"numeroCadre":"S01255","numeroAntiVol":"1111ZE","modele":"Gold","marque":"Renault"}}"""
+
+ if ( rc  == js.parseText(v0) ){
+return "9 Response"
+}
+ if ( rc  == js.parseText(v1) ){
+return "10 Response"
+}
+ if ( rc  == js.parseText(v2) ){
+return "11 Response"
+}</con:dispatchPath><con:response name="9 Response" id="a9994504-d231-4da3-8dee-371eb6df3234" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"montant":94.21,"dateFinValidite":"2021-01-17","periode":"Trimestriel"}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="10 Response" id="a5b83bc2-6997-419e-b38d-4d03c835c1d1" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"montant":20.25,"dateFinValidite":"2023-01-17","periode":"Annuel"}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="11 Response" id="578a9748-bbea-42db-a382-ba8c945f7f96" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"montant":33.75,"dateFinValidite":"2022-05-10","periode":"Annuel"}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/animal/contrat/tarifer/" method="POST" resourcePath="/animal/contrat/tarifer/" id="4a4d2c0c-ec98-4207-b5c9-dff99e09a8cc"><con:settings/><con:defaultResponse>12 Response</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>def queryString = mockRequest.getRequest().getQueryString()
+def js = new groovy.json.JsonSlurper()
+def rc = "" 
+        try {  rc = js.parseText(mockRequest.requestContent) } catch(java.lang.Throwable e) { }
+ def v0 ="""{"souscripteur":{"nom":"Dupont","prenom":"Marie","email":"marie.dupont@gmail.com"},"animal":{"race":"berger allemand","dateNaissance":"2018-01-17","type":"Chient"}}"""
+ def v1 ="""{"souscripteur":{"nom":"Dubois","prenom":"Paul","email":"paul.dubois@gmail.com"},"animal":{"race":"teckel","dateNaissance":"2016-01-15","type":"Chient"}}"""
+ def v2 ="""{"souscripteur":{"nom":"Pommier","prenom":"Robert","email":"robert.pommier@gmail.com"},"animal":{"race":"siamois","dateNaissance":"2018-01-17","type":"Chat"}}"""
+
+ if ( rc  == js.parseText(v0) ){
+return "12 Response"
+}
+ if ( rc  == js.parseText(v1) ){
+return "13 Response"
+}
+ if ( rc  == js.parseText(v2) ){
+return "14 Response"
+}</con:dispatchPath><con:response name="12 Response" id="9394c627-cb90-41d0-887b-b6dd5716526c" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"montant":94.21,"dateFinValidite":"2021-01-17","periode":"Trimestriel"}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="13 Response" id="95e16a2b-4c99-4b32-8734-51d72fb284e5" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"montant":74.25,"dateFinValidite":"2022-01-10","periode":"Annuel"}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="14 Response" id="1ff36ec0-c4c5-4fcb-beb4-9fe5f03de9f0" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"montant":8.48,"dateFinValidite":"2021-05-17","periode":"Mensuel"}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/nvei/sinistre/declarer" method="OPTIONS" resourcePath="/nvei/sinistre/declarer" id="d1090885-df70-4926-9c46-8bbdc6df0e17"><con:settings/><con:defaultResponse>15 Response</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="15 Response" id="169606d7-2abf-4f05-9106-6b8a52720f3e" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent/><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/nvei/contrat/tarifer/" method="POST" resourcePath="/nvei/contrat/tarifer/" id="094b166d-1a0e-4d1a-b533-72f3cd95aae4"><con:settings/><con:defaultResponse>16 Response</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>def queryString = mockRequest.getRequest().getQueryString()
+def js = new groovy.json.JsonSlurper()
+def rc = "" 
+        try {  rc = js.parseText(mockRequest.requestContent) } catch(java.lang.Throwable e) { }
+ def v0 ="""{"souscripteur":{"nom":"Jean","prenom":"Franck","email":"franck.jean@gmail.com"},"nvei":{"marque":"Peugeot"}}"""
+ def v1 ="""{"souscripteur":{"nom":"Loki","prenom":"Sophie","email":"sophie.loki@gmail.com"},"nvei":{"marque":"Sony"}}"""
+ def v2 ="""{"souscripteur":{"nom":"Robert","prenom":"Phillipe","email":"phillipe.robert@gmail.com"},"nvei":{"marque":"Renault"}}"""
+
+ if ( rc  == js.parseText(v0) ){
+return "16 Response"
+}
+ if ( rc  == js.parseText(v1) ){
+return "17 Response"
+}
+ if ( rc  == js.parseText(v2) ){
+return "18 Response"
+}</con:dispatchPath><con:response name="16 Response" id="b322a982-8fd0-4efc-b837-18f40acc2ebf" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"montant":94.21,"dateFinValidite":"2021-01-17","periode":"Trimestriel"}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="17 Response" id="f3fe30f6-0610-4d4b-ab2f-e448330d2184" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"montant":53.2,"dateFinValidite":"2022-01-17","periode":"Annuel"}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="18 Response" id="e88f4d9e-c697-4b1b-90f9-ac834840ffb4" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"montant":69.8,"dateFinValidite":"2022-01-23","periode":"Trimestriel"}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/nvei/contrat/souscrire" method="OPTIONS" resourcePath="/nvei/contrat/souscrire" id="22fe424d-869c-4fa7-96f5-186508f378ea"><con:settings/><con:defaultResponse>19 Response</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="19 Response" id="48cf0856-d587-4f14-b737-70022c458101" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent/><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/velo/sinistre/declarer" method="POST" resourcePath="/velo/sinistre/declarer" id="f2865160-da1f-4770-a0db-30850c294286"><con:settings/><con:defaultResponse>20 Response</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>def queryString = mockRequest.getRequest().getQueryString()
+def js = new groovy.json.JsonSlurper()
+def rc = "" 
+        try {  rc = js.parseText(mockRequest.requestContent) } catch(java.lang.Throwable e) { }
+ def v0 ="""{"dateSinistre":"2018-02-10T09:30Z","numercoContrat":"XE7885QQ"}"""
+ def v1 ="""{"dateSinistre":"2020-02-10T09:30Z","numercoContrat":"XE8874DD"}"""
+ def v2 ="""{"dateSinistre":"2018-02-10T09:30Z","numercoContrat":"4455ZEDS"}"""
+
+ if ( rc  == js.parseText(v0) ){
+return "20 Response"
+}
+ if ( rc  == js.parseText(v1) ){
+return "21 Response"
+}
+ if ( rc  == js.parseText(v2) ){
+return "22 Response"
+}</con:dispatchPath><con:response name="20 Response" id="ceb22994-2714-472a-9267-585918e89320" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"numeroSinistre":"655SEX"}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="21 Response" id="cf038533-eceb-4f4c-ae7f-477aee9514f4" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"numeroSinistre":"55485SD2"}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="22 Response" id="7fb4bc08-a9c4-444d-bfc3-d8ae6c30fd34" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"numeroSinistre":"8845ZE55"}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/nvei/sinistre/declarer" method="POST" resourcePath="/nvei/sinistre/declarer" id="310b4763-1954-45d1-b77a-7bf9daeece76"><con:settings/><con:defaultResponse>23 Response</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>def queryString = mockRequest.getRequest().getQueryString()
+def js = new groovy.json.JsonSlurper()
+def rc = "" 
+        try {  rc = js.parseText(mockRequest.requestContent) } catch(java.lang.Throwable e) { }
+ def v0 ="""{"dateSinistre":"2018-02-10T09:30Z","numercoContrat":"XER55"}"""
+ def v1 ="""{"dateSinistre":"2019-02-10T09:30Z","numercoContrat":"458XE5"}"""
+ def v2 ="""{"dateSinistre":"2020-18-10T09:30Z","numercoContrat":"CERFOF"}"""
+
+ if ( rc  == js.parseText(v0) ){
+return "23 Response"
+}
+ if ( rc  == js.parseText(v1) ){
+return "24 Response"
+}
+ if ( rc  == js.parseText(v2) ){
+return "25 Response"
+}</con:dispatchPath><con:response name="23 Response" id="95b9e730-8c72-4d3f-b54a-5ad11d0cd2fd" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"numeroSinistre":"N4586X"}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="24 Response" id="cd235b95-922a-4aa3-873f-2038775c5a01" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"numeroSinistre":"XER55588"}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="25 Response" id="8c28aadf-c63f-4af5-8a0e-fb3264cf4137" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"numeroSinistre":"XERF5555"}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/velo/contrat/souscrire" method="POST" resourcePath="/velo/contrat/souscrire" id="2f1cf04c-af8d-49e1-9f49-fdb476858347"><con:settings/><con:defaultResponse>26 Response</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>def queryString = mockRequest.getRequest().getQueryString()
+def js = new groovy.json.JsonSlurper()
+def rc = "" 
+        try {  rc = js.parseText(mockRequest.requestContent) } catch(java.lang.Throwable e) { }
+ def v0 ="""{"souscripteur":{"nom":"La foret","prenom":"Sylvie","email":"sylvie.laforet@gmail.com"},"velo":{"numeroCadre":"00454545","numeroAntiVol":"55SD","modele":"Beta1","marque":"Peugeot"}}"""
+ def v1 ="""{"souscripteur":{"nom":"Toufe","prenom":"Mathieu","email":"mathieu.toufe@gmail.com"},"velo":{"numeroCadre":"4545eet","numeroAntiVol":"666","modele":"ERRR5","marque":"Sony"}}"""
+ def v2 ="""{"souscripteur":{"nom":"Etoile","prenom":"Olivier","email":"olivier.etoile@gmail.com"},"velo":{"numeroCadre":"S01255","numeroAntiVol":"1111ZE","modele":"Gold","marque":"Renault"}}"""
+
+ if ( rc  == js.parseText(v0) ){
+return "26 Response"
+}
+ if ( rc  == js.parseText(v1) ){
+return "27 Response"
+}
+ if ( rc  == js.parseText(v2) ){
+return "28 Response"
+}</con:dispatchPath><con:response name="26 Response" id="50541c41-61b4-4b8b-a9da-131fe0e452b9" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>"XERFD0005"</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="27 Response" id="e91b9643-a9ef-443f-8ce7-32763a5ce3e1" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>"SED4558X"</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="28 Response" id="4976f480-cffa-48ca-ba2b-76e21751458b" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>"HU44585XS"</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/animal/contrat/souscrire/" method="OPTIONS" resourcePath="/animal/contrat/souscrire/" id="f04c0022-3c9b-41e9-aaa6-d2b20fc06ecf"><con:settings/><con:defaultResponse>29 Response</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="29 Response" id="d4e70895-9d21-4044-a9f6-5e796b4e8004" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent/><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/velo/contrat/souscrire" method="OPTIONS" resourcePath="/velo/contrat/souscrire" id="caead456-a0ac-4832-858b-199107329570"><con:settings/><con:defaultResponse>30 Response</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="30 Response" id="bff00851-dd7d-4079-b2de-9b06be6acf00" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent/><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/animal/contrat/souscrire/" method="POST" resourcePath="/animal/contrat/souscrire/" id="6dd4f218-6b48-446c-9434-feccbb2715b3"><con:settings/><con:defaultResponse>31 Response</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>def queryString = mockRequest.getRequest().getQueryString()
+def js = new groovy.json.JsonSlurper()
+def rc = "" 
+        try {  rc = js.parseText(mockRequest.requestContent) } catch(java.lang.Throwable e) { }
+ def v0 ="""{"souscripteur":{"nom":"La porte","prenom":"Pierre","email":"pierre.laporte@gmail.com"},"animal":{"race":"caniche","dateNaissance":"2017-01-10","type":"Chien"}}"""
+ def v1 ="""{"souscripteur":{"nom":"Dupont","prenom":"Prenom","email":"jean.dupont@gmail.com"},"animal":{"race":"teckel","dateNaissance":"2018-01-10","type":"Chien"}}"""
+ def v2 ="""{"souscripteur":{"nom":"Olqui","prenom":"Sophie","email":"sophie.olqui@gmail.com"},"animal":{"race":"Persan","dateNaissance":"2017-08-05","type":"Chat"}}"""
+
+ if ( rc  == js.parseText(v0) ){
+return "31 Response"
+}
+ if ( rc  == js.parseText(v1) ){
+return "32 Response"
+}
+ if ( rc  == js.parseText(v2) ){
+return "33 Response"
+}</con:dispatchPath><con:response name="31 Response" id="a07896a9-6272-4573-9de6-66b61f124ee4" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>"00XE45855"</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="32 Response" id="cd869222-97de-4706-b4c2-aec3c8c165e9" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>"01ZER555"</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="33 Response" id="fb1e8c50-cffa-48c4-95fb-25ec84ada49d" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>"ERO0125S"</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/velo/sinistre/declarer" method="OPTIONS" resourcePath="/velo/sinistre/declarer" id="1d586de6-afb3-40c8-ab8c-75000d93e086"><con:settings/><con:defaultResponse>34 Response</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="34 Response" id="72257414-1b89-4849-842c-cb223a8578f4" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent/><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/velo/contrat/consulter" method="OPTIONS" resourcePath="/velo/contrat/consulter" id="3f902e2a-1bc7-49a9-ae4c-5af8f0f7ccb4"><con:settings/><con:defaultResponse>35 Response</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="35 Response" id="48efd951-6381-42c4-9b37-8f93bc03db3e" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent/><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/nvei/contrat/consulter" method="GET" resourcePath="/nvei/contrat/consulter" id="b4a6a6af-b9df-401c-8b5e-dc2d75f41264"><con:settings/><con:defaultResponse>36 Response</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath><![CDATA[def queryString = mockRequest.getRequest().getQueryString()
+def js = new groovy.json.JsonSlurper()
+def rc = "" 
+        try {  rc = js.parseText(mockRequest.requestContent) } catch(java.lang.Throwable e) { }
+ def v0 ="""null"""
+ def v1 ="""null"""
+ def v2 ="""null"""
+
+ if ( queryString != null && queryString == """numero=%22XERFDD%22""" ){
+return "36 Response"
+}
+ if ( queryString != null && queryString == """numero=%22XER4585%22""" ){
+return "37 Response"
+}
+ if ( queryString != null && queryString == """numero=%22XER666%22""" ){
+return "38 Response"
+}]]></con:dispatchPath><con:response name="36 Response" id="5f9a13a3-cce8-4529-9198-d50cdb874919" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"souscripteur":{"nom":"Jean","prenom":"Franck","email":"franck.jean@gmail.com"},"nvei":{"marque":"Peugeot"}}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="37 Response" id="3aae4e94-a974-44b4-b2de-2973d20a46c7" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"souscripteur":{"nom":"Loki","prenom":"Sophie","email":"sophie.loki@gmail.com"},"nvei":{"marque":"Sony"}}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="38 Response" id="23248f30-3258-484c-8c5b-436ea949600f" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"souscripteur":{"nom":"Robert","prenom":"Phillipe","email":"phillipe.robert@gmail.com"},"nvei":{"marque":"Renault"}}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/animal/sinistre/declarer" method="POST" resourcePath="/animal/sinistre/declarer" id="488dedbe-59df-4cbb-8c3e-e3138c3ae1ca"><con:settings/><con:defaultResponse>39 Response</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>def queryString = mockRequest.getRequest().getQueryString()
+def js = new groovy.json.JsonSlurper()
+def rc = "" 
+        try {  rc = js.parseText(mockRequest.requestContent) } catch(java.lang.Throwable e) { }
+ def v0 ="""{"dateSinistre":"2018-02-10T09:30Z","numercoContrat":"000XE555"}"""
+ def v1 ="""{"dateSinistre":"2018-02-10T09:30Z","numercoContrat":"XEDF55"}"""
+ def v2 ="""{"dateSinistre":"2018-02-10T09:30Z","numercoContrat":"XERFD"}"""
+
+ if ( rc  == js.parseText(v0) ){
+return "39 Response"
+}
+ if ( rc  == js.parseText(v1) ){
+return "40 Response"
+}
+ if ( rc  == js.parseText(v2) ){
+return "41 Response"
+}</con:dispatchPath><con:response name="39 Response" id="4b5d37c4-9123-41ae-b6d3-7571873a0fb3" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"numeroSinistre":"04585"}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="40 Response" id="8cc3a8f3-0b89-4132-8d5b-bab7a02d4af6" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"numeroSinistre":"458669"}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="41 Response" id="f8428a7a-0084-4244-9c3e-0291b82d90d5" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{"numeroSinistre":"485952"}</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/nvei/contrat/consulter" method="OPTIONS" resourcePath="/nvei/contrat/consulter" id="8208d53d-4df7-4187-8e25-6b38a8d0e42d"><con:settings/><con:defaultResponse>42 Response</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="42 Response" id="3b172c75-a9fc-4d0a-818e-24646f499235" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent/><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/nvei/contrat/souscrire" method="POST" resourcePath="/nvei/contrat/souscrire" id="bfd02e9f-5a8b-4366-ba17-8d1671db1404"><con:settings/><con:defaultResponse>43 Response</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>def queryString = mockRequest.getRequest().getQueryString()
+def js = new groovy.json.JsonSlurper()
+def rc = "" 
+        try {  rc = js.parseText(mockRequest.requestContent) } catch(java.lang.Throwable e) { }
+ def v0 ="""{"souscripteur":{"nom":"Jean","prenom":"Franck","email":"franck.jean@gmail.com"},"nvei":{"marque":"Peugeot"}}"""
+ def v1 ="""{"souscripteur":{"nom":"Loki","prenom":"Sophie","email":"sophie.loki@gmail.com"},"nvei":{"marque":"Sony"}}"""
+ def v2 ="""{"souscripteur":{"nom":"Robert","prenom":"Phillipe","email":"phillipe.robert@gmail.com"},"nvei":{"marque":"Renault"}}"""
+
+ if ( rc  == js.parseText(v0) ){
+return "43 Response"
+}
+ if ( rc  == js.parseText(v1) ){
+return "44 Response"
+}
+ if ( rc  == js.parseText(v2) ){
+return "45 Response"
+}</con:dispatchPath><con:response name="43 Response" id="f9a2688b-a677-4e0d-a6a1-830b9751f4e3" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>"XEIOO66"</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="44 Response" id="fffb754e-296e-453e-bb76-fcc9acb9d4d4" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>"111ERT85"</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response><con:response name="45 Response" id="38acdc6b-1f7c-4913-b497-f63e3a2cb530" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>"0045KKOK01"</con:responseContent><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/animal/contrat/consulter" method="OPTIONS" resourcePath="/animal/contrat/consulter" id="d4b3f71e-d320-4241-aa9a-658736689a6a"><con:settings/><con:defaultResponse>46 Response</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="46 Response" id="2efd91a1-981b-4879-bcef-fcbf95cc2275" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent/><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/velo/contrat/tarifer" method="OPTIONS" resourcePath="/velo/contrat/tarifer" id="df951f69-c739-41e7-bc35-e7814e89ac54"><con:settings/><con:defaultResponse>47 Response</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*
+// Script dispatcher is used to select a response based on the incoming request.
+// Here are few examples showing how to match based on path, query param, header and body
+
+// Match based on path
+def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( requestPath.contains("json") )
+{
+    // return the name of the response you want to dispatch
+    return "JSON Response"
+}
+
+
+// Match based on query parameter
+def queryString = mockRequest.getRequest().getQueryString()
+log.info "QueryString: " + queryString
+
+if( queryString.contains("stockholm") )
+{
+    // return the name of the response you want to dispatch
+    return "Response Stockholm"
+}
+else if( queryString.contains("london") )
+{
+    // return the name of the response you want to dispatch
+    return "Response London"
+}
+
+
+// Match based on header
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList
+
+if( acceptEncodingHeaderList.contains("gzip,deflate") )
+{
+    // return the name of the response you want to dispatch
+    return "GZiped Response"
+}
+
+
+// Match based on body
+def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if( requestBody.contains("some data") )
+{
+    // return the name of the response you want to dispatch
+    return "Response N"
+}
+*/
+</con:dispatchPath><con:response name="47 Response" id="98e72ede-2610-458a-9f14-42ed450dc004" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent/><con:header><con:name>Access-Control-Allow-Origin</con:name><con:value>*</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>GET,PUT,POST,DELETE,OPTIONS</con:value></con:header><con:header><con:name>Access-Control-Allow-Headers</con:name><con:value>Origin,X-Requested-With,Content-Type,Accept,key,user,cache-control</con:value></con:header></con:response></con:restMockAction></con:restMockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
