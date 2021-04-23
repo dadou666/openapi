@@ -5,6 +5,12 @@
         "version": "1.0.0",
         "description": "Distribution assurance NVEI"
     },
+    "servers": [
+        {
+            "url": "https://microcks.apps.covepaas-lemans-hp.okd.covea.priv/rest/bouchonMickroksDistributionAssuranceNVEI.xml/1.0",
+            "description": "Serveur mock mickroks"
+        }
+    ],
     "paths": {
         "/nvei/contrat/souscrire": {
             "summary": "Souscrire une assurance pour un NVEI",
