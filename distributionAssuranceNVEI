@@ -10,7 +10,7 @@
             "summary": "Souscrire une assurance pour un NVEI",
             "servers": [
                 {
-                    "url": "https://microcks.apps.covepaas-lemans-hp.okd.covea.priv/rest/bouchonPortailDeveloppeur.xml/1.0",
+                    "url": "https://microcks.apps.covepaas-lemans-hp.okd.covea.priv/rest/bouchonMickroksDistributionAssuranceNVEI.xml/1.0",
                     "description": "Serveur mock apicurio"
                 }
             ],
