@@ -1,0 +1,267 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Distribution assurance NVEI",
+        "version": "1.0.0",
+        "description": "Distribution assurance NVEI"
+    },
+    "paths": {
+        "/nvei/contrat/souscrire": {
+            "summary": "Souscrire une assurance pour un NVEI",
+            "servers": [
+                {
+                    "url": "https://microcks.apps.covepaas-lemans-hp.okd.covea.priv/rest/bouchonPortailDeveloppeur.xml/1.0",
+                    "description": "Serveur mock apicurio"
+                }
+            ],
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Contrat"
+                            },
+                            "examples": {
+                                "exemple1": {
+                                    "value": {
+                                        "souscripteur": {
+                                            "nom": "Jean",
+                                            "prenom": "Franck",
+                                            "email": "franck.jean@gmail.com"
+                                        },
+                                        "nvei": {
+                                            "marque": "Peugeot"
+                                        }
+                                    }
+                                },
+                                "exemple2": {
+                                    "value": {
+                                        "souscripteur": {
+                                            "nom": "Loki",
+                                            "prenom": "Sophie",
+                                            "email": "sophie.loki@gmail.com"
+                                        },
+                                        "nvei": {
+                                            "marque": "Sony"
+                                        }
+                                    }
+                                },
+                                "exemple3": {
+                                    "value": {
+                                        "souscripteur": {
+                                            "nom": "Robert",
+                                            "prenom": "Phillipe",
+                                            "email": "phillipe.robert@gmail.com"
+                                        },
+                                        "nvei": {
+                                            "marque": "Renault"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "examples": {
+                                    "exemple1": {
+                                        "value": "\"XEIOO66\""
+                                    },
+                                    "exemple2": {
+                                        "value": "\"111ERT85\""
+                                    },
+                                    "exemple3": {
+                                        "value": "\"0045KKOK01\""
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Souscrire une assurance pour un NVEI"
+            }
+        },
+        "/nvei/contrat/tarifer/": {
+            "summary": "Obtenir un tarif pour assurer un NVEI",
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Contrat"
+                            },
+                            "examples": {
+                                "exemple1": {
+                                    "value": {
+                                        "souscripteur": {
+                                            "nom": "Jean",
+                                            "prenom": "Franck",
+                                            "email": "franck.jean@gmail.com"
+                                        },
+                                        "nvei": {
+                                            "marque": "Peugeot"
+                                        }
+                                    }
+                                },
+                                "exemple2": {
+                                    "value": {
+                                        "souscripteur": {
+                                            "nom": "Loki",
+                                            "prenom": "Sophie",
+                                            "email": "sophie.loki@gmail.com"
+                                        },
+                                        "nvei": {
+                                            "marque": "Sony"
+                                        }
+                                    }
+                                },
+                                "exemple3": {
+                                    "value": {
+                                        "souscripteur": {
+                                            "nom": "Robert",
+                                            "prenom": "Phillipe",
+                                            "email": "phillipe.robert@gmail.com"
+                                        },
+                                        "nvei": {
+                                            "marque": "Renault"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Tarif"
+                                },
+                                "examples": {
+                                    "exemple1": {
+                                        "value": {
+                                            "montant": 94.21,
+                                            "periode": "Trimestriel",
+                                            "dateFinValidite": "2021-01-17"
+                                        }
+                                    },
+                                    "exemple2": {
+                                        "value": {
+                                            "montant": 53.2,
+                                            "periode": "Annuel",
+                                            "dateFinValidite": "2022-01-17"
+                                        }
+                                    },
+                                    "exemple3": {
+                                        "value": {
+                                            "montant": 69.8,
+                                            "periode": "Trimestriel",
+                                            "dateFinValidite": "2022-01-23"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Obtenir un tarif pour assurer un NVEI"
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Personne": {
+                "description": "Personne qui souscrit le contrat",
+                "required": [
+                    "nom",
+                    "prenom",
+                    "email"
+                ],
+                "type": "object",
+                "properties": {
+                    "nom": {
+                        "description": "nom de la personne",
+                        "type": "string"
+                    },
+                    "prenom": {
+                        "description": "prenom de la personne",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "Contrat": {
+                "description": "contrat d'assurance du vélo",
+                "required": [
+                    "souscripteur",
+                    "nvei"
+                ],
+                "type": "object",
+                "properties": {
+                    "nvei": {
+                        "$ref": "#/components/schemas/NVEI",
+                        "description": "nvei"
+                    },
+                    "souscripteur": {
+                        "$ref": "#/components/schemas/Personne",
+                        "description": "Personne "
+                    }
+                }
+            },
+            "Tarif": {
+                "description": "",
+                "required": [
+                    "montant",
+                    "periode",
+                    "dateFinValidite"
+                ],
+                "type": "object",
+                "properties": {
+                    "montant": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "periode": {
+                        "description": "",
+                        "enum": [
+                            "Annuel",
+                            "Mensuel",
+                            "Trimestriel"
+                        ],
+                        "type": "string"
+                    },
+                    "dateFinValidite": {
+                        "format": "date",
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "NVEI": {
+                "description": "Le vélo du contrat",
+                "required": [
+                    "marque"
+                ],
+                "type": "object",
+                "properties": {
+                    "marque": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
