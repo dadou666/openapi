@@ -1,0 +1,1932 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Socle GED",
+    "version" : "2106.0.4",
+    "title" : "API CoveUse CAP-US_SocleGED"
+  },
+  "basePath" : "/CAP-US_SocleGED-2106.0.4/api",
+  "tags" : [ {
+    "name" : "contexts"
+  }, {
+    "name" : "documents"
+  }, {
+    "name" : "dossiers"
+  }, {
+    "name" : "exit-archive",
+    "description" : "End-point pour demander la sortie d'archive d'un document"
+  }, {
+    "name" : "flusor"
+  }, {
+    "name" : "mopieur-files"
+  }, {
+    "name" : "object-stores"
+  }, {
+    "name" : "objet-gestions"
+  }, {
+    "name" : "sessions"
+  }, {
+    "name" : "upload"
+  } ],
+  "schemes" : [ "http", "https" ],
+  "paths" : {
+    "/contexts" : {
+      "post" : {
+        "tags" : [ "contexts" ],
+        "summary" : "Service de création de contexte",
+        "description" : "Permet de sauvegarder le jeton d'entrée sous forme de Context",
+        "operationId" : "create",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/GedContext"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/GedContext"
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/contexts/{id}" : {
+      "get" : {
+        "tags" : [ "contexts" ],
+        "summary" : "Service de récupération d'un contexte",
+        "description" : "Permet de lire un context en fonction de l'id passé en parametre.",
+        "operationId" : "read",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "L'id du contexte",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/GedContext"
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/documents" : {
+      "get" : {
+        "tags" : [ "documents" ],
+        "summary" : "Recherche de documents GED",
+        "description" : "Permet de rechercher des documents, en les filtrant sur de nombreux critères, et permet aussi de contrôler la taille du résultat.",
+        "operationId" : "readAll",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "taillePaquet",
+          "in" : "query",
+          "description" : "Nombre d'éléments par page de restitution de la recherche",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "numeroPage",
+          "in" : "query",
+          "description" : "Numéro de la page a consulter",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "refDocs",
+          "in" : "query",
+          "description" : "Liste de reférence de document",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "collectionFormat" : "multi"
+        }, {
+          "name" : "etats",
+          "in" : "query",
+          "description" : "Liste d'états",
+          "required" : false,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "enum" : [ "DRAFT", "VALIDE", "REFUSE", "ACLASSER", "APURGE", "ANNULE", "ARCHIVE" ]
+          },
+          "collectionFormat" : "multi"
+        }, {
+          "name" : "marque",
+          "in" : "query",
+          "description" : "Marque",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Document"
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      },
+      "post" : {
+        "tags" : [ "documents" ],
+        "summary" : "Création d'un document GED",
+        "description" : "Permet d'insérer un document dans la GED.",
+        "operationId" : "create",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/documents/decouper" : {
+      "put" : {
+        "tags" : [ "documents" ],
+        "summary" : "Procède au découpage de document",
+        "description" : "",
+        "operationId" : "decouperDocument",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Le formulaire de demande de découpage",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/SplitDocumentForm"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object"
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/documents/deleteAll" : {
+      "post" : {
+        "tags" : [ "documents" ],
+        "summary" : "Delete a documents list",
+        "description" : "",
+        "operationId" : "deleteAll",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/documents/etatVerrou" : {
+      "post" : {
+        "tags" : [ "documents" ],
+        "summary" : "Service de récupération de l'état de verrouillage d'une liste de documents.",
+        "description" : "",
+        "operationId" : "getEtatVerrou",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "taillePaquet",
+          "in" : "query",
+          "description" : "Nombre de résultat par page de restitution de la recherche",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "numeroPage",
+          "in" : "query",
+          "description" : "Numéro de la page a consulter",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/GetVerrouReponse"
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/documents/lock" : {
+      "put" : {
+        "tags" : [ "documents" ],
+        "summary" : "Verrouille une liste de document à partir d'une liste de references",
+        "description" : "",
+        "operationId" : "lockAll",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Liste des références des documents à vérouiller",
+          "required" : false,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/DocumentRef"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object"
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/documents/unlock" : {
+      "put" : {
+        "tags" : [ "documents" ],
+        "summary" : "Deverrouille une liste de document à partir d'une liste de references",
+        "description" : "",
+        "operationId" : "unlockAll",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Liste des références des documents à vérouiller",
+          "required" : false,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/DocumentRef"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object"
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/documents/{codeTypeMetier}/{id}" : {
+      "get" : {
+        "tags" : [ "documents" ],
+        "summary" : "Recherche d'un document GED",
+        "description" : "Permet de récupérer un document identifié par son identifiant.",
+        "operationId" : "read",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "codeTypeMetier",
+          "in" : "path",
+          "description" : "Code métier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Référence du document",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Document"
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      },
+      "put" : {
+        "tags" : [ "documents" ],
+        "summary" : "Modification d'un document GED",
+        "description" : "Permet de modifier un document GED.",
+        "operationId" : "update",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "codeTypeMetier",
+          "in" : "path",
+          "description" : "Le code métier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "La référence du document",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Document"
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "documents" ],
+        "summary" : "Suppression d'un document GED",
+        "description" : "Permet de supprimer un document de la GED à partir de ça référence.",
+        "operationId" : "delete",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "codeTypeMetier",
+          "in" : "path",
+          "description" : "Le code métier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "La référence du document",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/documents/{codeTypeMetier}/{refDocGED}/count-pages" : {
+      "get" : {
+        "tags" : [ "documents" ],
+        "summary" : "Dénombre les pages d'un document",
+        "description" : "",
+        "operationId" : "denomberPages",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "codeTypeMetier",
+          "in" : "path",
+          "description" : "Le code métier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "refDocGED",
+          "in" : "path",
+          "description" : "La référence du document",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "integer",
+              "format" : "int32"
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/documents/{codeTypeMetier}/{refDocGED}/lock" : {
+      "put" : {
+        "tags" : [ "documents" ],
+        "summary" : "Verrouille une liste de document à partir d'une liste de references.",
+        "description" : "",
+        "operationId" : "lock",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "codeTypeMetier",
+          "in" : "path",
+          "description" : "Le code métier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "refDocGED",
+          "in" : "path",
+          "description" : "La référence du document",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/documents/{codeTypeMetier}/{refDocGED}/mask" : {
+      "put" : {
+        "tags" : [ "documents" ],
+        "summary" : "Masque un document GED",
+        "description" : "",
+        "operationId" : "mask",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "codeTypeMetier",
+          "in" : "path",
+          "description" : "Le code métier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "refDocGED",
+          "in" : "path",
+          "description" : "La référence du document",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/documents/{codeTypeMetier}/{refDocGED}/stream" : {
+      "get" : {
+        "tags" : [ "documents" ],
+        "summary" : "Récupère le contenu d'un document",
+        "description" : "",
+        "operationId" : "getContentFile",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "codeTypeMetier",
+          "in" : "path",
+          "description" : "Le code métier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "refDocGED",
+          "in" : "path",
+          "description" : "La référence du document",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/InputStream"
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/documents/{codeTypeMetier}/{refDocGED}/unlock" : {
+      "put" : {
+        "tags" : [ "documents" ],
+        "summary" : "Service de dévérouillage d'un document.",
+        "description" : "",
+        "operationId" : "unlock",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "codeTypeMetier",
+          "in" : "path",
+          "description" : "Le code métier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "refDocGED",
+          "in" : "path",
+          "description" : "La référence du document",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/documents/{codeTypeMetier}/{refDocGED}/unmask" : {
+      "put" : {
+        "tags" : [ "documents" ],
+        "summary" : "Démaquet un document GED",
+        "description" : "",
+        "operationId" : "unmask",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "codeTypeMetier",
+          "in" : "path",
+          "description" : "Le code métier",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "refDocGED",
+          "in" : "path",
+          "description" : "La référence du document",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/dossiers" : {
+      "get" : {
+        "tags" : [ "dossiers" ],
+        "summary" : "Service de récupération des dossiers.",
+        "description" : "Permet de récupérer tous les dossiers (pas de rechercher permise ici)",
+        "operationId" : "readAll",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Dossier"
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/exit-archive/{refDocGED}" : {
+      "put" : {
+        "tags" : [ "exit-archive" ],
+        "summary" : "Service de demande de sortie d'archive d'un document",
+        "description" : "",
+        "operationId" : "exitArchive",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "refDocGED",
+          "in" : "path",
+          "description" : "La référence du document",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Le formulaire de demande de sortie d'archive",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/ExitArchiveForm"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/flusor/pj" : {
+      "post" : {
+        "tags" : [ "flusor" ],
+        "summary" : "Flux sortant \"Sélection PJ\"",
+        "description" : "Appel l'URL de callback définit dans le jeton de contexte pour lui transmettre les URLs de téléchargements des fichiers de la GED que l'utilisateur a choisit",
+        "operationId" : "pj",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/mopieur-files" : {
+      "get" : {
+        "tags" : [ "mopieur-files" ],
+        "summary" : "Récupére les fichiers présent sur le mopieur défini par le jeton de contexte",
+        "description" : "",
+        "operationId" : "readAll",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Fichier"
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "mopieur-files" ],
+        "summary" : "Supprime tous les fichiers du répertoire mopieur",
+        "description" : "",
+        "operationId" : "deleteAll",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "files",
+          "in" : "query",
+          "required" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "collectionFormat" : "multi"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/mopieur-files/{name}" : {
+      "delete" : {
+        "tags" : [ "mopieur-files" ],
+        "summary" : "Supprime le fichier du répertoire mopieur",
+        "description" : "",
+        "operationId" : "delete",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/object-stores" : {
+      "get" : {
+        "tags" : [ "object-stores" ],
+        "summary" : "Get all objet store",
+        "description" : "",
+        "operationId" : "readAll",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ObjectStoreGED"
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/object-stores/{id}" : {
+      "get" : {
+        "tags" : [ "object-stores" ],
+        "summary" : "Get objet store by type objet metier",
+        "description" : "",
+        "operationId" : "read",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/objet-gestions" : {
+      "get" : {
+        "tags" : [ "objet-gestions" ],
+        "summary" : "Get all objet store",
+        "description" : "",
+        "operationId" : "readAll",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/VueTyObjMet"
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/sessions/close" : {
+      "post" : {
+        "tags" : [ "sessions" ],
+        "summary" : "Service de fermeture / suppression de la session",
+        "description" : "Il n'y a pas vraiment de notion de session dans l'application.Ce endpoint permet surtout de déverouiller les documents vérouillés par l'utilisateur.Il est prévu pour être appelé via l'API sendBeacon des navigateurs.",
+        "operationId" : "close",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/SessionCloseQuestion"
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/upload" : {
+      "post" : {
+        "tags" : [ "upload" ],
+        "summary" : "Upload a file and return URI of the file",
+        "description" : "",
+        "operationId" : "upload",
+        "consumes" : [ "multipart/form-data" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/GedUploadResult"
+            }
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    },
+    "/upload/{filePath}" : {
+      "delete" : {
+        "tags" : [ "upload" ],
+        "summary" : "Delete a file",
+        "description" : "",
+        "operationId" : "delete",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "filePath",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        },
+        "security" : [ {
+          "CoveAuth" : [ ]
+        } ]
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "CoveAuth" : {
+      "type" : "apiKey",
+      "name" : "covea-access-token",
+      "in" : "header"
+    }
+  },
+  "definitions" : {
+    "Document" : {
+      "type" : "object",
+      "properties" : {
+        "idExtDocGED" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/IdExtDocGED"
+          }
+        },
+        "refDocGED" : {
+          "type" : "string"
+        },
+        "itl" : {
+          "type" : "string"
+        },
+        "dtDoc" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "typeDocument" : {
+          "$ref" : "#/definitions/TypeDocument"
+        },
+        "cdFamilleTyDoc" : {
+          "type" : "string"
+        },
+        "cmt" : {
+          "type" : "string"
+        },
+        "canalAcquisition" : {
+          "type" : "string"
+        },
+        "dtMiseEnGED" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "dtModif" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "cdDossierClassement" : {
+          "type" : "string"
+        },
+        "nbPage" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "taille" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "refObjMets" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ReferenceObjetMetier"
+          }
+        },
+        "referenceClient" : {
+          "type" : "string"
+        },
+        "qualifiants" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Qualifiant"
+          }
+        },
+        "flgResa" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "typMIME" : {
+          "type" : "string"
+        },
+        "isAnnoted" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "utlOrigin" : {
+          "type" : "string"
+        },
+        "utlModif" : {
+          "type" : "string"
+        },
+        "isVisible" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "cdSensDoc" : {
+          "type" : "string",
+          "enum" : [ "ENTRANT", "SORTANT", "INTERNE" ]
+        },
+        "files" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Fichier"
+          }
+        },
+        "confidential" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "lieParentDocGED" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LieDocGED"
+          }
+        },
+        "lieEnfantDocGED" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LieDocGED"
+          }
+        },
+        "links" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Link"
+          }
+        },
+        "stockage" : {
+          "type" : "string",
+          "enum" : [ "COVEA", "MMA", "MAAF", "GMF" ]
+        },
+        "cdEttDocGED" : {
+          "type" : "string",
+          "enum" : [ "DRAFT", "VALIDE", "REFUSE", "ACLASSER", "APURGE", "ANNULE", "ARCHIVE" ]
+        },
+        "objetGestion" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ObjetGestion"
+          }
+        },
+        "masks" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "donneesAssociees" : {
+          "type" : "string"
+        },
+        "cdTypeDonneesAssociees" : {
+          "type" : "string",
+          "enum" : [ "NR", "DEMAT" ]
+        },
+        "restriction" : {
+          "type" : "string"
+        },
+        "flgFa" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "domDoc" : {
+          "type" : "string"
+        },
+        "libDossierRacine" : {
+          "type" : "string"
+        },
+        "listeAutorisations" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "DocumentFragment" : {
+      "type" : "object",
+      "properties" : {
+        "idExtDocGED" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/IdExtDocGED"
+          }
+        },
+        "refDocGED" : {
+          "type" : "string"
+        },
+        "itl" : {
+          "type" : "string"
+        },
+        "dtDoc" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "typeDocument" : {
+          "$ref" : "#/definitions/TypeDocument"
+        },
+        "cdFamilleTyDoc" : {
+          "type" : "string"
+        },
+        "cmt" : {
+          "type" : "string"
+        },
+        "canalAcquisition" : {
+          "type" : "string"
+        },
+        "dtMiseEnGED" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "dtModif" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "cdDossierClassement" : {
+          "type" : "string"
+        },
+        "nbPage" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "taille" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "refObjMets" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ReferenceObjetMetier"
+          }
+        },
+        "referenceClient" : {
+          "type" : "string"
+        },
+        "qualifiants" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Qualifiant"
+          }
+        },
+        "flgResa" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "typMIME" : {
+          "type" : "string"
+        },
+        "isAnnoted" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "utlOrigin" : {
+          "type" : "string"
+        },
+        "utlModif" : {
+          "type" : "string"
+        },
+        "isVisible" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "cdSensDoc" : {
+          "type" : "string",
+          "enum" : [ "ENTRANT", "SORTANT", "INTERNE" ]
+        },
+        "files" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Fichier"
+          }
+        },
+        "confidential" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "lieParentDocGED" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LieDocGED"
+          }
+        },
+        "lieEnfantDocGED" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/LieDocGED"
+          }
+        },
+        "links" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Link"
+          }
+        },
+        "stockage" : {
+          "type" : "string",
+          "enum" : [ "COVEA", "MMA", "MAAF", "GMF" ]
+        },
+        "cdEttDocGED" : {
+          "type" : "string",
+          "enum" : [ "DRAFT", "VALIDE", "REFUSE", "ACLASSER", "APURGE", "ANNULE", "ARCHIVE" ]
+        },
+        "objetGestion" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ObjetGestion"
+          }
+        },
+        "masks" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "donneesAssociees" : {
+          "type" : "string"
+        },
+        "cdTypeDonneesAssociees" : {
+          "type" : "string",
+          "enum" : [ "NR", "DEMAT" ]
+        },
+        "restriction" : {
+          "type" : "string"
+        },
+        "flgFa" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "domDoc" : {
+          "type" : "string"
+        },
+        "libDossierRacine" : {
+          "type" : "string"
+        },
+        "listeAutorisations" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "pages" : {
+          "type" : "array",
+          "items" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      }
+    },
+    "DocumentRef" : {
+      "type" : "object",
+      "properties" : {
+        "refDocGED" : {
+          "type" : "string"
+        },
+        "cdTyObjMet" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Dossier" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string"
+        },
+        "libLong" : {
+          "type" : "string"
+        },
+        "libCourt" : {
+          "type" : "string"
+        },
+        "listeModelesFils" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Dossier"
+          }
+        },
+        "listeTypesDoc" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/TypeDocument"
+          }
+        },
+        "multiOccurence" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "occurence" : {
+          "type" : "string"
+        },
+        "idOccurence" : {
+          "type" : "string"
+        },
+        "cdTyObjMet" : {
+          "type" : "string"
+        },
+        "valObjmet" : {
+          "type" : "string"
+        },
+        "niveau" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "univClm" : {
+          "type" : "string"
+        },
+        "listDomDoc" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "allowedToAddDocument" : {
+          "type" : "boolean",
+          "default" : false
+        }
+      }
+    },
+    "Définit des restriction sur la sélection de pièces jointes" : {
+      "type" : "object",
+      "properties" : {
+        "nbMaxFhr" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Optionnel. Le nombre maximum de fichier pouvant être sélectionnés."
+        },
+        "tailMaxSlec" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Taille cumulée globale autorisée pour la sélection."
+        }
+      }
+    },
+    "EtatVerrou" : {
+      "type" : "object",
+      "properties" : {
+        "refDocGED" : {
+          "type" : "string",
+          "description" : "Référence du document sur lequel porte le verrou"
+        },
+        "utlOrigin" : {
+          "type" : "string",
+          "description" : "TODO"
+        },
+        "dtVerrou" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Date de création du verrou"
+        },
+        "itl" : {
+          "type" : "string",
+          "description" : "TODO"
+        },
+        "tyObjMet" : {
+          "type" : "string",
+          "description" : "TODO"
+        }
+      },
+      "description" : "Représente un verrou sur un document"
+    },
+    "ExitArchiveForm" : {
+      "type" : "object",
+      "properties" : {
+        "type" : {
+          "type" : "string",
+          "enum" : [ "PROVISORY", "FINAL" ]
+        },
+        "refDoc" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Fichier" : {
+      "type" : "object",
+      "properties" : {
+        "nom" : {
+          "type" : "string"
+        },
+        "contentType" : {
+          "type" : "string"
+        },
+        "taille" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "uri" : {
+          "type" : "string"
+        },
+        "nbOfPage" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "GedContext" : {
+      "type" : "object",
+      "properties" : {
+        "usage" : {
+          "type" : "string",
+          "description" : "Usage accédant à la GED.Optionnel en 21.06, mais sera obligatoire en 21.09."
+        },
+        "id" : {
+          "type" : "string",
+          "description" : "Identifiant unique du contexte (format UUID).A ne pas renseigner. Automatiqueement alimenté par le service de création de Contexte."
+        },
+        "userId" : {
+          "type" : "string",
+          "description" : "Badge de l'utilisateur pour lequel est prévus ce contexte.Si non renseigné, sera automatiquement alimenté avec le badge de l'appelant au service de création du contexte."
+        },
+        "createdBy" : {
+          "type" : "string",
+          "description" : "Contient le badge de la personne ayant créé le contexte.A ne pas renseinger, automatiquement alimenté par le service de création de contexte."
+        },
+        "idVctrAuth" : {
+          "type" : "string"
+        },
+        "marque" : {
+          "type" : "string",
+          "description" : "Si renseigné, l'utilisateur accédera aux documents de la GED marqué en plus de ceux de la GED Covéa.",
+          "enum" : [ "COVEA", "GMF", "MMA", "MAAF" ]
+        },
+        "Entet" : {
+          "description" : "Optionnel. Permet de définir des éléments graphique de la bannière.",
+          "$ref" : "#/definitions/Header"
+        },
+        "globalComp" : {
+          "description" : "Permet de définir des options de comportement globals",
+          "$ref" : "#/definitions/GlobalBehavior"
+        },
+        "mopieur" : {
+          "description" : "Permet de définir des options liés au mopieur",
+          "$ref" : "#/definitions/MopieurOptions"
+        },
+        "refObjMets" : {
+          "type" : "array",
+          "description" : "Permet de définir les objets métiers auxquels l'utilisateur pourra accéder",
+          "items" : {
+            "$ref" : "#/definitions/RefObjMetToken"
+          }
+        },
+        "idExtDocGED" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/IdExtDocGEDToken"
+          }
+        },
+        "callback" : {
+          "type" : "string",
+          "description" : "Dans le cas de la sélection de pièces jointes, permet de définir L'URL auquels transmettres les IDs de document sélectionnés"
+        }
+      },
+      "description" : "Jeton d'accès à la GED, permettant de contextualiser ses services.Est obligatoire et devrait idéalement être défini par un compte de service."
+    },
+    "GedUploadResult" : {
+      "type" : "object",
+      "properties" : {
+        "fileName" : {
+          "type" : "string"
+        },
+        "chunkNumber" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "hashChunk" : {
+          "type" : "string"
+        },
+        "hashFile" : {
+          "type" : "string"
+        },
+        "fileMoved" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "body" : {
+          "type" : "object"
+        }
+      }
+    },
+    "GetVerrouReponse" : {
+      "type" : "object",
+      "properties" : {
+        "etatVerrous" : {
+          "type" : "array",
+          "description" : "Les verrous",
+          "items" : {
+            "$ref" : "#/definitions/EtatVerrou"
+          }
+        },
+        "numeroPage" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Le numéro de la page"
+        },
+        "taillePaquet" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "Taille des pages"
+        }
+      },
+      "description" : "Réponse paginée à la recherche de verrou sur les documents"
+    },
+    "GlobalBehavior" : {
+      "type" : "object",
+      "properties" : {
+        "visualiseurExt" : {
+          "type" : "boolean",
+          "description" : "Indique si visionneuse doit s'ouvrir dans une fenêtre externe",
+          "default" : false
+        },
+        "rubriqueReduite" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "voletArborescenceActif" : {
+          "type" : "boolean",
+          "description" : "Es ce que le volet \"arborescence\" sera ouvert par défaut lorsque l'utilisateur arrivera sur la GED ?",
+          "default" : false
+        },
+        "ajoutDocumentAutorise" : {
+          "type" : "boolean",
+          "description" : "Es ce que le contexte autorise l'insertion de document ?",
+          "default" : false
+        },
+        "vueAffichee" : {
+          "type" : "string",
+          "description" : "Défini la vue actif par défaut sur le classeur",
+          "enum" : [ "LISTE", "ARBORESCENCE" ]
+        },
+        "voletArborescenceAutorise" : {
+          "type" : "boolean",
+          "description" : "Es ce que le volet \"arborescence\" sera disponible",
+          "default" : false
+        },
+        "selection" : {
+          "description" : "Optionnel. Définit des restrictions sur la sélection de pièce jointe",
+          "$ref" : "#/definitions/Définit des restriction sur la sélection de pièces jointes"
+        },
+        "listColumnsToShow" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "description" : "Influence le comportements global de l'application."
+    },
+    "Header" : {
+      "type" : "object",
+      "properties" : {
+        "lgn1" : {
+          "type" : "string",
+          "description" : "La 1ére ligne de texte de la bannière"
+        },
+        "lgn2" : {
+          "type" : "string",
+          "description" : "La 2nd ligne de texte de la bannière"
+        },
+        "logo" : {
+          "type" : "string",
+          "description" : "Le logo a afficher (GMF, MMA, MAAF ou COVEA).",
+          "enum" : [ "COVEA", "GMF", "MMA", "MAAF" ]
+        },
+        "coul" : {
+          "type" : "string",
+          "description" : "Deprecated. N'est présent que pour des raisons de rétro-compatibilité, et ne sera plus supporté en 21.09."
+        }
+      },
+      "description" : "Permet de définir des éléments graphique de la bannière."
+    },
+    "IdExtDocGED" : {
+      "type" : "object",
+      "properties" : {
+        "vale" : {
+          "type" : "string",
+          "description" : "La valeur de l'identifiant externe"
+        },
+        "cd" : {
+          "type" : "string",
+          "description" : "Le code de l'identifiant externe"
+        }
+      },
+      "description" : "Réprésente un ID externe de document"
+    },
+    "IdExtDocGEDToken" : {
+      "type" : "object",
+      "properties" : {
+        "cibl" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "vale" : {
+          "type" : "string"
+        },
+        "cd" : {
+          "type" : "string"
+        }
+      }
+    },
+    "InputStream" : {
+      "type" : "object"
+    },
+    "LieDocGED" : {
+      "type" : "object",
+      "properties" : {
+        "numPage" : {
+          "type" : "string",
+          "description" : "Le numéro de page du document lié"
+        },
+        "tyLie" : {
+          "type" : "string",
+          "description" : "Le type du lien entre les documents",
+          "enum" : [ "FUSION", "ECLATEMENT", "DUPLICATION" ]
+        },
+        "refDocLie" : {
+          "type" : "string",
+          "description" : "L'identifiant (UUID) du document GED lié. Correspond au version series de FileNet"
+        }
+      },
+      "description" : "Représente un lien entre document"
+    },
+    "Link" : {
+      "type" : "object",
+      "properties" : {
+        "rel" : {
+          "type" : "string",
+          "description" : "Le type du lien",
+          "enum" : [ "VIEWER", "VIEWER-MINI", "DOWNLOAD" ]
+        },
+        "href" : {
+          "type" : "string",
+          "description" : "L'url de la ressource"
+        }
+      },
+      "description" : "Représente un lien d'un document. Un lien peu être par exemple un lien de téléchargement."
+    },
+    "MopieurOptions" : {
+      "type" : "object",
+      "properties" : {
+        "path" : {
+          "type" : "string",
+          "description" : "Défini le chemin d'accès au répertoire du mopieur"
+        }
+      }
+    },
+    "ObjectStoreGED" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string",
+          "description" : "La valeur de l'Object Store"
+        },
+        "cdTyObjMet" : {
+          "type" : "string",
+          "description" : "Le code type objet métier"
+        }
+      },
+      "description" : "Un Object Store"
+    },
+    "ObjetGestion" : {
+      "type" : "object",
+      "properties" : {
+        "cd" : {
+          "type" : "string"
+        },
+        "ref" : {
+          "type" : "string"
+        },
+        "vale" : {
+          "type" : "string"
+        },
+        "lib" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Occurrence" : {
+      "type" : "object",
+      "properties" : {
+        "val" : {
+          "type" : "string"
+        },
+        "lib" : {
+          "type" : "string"
+        }
+      }
+    },
+    "OccurrenceList" : {
+      "type" : "object",
+      "properties" : {
+        "libRtc" : {
+          "type" : "string"
+        },
+        "lib" : {
+          "type" : "string"
+        },
+        "refObjMet" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Occurrence"
+          }
+        }
+      }
+    },
+    "Qualifiant" : {
+      "type" : "object",
+      "properties" : {
+        "cd" : {
+          "type" : "string"
+        },
+        "vale" : {
+          "type" : "string"
+        },
+        "libelleLong" : {
+          "type" : "string"
+        },
+        "libelleCourt" : {
+          "type" : "string"
+        },
+        "format" : {
+          "type" : "string",
+          "enum" : [ "DATE", "TEXTE", "NUMERO", "MULTI_OCCURENCE" ]
+        },
+        "type" : {
+          "type" : "string",
+          "enum" : [ "GED", "METIER", "OBJET_GESTION", "DECOUPAGE", "FUSION", "DUPLICATION" ]
+        },
+        "occurence" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RefObjMetToken" : {
+      "type" : "object",
+      "properties" : {
+        "souObjMet" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/OccurrenceList"
+          }
+        },
+        "ty" : {
+          "$ref" : "#/definitions/TyObjMetToken"
+        },
+        "val" : {
+          "type" : "string"
+        },
+        "parentCdTy" : {
+          "type" : "string"
+        },
+        "parentValObjMet" : {
+          "type" : "string"
+        },
+        "parentUnivClm" : {
+          "type" : "string"
+        },
+        "lib" : {
+          "type" : "string"
+        },
+        "picto" : {
+          "type" : "string"
+        },
+        "expandFolder" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "ajoutDocumentAutorise" : {
+          "type" : "boolean",
+          "default" : false
+        }
+      }
+    },
+    "ReferenceObjetMetier" : {
+      "type" : "object",
+      "properties" : {
+        "cdTypeObjMet" : {
+          "type" : "string"
+        },
+        "refObjMet" : {
+          "type" : "string"
+        },
+        "univClm" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Role" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string"
+        },
+        "libelleLong" : {
+          "type" : "string"
+        },
+        "libelleCourt" : {
+          "type" : "string"
+        }
+      }
+    },
+    "SessionCloseQuestion" : {
+      "type" : "object",
+      "properties" : {
+        "contextId" : {
+          "type" : "string"
+        },
+        "documents" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/DocumentRef"
+          }
+        }
+      }
+    },
+    "SplitDocumentForm" : {
+      "type" : "object",
+      "required" : [ "fragments" ],
+      "properties" : {
+        "refDoc" : {
+          "$ref" : "#/definitions/DocumentRef"
+        },
+        "etats" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "enum" : [ "DRAFT", "VALIDE", "REFUSE", "ACLASSER", "APURGE", "ANNULE", "ARCHIVE" ]
+          }
+        },
+        "fragments" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/DocumentFragment"
+          },
+          "maxItems" : 2147483647,
+          "minItems" : 2
+        }
+      }
+    },
+    "TyObjMetToken" : {
+      "type" : "object",
+      "properties" : {
+        "Cd" : {
+          "type" : "string"
+        },
+        "univClm" : {
+          "type" : "string"
+        }
+      }
+    },
+    "TypeDocument" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string"
+        },
+        "libLong" : {
+          "type" : "string"
+        },
+        "libCourt" : {
+          "type" : "string"
+        },
+        "pere" : {
+          "$ref" : "#/definitions/TypeDocument"
+        },
+        "listeRestrictions" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "listeAutorisations" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Role"
+          }
+        },
+        "listeQualifiants" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Qualifiant"
+          }
+        },
+        "roles" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "visible" : {
+          "type" : "boolean",
+          "default" : false
+        }
+      }
+    },
+    "VueTyObjMet" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "Le code du type OM <br/> <u>Exemple :</u> \"001\" pour Contrat, \"002\" pour Sinistre, etc"
+        },
+        "libelleLong" : {
+          "type" : "string",
+          "description" : "Le libellé long du type OM"
+        },
+        "libelleCourt" : {
+          "type" : "string",
+          "description" : "Le libellé court"
+        }
+      },
+      "description" : "Réprésentation d'un type objet métier"
+    }
+  }
+}
